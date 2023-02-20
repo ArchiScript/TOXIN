@@ -1,0 +1,3 @@
+git config --global core.safecrlf false
+node_modules/*
+
