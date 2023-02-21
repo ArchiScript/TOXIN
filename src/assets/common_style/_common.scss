@@ -1,0 +1,31 @@
+
+* {
+  box-sizing: border-box;
+}
+html{
+  font-family: MontserratRegular;
+  height: 100%;
+}
+
+.container{
+  max-width: 1160px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 0 auto;
+  margin-bottom: 100px;
+
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.column{
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items: center;
+}

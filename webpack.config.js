@@ -15,7 +15,10 @@ if (process.env.NODE_ENV === "production") {
 console.log(mode + " mode");
 
 const mixins = globule
-  .find(["src/components/libs/**/_*.pug", "!src/components/libs/_libs.pug"])
+  .find([
+    "src/components/elements/**/_*.pug",
+    "!src/components/elements/_elements.pug",
+  ])
   .map((path) => path.split("/").slice(-2).join("/").split(".").slice(0, -1))
   .reduce((acc, currentItem) => acc + `include ${currentItem}\n`, ``);
 
@@ -25,18 +28,17 @@ if (mixins) {
   console.log("Module globule failed");
 }
 
-fs.writeFile("src/components/libs/_libs.pug", mixins, (err) => {
+fs.writeFile("src/components/elements/_elements.pug", mixins, (err) => {
   if (err) throw err;
   console.log("Mixins are generated automatically!");
 });
 
-const paths = globule.find(["src/views/pages/**/*.pug"]);
+const paths = globule.find(["src/pages/**/*.pug"]);
 
 module.exports = {
   mode: mode,
   entry: {
-    scripts: "./src/index.js",
-    // user: "./src/user.js",
+    scripts: "./src/pages/index.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
