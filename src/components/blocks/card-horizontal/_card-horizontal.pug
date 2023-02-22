@@ -1,0 +1,22 @@
+mixin card-horizontal(text, color, colorName)
+  - let lclass = "card__left" + " " + "card__left_" + colorName;
+  .card
+    div(class=lclass)= ""
+    .card__right= text
+      .card__right_color-number= color
+
+mixin card-simple(left, right, parentclass)
+  - let classlist = `card ${parentclass}__card`;
+  div(class=classlist)
+    div(class=parentclass + "__left")= left
+    div(class=parentclass + "__right")= right
+
+mixin card(direction, title, mediaSrc, description)
+  div(class=`card-${direction}`)
+  - if (mediaSrc != "")
+    div(class=`card-${direction}__image`)
+      img(src=require(`/src/assets/images/${mediaSrc}.png`))
+      div(class=`card-${direction}__content`)
+      - if (title != "")
+        h2(class=`card-${direction}__title`)
+        div(class=`card-${direction}__description`)

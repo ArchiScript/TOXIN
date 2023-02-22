@@ -1,5 +1,9 @@
 extends ../templates/base
+include ../components/blocks/blocks.pug
+include ../components/elements/elements.pug
+
 block content
+  +header-startpage
   .container.column
     .startpage 
       |
@@ -8,18 +12,12 @@ block content
         ul.startpage__list.startpage__list-ui.column 
           |
           li
-            a(href="#") UI-kit
+            a(href="ui-kit.html") UI-kit
         ul.startpage__list.startpage__list-landing.column 
           |
+          - let refs = ["landing", "room-search", "room-details", "registration", "sign-in"];
           li
             h4 TOXIN Website pages
-          li
-            a(href="#") TOXIN landing
-          li
-            a(href="#") TOXIN room-search
-          li
-            a(href="#") TOXIN room-details
-          li
-            a(href="#") TOXIN registration
-          li
-            a(href="#") TOXIN sign-in
+            each ref in refs 
+              li
+                a(href="#")= "TOXIN " + ref

@@ -1,0 +1,33 @@
+
+
+
+%fontRegular {
+  font-family: MontserratRegular, Arial, Helvetica, sans-serif;
+  // color: $dark-shade100;
+}
+
+%fontBold {
+  font-family: MontserratBold, Arial, Helvetica, sans-serif;
+  // color: $dark-shade100;
+}
+
+%h1title {
+  // @include m.font(fontBold, 24);
+  @include font(fontBold, 24);
+}
+
+%h2title {
+  @include font(fontBold, 19);
+}
+
+%h3label {
+  @include font(fontBold, 12);
+  text-transform: uppercase;
+}
+
+%bodyText {
+  @include font(fontRegular, 14);
+  line-height: 24px;
+  color: $dark-shade75;
+}
+

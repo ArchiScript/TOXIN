@@ -1,0 +1,23 @@
+@use "/src/assets/common_style/index.common";
+@use "/src/components/_components.scss";
+
+.color-samples{
+  width: 100%;
+}
+
+.img-container{
+
+  max-width: 1400px;
+  height: 100px;
+  margin: 0 auto;
+  padding: 5px 0 0 0;
+}
+.input-area {
+  @include index.isFlex(column, flex-start, space-between, nowrap);
+  margin-bottom: 200px;
+  &>div {
+    margin-top: 20px;
+  }
+  .date-dropdown-container,.filter-date-dropdown-container{margin-top: 40px;}
+
+}

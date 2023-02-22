@@ -1,0 +1,114 @@
+@use "/src/assets/common_style/_index.common" ;
+.card{
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 0 10px 0;
+}
+
+.card{
+    &__left{
+      width: 70px;
+      height: 70px;
+      border-radius: 6px;
+      color: rgba(31, 32, 65);  
+    }
+    &__right{
+      color: rgba(31, 32, 65);  
+      @include index.isFlex(column,center,flex-start);
+      @extend %fontBold;
+      font-weight: 700;
+      font-size: 19px;
+      line-height: 146%;
+      margin-left: 40px;
+      
+    }
+    &__right_color-number{
+      @extend %fontRegular;
+      font-weight: normal;
+      font-size: 19px;
+      display: block;
+      text-align: left;
+    }
+    &__left_Dark_Shade_100{
+     background-color: rgba(31, 32, 65);
+    }
+    &__left_Dark_Shade_75{
+      background-color: rgba(31, 32, 65, .75);
+    }
+    &__left_Dark_Shade_50{
+      background-color: rgba(31, 32, 65,.5);
+    }
+    &__left_Dark_Shade_25{
+      background-color: rgba(31, 32, 65,.25);
+    }
+    &__left_Dark_Shade_5{
+      background-color: rgba(31, 32, 65,.05);
+    }
+    &__left_Purple{
+      background-color: #BC9CFF;
+    }
+    &__left_Green{
+      background-color: #6FCF97;
+    }
+  }   
+
+
+.text-types{
+min-width: 436px;
+color: rgba(31, 32, 65);  
+margin-right: 30px;
+  &__card{
+    width: 100%;
+    @include index.isFlex(row,flex-start,flex-start, nowrap);
+   margin-bottom: 50px;
+   
+   
+  }
+  &__left{
+   min-width: 40px;
+    margin-right: 30px;
+    color: index.$dark-shade25;
+    text-align: right;
+  } 
+  &__right{
+    @extend %fontBold;
+  }
+}
+
+.text-types div:nth-child(1){ 
+  div:nth-child(1){
+    font-size: 24px;
+  }
+  div:nth-child(2){
+    font-size: 24px;
+  }
+}
+.text-types div:nth-child(2){ 
+  div:nth-child(1){
+    font-size: 19px;
+  }
+  div:nth-child(2){
+    font-size: 19px;
+  }
+}  
+  
+.text-types div:nth-child(3){ 
+  div:nth-child(1){
+    font-size: 12px;
+  }
+  div:nth-child(2){
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+} 
+.text-types div:nth-child(4){ 
+  div:nth-child(1){
+    font-size: 14px;
+  }
+  div:nth-child(2){
+    line-height: 24px;
+    font-size: 14px;
+    @extend %bodyText;
+
+  }
+} 
