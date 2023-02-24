@@ -17,7 +17,7 @@ console.log(mode + " mode");
 const mixins = globule
   .find([
     "src/components/elements/**/_*.pug",
-    "!src/components/elements/_elements.pug",
+    "!src/components/elements/elements.pug",
   ])
   .map((path) => path.split("/").slice(-2).join("/").split(".").slice(0, -1))
   .reduce((acc, currentItem) => acc + `include ${currentItem}\n`, ``);

@@ -1,4 +1,4 @@
-
+@use "./mixins" as m;
 * {
   box-sizing: border-box;
 }
@@ -9,15 +9,16 @@ html{
 
 .container{
   max-width: 1160px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
+  @include m.isFlex(row,space-between,flex-start,nowrap);
   margin: 0 auto;
   margin-bottom: 100px;
-
+  
 }
+label{
+  @extend %h3label;
+}
+
+
 .row{
   display: flex;
   flex-direction: row;
