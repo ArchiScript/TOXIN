@@ -11,7 +11,7 @@ html{
   max-width: 1160px;
   @include m.isFlex(row,space-between,flex-start,nowrap);
   margin: 0 auto;
-  margin-bottom: 100px;
+  // margin-bottom: 100px;
   
 }
 label{
