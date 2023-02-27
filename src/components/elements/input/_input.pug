@@ -1,0 +1,13 @@
+mixin input(type ,label, placehld, inputId, size)
+  div(class=`input-container input-container-${inputId} --${size}size`)
+    label(for=label)= label
+    br
+    - let inputTypeClass = `input-container__${type.toLowerCase()}-input`;
+    input(
+      type=type,
+      placeholder=placehld,
+      name=`${type.toLowerCase()}-input`,
+      class=inputTypeClass,
+      id=inputId
+    )
+//-// div(class=`input-container__${inputId}-shell`)

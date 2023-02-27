@@ -1,0 +1,38 @@
+@use "/src/assets/common_style/index.common";
+
+.input-container {
+  &.--fullsize {
+    width: index.$full-input-width
+  }
+
+  &.--middlesize {
+    width: index.$middle-input-width;
+  }
+
+  &.--halfsize {
+    width: index.$half-input-width;
+  }
+  
+  input {
+    position: relative;
+    width: 100%;
+    @extend %inputForm;
+    
+  }
+
+  label {
+    margin: 0;
+  }
+
+  input[type=date] {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: index.$dark-shade25;
+
+    &:focus {
+      color: index.$dark-shade75;
+    }
+  }
+
+}
+

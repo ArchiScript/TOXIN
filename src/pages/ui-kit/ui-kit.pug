@@ -4,14 +4,19 @@ include ../../components/elements/elements.pug
 
 block content
   +header-ui
-  section.colors_type
+  section.colors-type
     .container
-      .color-samples
+      .colors-type__colors
         - let objarr = [{text: "Dark Shade 100%", color:"#1F2041", colorName: "Dark_Shade_100"},{text: "Dark Shade 75%", color: "#1F2041", colorName: "Dark_Shade_75"},{text: "Dark Shade 50%", color: "#1F2041", colorName: "Dark_Shade_50"},{text: "Dark Shade 25%", color: "#1F2041", colorName: "Dark_Shade_25"},{text: "Dark Shade 5%", color: "#1F2041", colorName: "Dark_Shade_5"},{text: "Purple", color: "#BC9CFF", colorName: "Purple"},{text: "Green", color: "#6FCF97", colorName:"Green"}]
         each i in objarr
           +card-horizontal(i.text, i.color, i.colorName)
-      .text-types
-        +card-simple("H1", "This one is the sub-section or widget title", "text-types")
-        +card-simple("H2", "Next one is the item title inside widgets", "text-types")
-        +card-simple("H3", "This is a label or CTA text", "text-types")
-        +card-simple("Body", "This is the body text which is used for most of the design, like paragraphs, lists, etc.", "text-types")
+      .colors-type__type
+        +card-simple("H1", "This one is the sub-section or widget title", "colors-type__type")
+        +card-simple("H2", "Next one is the item title inside widgets", "colors-type__type")
+        +card-simple("H3", "This is a label or CTA text", "colors-type__type")
+        +card-simple("Body", "This is the body text which is used for most of the design, like paragraphs, lists, etc.", "colors-type__type")
+  section.form-elements
+    .container
+      .input-area
+        +input("Email", "text field", "Email", "email", "full")
+        +input("text", "text field", "This is pretty awesome", "text","full")

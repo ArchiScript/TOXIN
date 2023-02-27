@@ -6,7 +6,7 @@ mixin card-horizontal(text, color, colorName)
       .card__right_color-number= color
 
 mixin card-simple(left, right, parentclass)
-  - let classlist = `card ${parentclass}__card`;
+  - let classlist = `${parentclass}__card`;
   div(class=classlist)
     div(class=parentclass + "__left")= left
     div(class=parentclass + "__right")= right

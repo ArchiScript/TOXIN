@@ -31,3 +31,41 @@
   color: $dark-shade75;
 }
 
+%inputForm {
+  position: relative;
+  height: $input-height;
+  border-radius: 4px;
+  margin-top: 5px;
+  background: #FFFFFF;
+  border: 1px solid $dark-shade25;
+  padding: 10px 30px 10px 15px;
+  @extend %bodyText;
+
+  &::placeholder {
+    color: $dark-shade25;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid $dark-shade50;
+    
+
+    &::placeholder {
+      color: $dark-shade75;
+    }
+  }
+}
+%arrow-down {
+  content: "";
+  position: absolute;
+  bottom: 18px;
+  right: 15px;
+  height: 0.6rem;
+  width: 0.6rem;
+  pointer-events: none;
+  border: 3px solid $dark-shade50;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
