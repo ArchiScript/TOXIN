@@ -1,0 +1,162 @@
+@use "/src/assets/common_style/index.common";
+
+.date-dropdown-container {
+  position: relative;
+  width: index.$half-input-width;
+
+  input {
+    @extend %inputForm;
+    width: inherit;
+  }
+
+  &::after {
+    @extend %arrow-down;
+  }
+}
+
+
+.air-datepicker-button,
+.datepicker-custom-button {
+  @extend %h3label;
+  color: index.$purple;
+
+}
+
+.air-datepicker-buttons {
+  @include index.isFlex(row, space-between);
+  margin: 10px 10px 5px 10px;
+}
+
+.air-datepicker-nav {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.air-datepicker-nav--title {
+  @extend %h2title;
+
+  i {
+    @extend %h2title;
+  }
+}
+
+.air-datepicker-nav--action {
+  width: 50px;
+}
+
+.air-datepicker-body--day-name {
+  @include index.font(fontBold, 12);
+  color: index.$purple;
+  text-transform: capitalize;
+}
+
+.air-datepicker {
+  width: index.$full-input-width;
+  height: index.$datepicker-height;
+}
+
+.air-datepicker--content {
+  height: 230px;
+  padding: 0 20px;
+}
+
+.filter-date-dropdown-container {
+  position: relative;
+  width: index.$middle-input-width;
+
+  input {
+    @extend %inputForm;
+    width: inherit;
+  }
+
+  &::after {
+    @extend %arrow-down;
+  }
+}
+
+.arrow-datepicker--prev,
+.arrow-datepicker--next {
+  background: index.$purple;
+  height: 2px;
+  width: 14px;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+
+  &:before,
+  &:after {
+    content: "";
+    background: index.$purple;
+    ;
+    position: absolute;
+    height: 2px;
+    width: 11px;
+
+  }
+}
+
+.arrow-datepicker--next {
+  &:before {
+    right: -3px;
+    bottom: -3px;
+    transform: rotate(-45deg);
+  }
+
+  &:after {
+    right: -3px;
+    top: -3px;
+    transform: rotate(45deg);
+  }
+}
+
+.arrow-datepicker--prev {
+  &:before {
+    right: 5px;
+    bottom: -3px;
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    right: 5px;
+    top: -3px;
+    transform: rotate(-45deg);
+  }
+}
+
+.air-datepicker-body--cells.-days- {
+  grid-auto-rows: 40px;
+  @include index.font(fontRegular, 12);
+  color: index.$dark-shade50;
+}
+
+.air-datepicker-cell.-day-.-selected-.-range-from-,
+.air-datepicker-cell.-day-.-selected-.-range-to- {
+  background: index.$datepicker-date-from-to;
+  border-radius: 50%;
+  
+}
+.air-datepicker-cell.-day-.-selected-.-range-from-::after{
+  @extend %datepicker-date-from-shadow;
+} 
+.air-datepicker-cell.-day-.-selected-.-range-to-::after{
+  @extend %datepicker-date-to-shadow;
+}
+.air-datepicker-cell.-day-.-current-.-in-range-::after{
+  @extend %datepicker-date-inrange-shadow;
+}
+.air-datepicker-cell.-day-.-current- {
+  border-radius: 50%;
+  background: index.$datepicker-date-current;
+  color: white;
+
+}
+.air-datepicker-cell.-day-.-in-range-{
+  z-index: 2;
+  position: relative;
+  &::after{
+   @extend %datepicker-date-inrange-shadow;
+  }
+ 
+}

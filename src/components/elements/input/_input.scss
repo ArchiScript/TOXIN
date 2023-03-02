@@ -36,3 +36,10 @@
 
 }
 
+::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+.input-container-subscription{
+  @extend %arrow-next2;
+}
+

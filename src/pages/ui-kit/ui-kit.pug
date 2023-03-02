@@ -2,6 +2,8 @@ extends ../../templates/base
 include ../../components/blocks/blocks.pug
 include ../../components/elements/elements.pug
 
+block title
+  title TOXIN UI-KIT
 block content
   +header-ui
   section.colors-type
@@ -20,3 +22,4 @@ block content
       .input-area
         +input("Email", "text field", "Email", "email", "full")
         +input("text", "text field", "This is pretty awesome", "text","full")
+        +select("sel","dropdown","select-list","Сколько гостей", 1, 2, 3, 4, 5, 6)

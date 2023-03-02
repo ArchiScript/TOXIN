@@ -1,0 +1,13 @@
+@use "/src/assets/common_style/index.common";
+.select-container {
+position: relative;
+  select {
+      width: 320px;
+      appearance: none;
+      @extend %inputForm;
+   
+    }
+    &::after{
+      @extend %arrow-down;
+    }
+  }

@@ -1,4 +1,3 @@
-const htmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
@@ -7,6 +6,7 @@ const globule = require("globule");
 const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FileLoader = require("file-loader");
+
 let mode = "development";
 
 if (process.env.NODE_ENV === "production") {
@@ -14,26 +14,49 @@ if (process.env.NODE_ENV === "production") {
 }
 console.log(mode + " mode");
 
-const mixins = globule
-  .find([
-    "src/components/elements/**/_*.pug",
-    "!src/components/elements/elements.pug",
-  ])
-  .map((path) => path.split("/").slice(-2).join("/").split(".").slice(0, -1))
-  .reduce((acc, currentItem) => acc + `include ${currentItem}\n`, ``);
+// ================= Write Mixins to bundles ===============
 
-if (mixins) {
-  console.log(`Nearby mixins... \n ${mixins} \n ...are processed by globule `);
-} else {
-  console.log("Module globule failed");
-}
+// ----------- Looking for component folders----------
+const componentsWriteFiles = [];
+const componentsBundles = globule.find([
+  "src/components/**/*.pug",
+  "!src/components/**/_*.pug",
+]);
 
-fs.writeFile("src/components/elements/_elements.pug", mixins, (err) => {
-  if (err) throw err;
-  console.log("Mixins are generated automatically!");
+// ---------- Adding bundle and searfile to array -------
+componentsBundles.forEach(function (bundle) {
+  componentsWriteFiles.push(
+    bundle + "," + bundle.split("/").slice(0, 3).join("/").concat("/**/_*.pug")
+  );
 });
 
+// ---------- Looking for mixins for each folder----------
+componentsWriteFiles.forEach(function (fileSet, index) {
+  let fileSetArr = fileSet.split(",");
+  let bundleFile = fileSetArr[0];
+  let searchMixinFile = fileSetArr[1];
+  console.log(
+    `${index} FileSetArr = ${fileSetArr} \n bundleFile = ${bundleFile} \n searchMixinFile = ${searchMixinFile}`
+  );
+  let bundleMixins = globule
+    .find(searchMixinFile)
+    .map((path) => path.split("/").slice(-2).join("/").split(".").slice(0, -1))
+    .reduce((acc, currentItem) => acc + `include ${currentItem}\n`, ``);
+  console.log(`Mixins found .. \n  ${bundleMixins}`);
+
+  // -------- Writing mixins to bundle files -----------
+  if (bundleFile && bundleMixins) {
+    fs.writeFile(bundleFile, bundleMixins, (err) => {
+      if (err) throw err;
+      console.log("Mixins are generated automatically!");
+    });
+  } else {
+    console.log("Failed to find search and bundle files.");
+  }
+});
+// ----- Getting array of paths for HTMLWebpackPlugin -----
 const paths = globule.find(["src/pages/**/*.pug"]);
+// =============================================
 
 module.exports = {
   mode: mode,

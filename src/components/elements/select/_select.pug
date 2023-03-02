@@ -1,0 +1,11 @@
+mixin select(selectId,label,name, ...options)
+  .select-container
+    label(for=selectId)= label
+    br
+    select(id=`${selectId}`, name=name) 
+      |
+      each item in options
+        option.option-line= item
+        //- each key, value in obj
+        //-   - let d = `${key} <div class="test">${value}</div>  ${value}`;
+          option.option-line!= d

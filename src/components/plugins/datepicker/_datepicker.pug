@@ -1,0 +1,27 @@
+mixin datepicker(type ,label, placehld, inputId)
+  .date-dropdown-container
+    label(for=label)= label
+    br
+    - let inputTypeClass = `date-dropdown-container__datepicker`;
+    - let compoundId = `datepicker` + inputId;
+    input(
+      type=type,
+      placeholder=placehld,
+      name=label,
+      class=inputTypeClass,
+      id=compoundId
+    )
+
+mixin filter-datepicker(type,label,placehld,inputId)
+  .filter-date-dropdown-container
+    label(for=label)= label
+    br
+    - let inputTypeClass = `date-dropdown-container__datepicker`;
+    - let compoundId = `datepicker` + inputId;
+    input(
+      type=type,
+      placeholder=placehld,
+      name=label,
+      class=inputTypeClass,
+      id=compoundId
+    )

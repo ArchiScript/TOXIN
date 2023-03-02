@@ -69,3 +69,95 @@
   border-radius: 2px;
   transform: rotate(45deg);
 }
+
+
+
+%_private-datepicker-shadowbase{
+  content: '';
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  height: 100%;
+  background: $datepicker-shadow-color;
+  opacity: 0.25;
+}
+
+%datepicker-date-inrange-shadow {
+  @extend %_private-datepicker-shadowbase;
+  width: 100%;
+  left: 0;
+}
+
+%datepicker-date-from-shadow {
+  @extend %_private-datepicker-shadowbase;
+  right: 0;
+  width: 50%;
+}
+
+%datepicker-date-to-shadow {
+  @extend %_private-datepicker-shadowbase;
+  left: 0;
+  width: 50%;
+}
+
+%arrow-next {
+  
+    position: relative;
+    background: $purple;
+    height: 2px;
+    width: 14px;
+    margin: 0 auto;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      content: "";
+      background: $purple;
+      position: absolute;
+      height: 2px;
+      width: 11px;
+    }
+ 
+    &:before {
+      right: -3px;
+      bottom: -3px;
+      transform: rotate(-45deg);
+    }
+
+    &:after {
+      right: -3px;
+      top: -3px;
+      transform: rotate(45deg);
+    }
+  
+  }
+
+  %arrow-next2{
+    position: relative;
+ 
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 16px;
+    right: 15px;
+    height: 12px;
+    width: 11px;
+    pointer-events: none;
+    border: 2px solid $purple;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    border-radius: 1px;
+    transform: rotate(-45deg);
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    background: $purple;
+    height: 2px;
+    width: 13px;
+    right: 15px;
+    bottom: 21px ;
+    z-index: 2;
+  }
+  }
