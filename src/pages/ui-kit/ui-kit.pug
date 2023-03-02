@@ -1,6 +1,7 @@
 extends ../../templates/base
 include ../../components/blocks/blocks.pug
 include ../../components/elements/elements.pug
+include ../../components/plugins/plugins.pug
 
 block title
   title TOXIN UI-KIT
@@ -23,3 +24,8 @@ block content
         +input("Email", "text field", "Email", "email", "full")
         +input("text", "text field", "This is pretty awesome", "text","full")
         +select("sel","dropdown","select-list","Сколько гостей", 1, 2, 3, 4, 5, 6)
+        +input("date", "masked text field", "","masked-date","full")
+        .date-dropdowns-block.row 
+          |
+          +datepicker("text","date dropdown","ДД.ММ.ГГГГ","2")
+          +datepicker("text","date dropdown","ДД.ММ.ГГГГ","3")

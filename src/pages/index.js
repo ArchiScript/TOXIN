@@ -1,8 +1,6 @@
 // ---------CONNECTING JS FILES-------------
 
-window.onload = function () {
-  require("/src/pages/ui-kit/ui-kit.js");
-};
+import "/src/pages/ui-kit/ui-kit";
 
 // ----------CONNECTING SCSS FILES-------------
 

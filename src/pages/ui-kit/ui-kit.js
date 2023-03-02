@@ -1,8 +1,7 @@
 // ---------CONNECTING JS FILES-------------
 
-window.onload = function () {
-  require("/src/components/elements/input/_input");
-};
+import "/src/components/plugins/datepicker/_datepicker";
+import "/src/components/elements/input/_input";
 
 // ----------CONNECTING SCSS FILES-------------
 

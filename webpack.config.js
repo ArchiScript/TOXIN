@@ -23,7 +23,7 @@ const componentsBundles = globule.find([
   "!src/components/**/_*.pug",
 ]);
 
-// ---------- Adding bundle and searfile to array -------
+// ---------- Adding bundle and searchfile to array -------
 componentsBundles.forEach(function (bundle) {
   componentsWriteFiles.push(
     bundle + "," + bundle.split("/").slice(0, 3).join("/").concat("/**/_*.pug")

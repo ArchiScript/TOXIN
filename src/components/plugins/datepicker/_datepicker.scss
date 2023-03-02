@@ -124,11 +124,18 @@
     transform: rotate(-45deg);
   }
 }
-
+.air-datepicker-cell.-day-:hover{
+  border-radius: 50%;
+}
 .air-datepicker-body--cells.-days- {
   grid-auto-rows: 40px;
   @include index.font(fontRegular, 12);
   color: index.$dark-shade50;
+}
+.air-datepicker-cell.-day-.-selected-{
+  border-radius: 50%;
+  background: index.$datepicker-date-current;
+  color: white;
 }
 
 .air-datepicker-cell.-day-.-selected-.-range-from-,
