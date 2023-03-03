@@ -12,9 +12,10 @@ const regExpDate2 =
 function isDateValid(inputDate) {
   return regExpDate2.test(inputDate);
 }
-
-inputDate.addEventListener("input", function () {
-  if (!isDateValid(this.value)) {
-    this.value = "";
-  }
-});
+if (inputDate) {
+  inputDate.addEventListener("input", function () {
+    if (!isDateValid(this.value)) {
+      this.value = "";
+    }
+  });
+}

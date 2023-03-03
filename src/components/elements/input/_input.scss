@@ -1,23 +1,26 @@
 @use "/src/assets/common_style/index.common";
 
 .input-container {
-  &.--fullsize {
-    width: index.$full-input-width
-  }
+  @extend %sizes;
 
-  &.--middlesize {
-    width: index.$middle-input-width;
-  }
+  
+  // &.--full-size {
+  //   width: index.$full-input-width
+  // }
 
-  &.--halfsize {
-    width: index.$half-input-width;
-  }
+  // &.--middl-size {
+  //   width: index.$middle-input-width;
+  // }
+
+  // &.--half-size {
+  //   width: index.$half-input-width;
+  // }
   
   input {
     position: relative;
     width: 100%;
     @extend %inputForm;
-    
+   
   }
 
   label {
@@ -33,7 +36,6 @@
       color: index.$dark-shade75;
     }
   }
-
 }
 
 ::-webkit-calendar-picker-indicator {

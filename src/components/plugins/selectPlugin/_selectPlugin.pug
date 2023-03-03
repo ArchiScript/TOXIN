@@ -1,0 +1,7 @@
+mixin select-plugin(selectId, label, size)
+  .select-plugin
+    - let classList = `select-plugin__wrap --${size}-size`;
+    div(class=classList)
+      label(for=selectId)= label
+      br
+      div(id=selectId)

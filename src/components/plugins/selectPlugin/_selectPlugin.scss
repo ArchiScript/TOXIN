@@ -1,0 +1,147 @@
+@use "/src/assets/common_style/index.common";
+
+.select-plugin {
+  @include index.isFlex(row, flex-start, flex-start, nowrap);
+}
+
+.select-plugin__wrap {
+  @extend %sizes;
+
+}
+
+.select {
+  width: 100%;
+  position: relative;
+  // z-index: 10;
+
+  &.open {
+
+    .select__dropdown {
+      width: inherit;
+      display: block;
+      z-index: 10;
+      border: 1px solid index.$dark-shade50;
+      border-radius: 0 0 4px 4px;
+    }
+
+    .select__input {
+
+      border: 1px solid index.$dark-shade50;
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .select__backdrop {
+      display: block;
+      z-index: 1;
+
+    }
+  }
+
+  &__input {
+    @extend %inputForm;
+    @include index.isFlex(row, flex-start, center, nowrap);
+
+    span {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      height: 1.5rem;
+    }
+
+    &::after {
+      @extend %arrow-down;
+    }
+  }
+
+  &__input:focus {
+    border: 1px solid index.$dark-shade50;
+  }
+
+  &__backdrop {
+    position: fixed;
+    display: none;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: transparent;
+
+  }
+
+  &__dropdown {
+    display: none;
+    position: absolute;
+    width: index.$middle-input-width;
+    border: 1px solid index.$dark-shade25;
+    top: calc(index.$input-height - 2px);
+    border-radius: 4px;
+    left: -1px;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+    background-color: #fff;
+
+  }
+
+  &__items {
+    padding-bottom: 7px;
+  }
+
+  &__item {
+    @include index.isFlex(row, space-between, center, nowrap);
+    padding: 0 15px;
+    height: calc(index.$input-height - 5px);
+
+  }
+
+  &__item-choice {
+    @include index.isFlex(row, space-between, center, nowrap);
+  }
+
+  &__item-name {
+    @extend %h3label;
+  }
+
+  &__item-choice>div {
+    @include index.isFlex(row, center, center, nowrap);
+    width: 30px;
+    height: 30px;
+  }
+
+  &__item-minus,
+  &__item-plus {
+    border: 1px solid index.$dark-shade25;
+    border-radius: 50%;
+    @include index.fontM(fontRegular, 18, index.$dark-shade50);
+    color: index.$dark-shade50;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__item-number {
+    @extend %h3label;
+    user-select: none;
+  }
+
+  &__buttons {
+    @include index.isFlex(row, space-between, center, nowrap);
+    margin: 0 15px 7px 15px;
+    @extend %h3label;
+    color: index.$purple;
+
+  }
+
+  &__buttons>div {
+    cursor: pointer;
+    user-select: none;
+
+  }
+}
+
+.inactive {
+  opacity: 0.6;
+  cursor: default;
+}

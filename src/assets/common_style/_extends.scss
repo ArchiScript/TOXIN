@@ -45,16 +45,28 @@
     color: $dark-shade25;
   }
 
-  &:focus {
+  &:focus, &:hover {
     outline: none;
     border: 1px solid $dark-shade50;
-    
 
-    &::placeholder {
-      color: $dark-shade75;
-    }
   }
 }
+
+%sizes{
+  &.--full-size {
+    width: $full-input-width
+  }
+
+  &.--middl-size {
+    width: $middle-input-width;
+  }
+
+  &.--half-size {
+    width: $half-input-width;
+  }
+}
+
+
 %arrow-down {
   content: "";
   position: absolute;
