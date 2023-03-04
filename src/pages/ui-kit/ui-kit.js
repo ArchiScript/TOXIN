@@ -5,7 +5,6 @@ import "/src/components/plugins/datepicker/_datepicker";
 import "/src/components/plugins/selectPlugin/_selectPluginInit";
 
 // ----------CONNECTING SCSS FILES-------------
-
 import "/src/pages/ui-kit/ui-kit.scss";
 import "/src/assets/common_style/_index.common.scss";
 

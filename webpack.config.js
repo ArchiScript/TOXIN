@@ -61,7 +61,9 @@ const paths = globule.find(["src/pages/**/*.pug"]);
 module.exports = {
   mode: mode,
   entry: {
-    scripts: "./src/pages/index.js",
+    // scripts: "./src/pages/index.js",
+    index: "./src/pages/index.js",
+    "ui-kit": "./src/pages/ui-kit/ui-kit.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),

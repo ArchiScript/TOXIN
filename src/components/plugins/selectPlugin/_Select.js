@@ -1,6 +1,4 @@
-// import declineByQuan from "./_declineByQuan";
-
-const getTemplate = (data, placeholder, buttons) => {
+const getTemplate = (data, placeholder, buttons, isInline) => {
   const text = placeholder ?? "Выберите пожалуйста элемент";
 
   let $buttonContainer = ``;
@@ -28,24 +26,44 @@ const getTemplate = (data, placeholder, buttons) => {
     `;
   });
 
+  // =========test =========================
+  // if (isInline === true) {
   return `
     <div class = "select__backdrop" data-type="backdrop"></div>
     <div class="select__input" data-type="input">
-      <span>${placeholder}</span>
-      <div class="select__dropdown">
+      <span>${placeholder}</span></div>
+    <div class="select__dropdown">
         <div class="select__items"> 
           ${items.join("")}
         </div>
           ${$buttonContainer}
-    </div>
-`;
+    
+  `;
+  // }
+  // ===========================
+  //   return `
+  //     <div class = "select__backdrop" data-type="backdrop"></div>
+  //     <div class="select__input" data-type="input">
+  //       <span>${placeholder}</span>
+  //       <div class="select__dropdown">
+  //         <div class="select__items">
+  //           ${items.join("")}
+  //         </div>
+  //           ${$buttonContainer}
+  //     </div>
+  // `;
 };
 
 export class Select {
   constructor(selector, options) {
-    this.$el = document.querySelector(selector);
     this.options = options;
-
+    const { isInline } = this.options;
+    this.isInline = isInline;
+    this.$el = document.querySelector(selector);
+    if (!this.$el) {
+      console.log("The essential DOM element for this script is not found");
+      return;
+    }
     this.#render();
     this.#setup();
     this.plus();
@@ -54,17 +72,17 @@ export class Select {
 
   #render() {
     const { placeholder, data, buttons } = this.options;
-    if (this.$el) {
-      this.$el.classList.add("select");
-      this.$el.innerHTML = getTemplate(data, placeholder, buttons);
-    }
+    this.$el.classList.add("select");
+    this.$el.innerHTML = getTemplate(data, placeholder, buttons, this.isInline);
   }
 
   #setup() {
     const { data } = this.options;
+    if (this.isInline === true) {
+      this.inlineDropdown();
+    }
     this.data = data;
     this.clickHandler = this.clickHandler.bind(this);
-
     this.$el.addEventListener("click", this.clickHandler);
     this.$items = this.$el.querySelectorAll(".select__item");
     this.$num = this.$el.querySelector(".select__item-number");
@@ -97,12 +115,17 @@ export class Select {
     }
   }
 
+  inlineDropdown() {
+    this.$el.classList.add("inline");
+    this.open();
+  }
+
   get isOpen() {
     return this.$el.classList.contains("open");
   }
 
   toggle() {
-    this.isOpen ? this.close() : this.open();
+    this.isOpen && !this.isInline === true ? this.close() : this.open();
   }
 
   open() {
@@ -119,9 +142,11 @@ export class Select {
   plus() {
     for (let item of this.data) {
       const $selectItem = this.$el.querySelector(`.select__item-${item.id}`);
+
       const plusButton = $selectItem.querySelector(".select__item-plus");
       const minusButton = $selectItem.querySelector(".select__item-minus");
       const itemValue = $selectItem.querySelector(".select__item-number");
+
       plusButton.addEventListener("click", () => {
         item.counter += 1;
         console.log(item.counter);

@@ -1,3 +1,4 @@
+// import "./_input.scss";
 document.addEventListener("DOMContentLoaded", () => {});
 const inputDate = document.querySelector(".input-container__date-input");
 
