@@ -9,24 +9,19 @@ html{
 
 .container{
   max-width: 1160px;
-  @include m.isFlex(row,space-between,flex-start,nowrap);
+  // @include m.isFlex(row,space-between,flex-start,nowrap);
   margin: 0 auto;
   // margin-bottom: 100px;
   
 }
-label{
+label {
   @extend %h3label;
 }
 
-
 .row{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  @include m.isFlex(row,space-between,flex-start,nowrap);
 }
 .column{
-  display: flex;
-  flex-direction: column;
-  justify-content:flex-start;
-  align-items: center;
+  @include m.isFlex(column,flex-start,space-between,nowrap);
 }
+.column-center{@include m.isFlex(column,flex-start,center,nowrap);}

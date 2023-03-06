@@ -1,0 +1,49 @@
+@use "/src/assets/common_style/_index.common" ;
+
+.checkbox {
+  
+  &__label {
+    @extend %bodyText;
+    color: index.$dark-shade50;
+    text-transform: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   &-text{margin-left: 10px;}
+    input {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      border: 1px solid index.$dark-shade25;
+      margin: 0;
+    }
+  }
+  &__checkmark {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  &__checkmark::before {
+    content: "";
+    position: absolute;
+    display: none;
+    left: -13px;
+    top: -5px;
+    width: 6px;
+    height: 8px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom, index.$purple 0%, #8BA4F9 100%)1;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+
+  }
+ input:checked{
+  border-color: index.$purple;
+}
+  input:checked~.checkbox__checkmark::before {
+    display: block;
+    
+  }
+}

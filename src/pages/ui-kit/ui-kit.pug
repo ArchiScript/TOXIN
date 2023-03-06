@@ -8,7 +8,7 @@ block title
 block content
   +header-ui
   section.colors-type
-    .container
+    .container.row
       .colors-type__colors
         - let objarr = [{text: "Dark Shade 100%", color:"#1F2041", colorName: "Dark_Shade_100"},{text: "Dark Shade 75%", color: "#1F2041", colorName: "Dark_Shade_75"},{text: "Dark Shade 50%", color: "#1F2041", colorName: "Dark_Shade_50"},{text: "Dark Shade 25%", color: "#1F2041", colorName: "Dark_Shade_25"},{text: "Dark Shade 5%", color: "#1F2041", colorName: "Dark_Shade_5"},{text: "Purple", color: "#BC9CFF", colorName: "Purple"},{text: "Green", color: "#6FCF97", colorName:"Green"}]
         each i in objarr
@@ -19,16 +19,23 @@ block content
         +card-simple("H3", "This is a label or CTA text", "colors-type__type")
         +card-simple("Body", "This is the body text which is used for most of the design, like paragraphs, lists, etc.", "colors-type__type")
   section.form-elements
-    .container
-      .input-area
+    .container.row
+      .form-elements__inputs.column
         +input("Email", "text field", "Email", "email", "full")
         +input("text", "text field", "This is pretty awesome", "text","full")
-        //- +select("sel","dropdown","select-list","Сколько гостей", 1, 2, 3, 4, 5, 6)
         +select-plugin("select-guests1", "dropdown", "full")
         +input("date", "masked text field", "","masked-date","full")
-        .date-dropdowns-block.row 
-          |
+        .form-elements__date-dropdowns.row
           +datepicker("text","date dropdown","ДД.ММ.ГГГГ","2")
           +datepicker("text","date dropdown","ДД.ММ.ГГГГ","3")
+        +filter-datepicker("text","filter date dropdown","ДД.ММ.ГГГГ","3")
+        +input("text", "subscription text field", "Email", "subscription","middle")
+      .form-elements__selection-controls.column
+        .form-elements__checkbox-buttons.column
+          +checkbox("Можно курить","checkbox1", "checked") 
+      .form-elements__buttons.column
+    .container.row 
+      |
+      .form-elements__dropdowns.column
         +select-plugin("select-accomodations","dropdown", "middle")
         +select-plugin("select-accomodations-open", "dropdown", "middle")

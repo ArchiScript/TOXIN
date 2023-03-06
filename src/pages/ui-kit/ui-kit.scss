@@ -78,20 +78,19 @@
   }
 }
 
-.input-area {
-  @include index.isFlex(column, flex-start, space-between, nowrap);
-  margin-bottom: 200px;
-
-  &>div {
-    margin-top: 20px;
-  }
-
+.form-elements__inputs {
+  // @include index.isFlex(column, flex-start, space-between, wrap);
+@extend %elements-gap;
   .date-dropdown-container,
   .filter-date-dropdown-container {
     margin-top: 40px;
   }
 }
-.date-dropdowns-block.row{
+.form-elements__date-dropdowns.row{
   justify-content: space-between;
   margin-top: 0;
+}
+.form-elements__dropdowns{
+  padding-top: 80px;
+  @extend %elements-gap;
 }

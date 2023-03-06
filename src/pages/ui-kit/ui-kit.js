@@ -3,6 +3,7 @@
 import "/src/components/elements/input/_input";
 import "/src/components/plugins/datepicker/_datepicker";
 import "/src/components/plugins/selectPlugin/_selectPluginInit";
+import "/src/components/elements/checkbox/_checkbox";
 
 // ----------CONNECTING SCSS FILES-------------
 import "/src/pages/ui-kit/ui-kit.scss";

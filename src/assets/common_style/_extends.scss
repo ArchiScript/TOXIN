@@ -29,6 +29,7 @@
   @include font(fontRegular, 14);
   line-height: 24px;
   color: $dark-shade75;
+  
 }
 
 %inputForm {
@@ -49,6 +50,12 @@
     outline: none;
     border: 1px solid $dark-shade50;
 
+  }
+}
+
+%elements-gap{
+  &>div {
+    margin-top: 20px;
   }
 }
 
