@@ -1,6 +1,4 @@
 
-
-
 %fontRegular {
   font-family: MontserratRegular, Arial, Helvetica, sans-serif;
   // color: $dark-shade100;
@@ -23,15 +21,23 @@
 %h3label {
   @include font(fontBold, 12);
   text-transform: uppercase;
+  display: inline-block;
+  vertical-align: top;
+margin: 0;padding: 0;
+
 }
 
 %bodyText {
   @include font(fontRegular, 14);
   line-height: 24px;
   color: $dark-shade75;
-  
 }
-
+%selection-controls-text{
+  @include font(fontRegular, 14);
+  color: $dark-shade50;
+  line-height: 18px;
+  text-transform: none;
+}
 %inputForm {
   position: relative;
   height: $input-height;

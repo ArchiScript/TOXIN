@@ -1,0 +1,28 @@
+mixin radiobutton(...labels)
+  .radiobuttons.row
+    each label in labels
+      - let i = label.id;
+      - if(i=0){let checked='checked'}
+        label.radiobuttons__button.row(for=`radio_${label.id}`)
+          input(
+            type="radio",
+            id=`radio_${label.id}`,
+            name=`radio_${label.id}`,
+            value=label.value
+          )
+          span.radiobuttons__radio-mark
+          span.radiobuttons__label-text= label.value
+
+mixin radiobutton1(name, options, checkedValue)
+  .radiobuttons.row-start
+    each option in options
+      label.radiobuttons__button.row(for=`radio_${option.id}`)
+        input(
+          type="radio",
+          id=`radio_${option.id}`,
+          name=`radio_${name}`,
+          value=option.value,
+          checked=option.value === checkedValue
+        )
+        span.radiobuttons__radio-mark
+        span.radiobuttons__label-text= option.value

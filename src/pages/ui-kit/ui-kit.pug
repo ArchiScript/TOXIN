@@ -32,8 +32,19 @@ block content
         +input("text", "subscription text field", "Email", "subscription","middle")
       .form-elements__selection-controls.column
         .form-elements__checkbox-buttons.column
-          +checkbox("Можно курить","checkbox1", "checked") 
-      .form-elements__buttons.column
+          .form-elements__elements-block.elements-block
+            h3.form-elements__title.elements-block-title checkbox buttons
+            +checkbox("Можно курить","checkbox1") 
+            +checkbox("Можно с питомцами","checkbox2", "checked") 
+            +checkbox("Можно пригласить гостей (до 10 человек)","checkbox3") 
+        .form-elements__radio-buttons.column
+          .form-elements__elements-block.elements-block 
+            |
+            h3.form-elements__title.elements-block-title radio buttons
+
+            +radiobutton1("sexOptions",[{value: "Мужчина", id: 1},{value: "Женщина", id: 2}], "Мужчина")
+
+      .form-elements__buttons
     .container.row 
       |
       .form-elements__dropdowns.column

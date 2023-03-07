@@ -1,16 +1,16 @@
 @use "/src/assets/common_style/_index.common" ;
-
 .checkbox {
-  
+  margin-bottom: 10px;
   &__label {
-    @extend %bodyText;
-    color: index.$dark-shade50;
-    text-transform: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-   &-text{margin-left: 10px;}
+    height: 20px;
+    @extend %selection-controls-text;
+    @include index.isFlex(row, flex-start, center, nowrap);
+    margin: 0;
+
+    &-text {
+      margin-left: 10px;
+    }
+
     input {
       width: 20px;
       height: 20px;
@@ -19,6 +19,7 @@
       margin: 0;
     }
   }
+
   &__checkmark {
     position: relative;
     top: 0;
@@ -39,11 +40,13 @@
     transform: rotate(45deg);
 
   }
- input:checked{
-  border-color: index.$purple;
-}
+
+  input:checked {
+    border-color: index.$purple;
+  }
+
   input:checked~.checkbox__checkmark::before {
     display: block;
-    
+
   }
 }

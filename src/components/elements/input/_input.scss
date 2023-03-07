@@ -3,19 +3,6 @@
 .input-container {
   @extend %sizes;
 
-  
-  // &.--full-size {
-  //   width: index.$full-input-width
-  // }
-
-  // &.--middl-size {
-  //   width: index.$middle-input-width;
-  // }
-
-  // &.--half-size {
-  //   width: index.$half-input-width;
-  // }
-  
   input {
     position: relative;
     width: 100%;
@@ -24,7 +11,7 @@
   }
 
   label {
-    margin: 0;
+
   }
 
   input[type=date] {

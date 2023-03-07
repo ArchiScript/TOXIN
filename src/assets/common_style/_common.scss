@@ -1,27 +1,46 @@
 @use "./mixins" as m;
+
 * {
   box-sizing: border-box;
 }
-html{
+
+html {
   font-family: MontserratRegular;
   height: 100%;
 }
 
-.container{
+.container {
   max-width: 1160px;
   // @include m.isFlex(row,space-between,flex-start,nowrap);
   margin: 0 auto;
   // margin-bottom: 100px;
-  
+
 }
-label {
+
+label,
+h3 {
   @extend %h3label;
 }
 
-.row{
-  @include m.isFlex(row,space-between,flex-start,nowrap);
+.row {
+  @include m.isFlex(row, space-between, flex-start, nowrap);
 }
-.column{
-  @include m.isFlex(column,flex-start,space-between,nowrap);
+
+.row-start {
+  @include m.isFlex(row, flex-start, flex-start, nowrap);
 }
-.column-center{@include m.isFlex(column,flex-start,center,nowrap);}
+
+.column {
+  @include m.isFlex(column, flex-start, space-between, nowrap);
+}
+
+.column-center {
+  @include m.isFlex(column, flex-start, center, nowrap);
+}
+
+.elements-block {
+  padding: 20px 0;
+}
+.elements-block-title{
+  padding-bottom: 1rem;
+}
