@@ -1,0 +1,62 @@
+@use "/src/assets/common_style/index.common";
+.toggle {
+
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  margin-bottom: 10px;
+
+  &__label {
+    height: inherit;
+    margin: 0;
+    @extend %selection-controls-text;
+    @include index.isFlex(row, flex-start, center, nowrap);
+
+  }
+
+  &__input {
+    margin: 0;
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid index.$dark-shade25;
+    transition: all .3s;
+  }
+
+  &__slider {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+  }
+
+  &__slider::after {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: index.$dark-shade25;
+    top: 4px;
+    left: 4px;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+  }
+
+  &__label-text {
+    height: 20px;
+    margin-left: 10px;
+  }
+
+  input:checked {
+    border: 1px solid index.$purple;
+  }
+
+  input:checked+.toggle__slider::after {
+    transform: translateX(20px);
+    background: index.$purple;
+
+  }
+}

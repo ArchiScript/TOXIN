@@ -1,0 +1,8 @@
+mixin toggle(label, id, checkedValue)
+  .toggle 
+    |
+    |
+    label.toggle__label(for=id)
+      input.toggle__input(type="checkbox", name=id, id=id, checked=checkedValue)
+      span.toggle__slider
+      span.toggle__label-text= label

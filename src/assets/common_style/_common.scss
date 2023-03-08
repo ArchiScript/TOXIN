@@ -39,8 +39,10 @@ h3 {
 }
 
 .elements-block {
+  @include m.isFlex(column,flex-start,flex-start,nowrap);
   padding: 20px 0;
 }
 .elements-block-title{
+  width: 100%;
   padding-bottom: 1rem;
 }
