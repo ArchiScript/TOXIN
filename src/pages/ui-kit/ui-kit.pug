@@ -40,16 +40,31 @@ block content
         .form-elements__radio-buttons.column
           .form-elements__elements-block.elements-block 
             |
+            |
+            |
             h3.form-elements__title.elements-block-title radio buttons
             +radiobutton1("sexOptions",[{value: "Мужчина", id: 1},{value: "Женщина", id: 2}], "Мужчина")
         .form-elements__toggle-buttons.column 
+          |
+          |
           |
           .form-elements__elements-block.elements-block
             h3.form-elements__title.elements-block-title toggle
             +toggle("Получать спецпредложения","toggle1","checked")
             +toggle("Получать спецпредложения","toggle1")
+        .form-elements__like-buttons.column 
+          |
+          |
+          |
+          .form-elements__elements-block.elements-block
+            h3.form-elements__title.elements-block-title like buttons
+            .form-elements__like-buttons-set.row
+              +like("12","like_1")
+              +like("2","like_2")
       .form-elements__buttons
     .container.row 
+      |
+      |
       |
       .form-elements__dropdowns.column
         +select-plugin("select-accomodations","dropdown", "middle")

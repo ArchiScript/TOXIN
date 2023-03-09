@@ -1,0 +1,30 @@
+@use "/src/assets/common_style/index.common";
+
+.like {
+  margin-right: 10px;
+  &__label {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid index.$dark-shade25;
+    padding: 0 2px;
+    @extend %like-button-text;
+    @include index.isFlex(row, space-around, center, nowrap);
+  }
+
+  &__input.icon-heart-o {
+    width: 8px;
+    height: 8px;
+    margin: 0;
+    @extend %like-button-text;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.icon-heart-o::before {
+  @extend %like-button-text;
+  font-size: 8px;
+}

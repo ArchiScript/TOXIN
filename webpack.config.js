@@ -65,6 +65,9 @@ module.exports = {
     index: "./src/pages/index.js",
     "ui-kit": "./src/pages/ui-kit/ui-kit.js",
   },
+  // resolve: {
+  //   extensions: [".js", ".json"],
+  // },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
@@ -86,44 +89,24 @@ module.exports = {
       watch: true,
     },
   },
-  plugins: [
-    // new htmlWebpackPlugin({
-    //   template: "./src/views/pages/index.pug",
-    //   filename: "index.html",
-    // }),
-    // new htmlWebpackPlugin({
-    //   template: "./src/views/pages/ui-kit/ui-kit.pug",
-    //   filename: "ui-kit.html",
-    // }),
-    ...paths.map((path) => {
-      return new HtmlWebpackPlugin({
-        template: path,
-        filename: `${path.split(/\/|.pug/).splice(-2, 1)}.html`,
-      });
-    }),
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [path.join(__dirname, "dist/**/*")],
-    }),
 
-    new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
-    }),
-
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path
-            .resolve(__dirname, "src/assets/favicons/favicon.ico")
-            .replace(/\\/g, "/"),
-          to: path
-            .resolve(__dirname, "dist/assets/favicons")
-            .replace(/\\/g, "/"),
-        },
-      ],
-    }),
-  ],
   module: {
     rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
+      },
+      {
+        test: /\.pug$/,
+        loader: "pug-loader",
+        exclude: /(node_modules|bower_components)/,
+      },
       {
         test: /\.html$/i,
         loader: "html-loader",
@@ -151,6 +134,7 @@ module.exports = {
           "sass-loader",
         ],
       },
+
       {
         test: /\.(png|svg|jpg|jpeg|gif)/i,
         type: "asset/resource",
@@ -164,21 +148,43 @@ module.exports = {
         // },
         type: "asset/resource",
       },
-      {
-        test: /\.pug$/,
-        loader: "pug-loader",
-        exclude: /(node_modules|bower_components)/,
-      },
-      {
-        test: /\.m?js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-          },
-        },
-      },
     ],
   },
+  plugins: [
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [path.join(__dirname, "dist/**/*")],
+    }),
+
+    // new htmlWebpackPlugin({
+    //   template: "./src/views/pages/index.pug",
+    //   filename: "index.html",
+    // }),
+    // new htmlWebpackPlugin({
+    //   template: "./src/views/pages/ui-kit/ui-kit.pug",
+    //   filename: "ui-kit.html",
+    // }),
+    ...paths.map((path) => {
+      return new HtmlWebpackPlugin({
+        template: path,
+        filename: `${path.split(/\/|.pug/).splice(-2, 1)}.html`,
+      });
+    }),
+
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
+    }),
+
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path
+            .resolve(__dirname, "src/assets/favicons/favicon.ico")
+            .replace(/\\/g, "/"),
+          to: path
+            .resolve(__dirname, "dist/assets/favicons")
+            .replace(/\\/g, "/"),
+        },
+      ],
+    }),
+  ],
 };

@@ -40,6 +40,12 @@
   line-height: 18px;
   text-transform: none;
 }
+
+%like-button-text{
+  @include font(fontRegular,10);
+  color: $dark-shade25;
+}
+
 %inputForm {
   position: relative;
   height: $input-height;
