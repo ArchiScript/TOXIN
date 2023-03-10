@@ -2,29 +2,53 @@
 
 .like {
   margin-right: 10px;
+
   &__label {
     position: relative;
     width: 40px;
     height: 20px;
     border-radius: 10px;
-    background: transparent;
-    border: 1px solid index.$dark-shade25;
-    padding: 0 2px;
     @extend %like-button-text;
     @include index.isFlex(row, space-around, center, nowrap);
   }
 
   &__input.icon-heart-o {
-    width: 8px;
-    height: 8px;
+
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid index.$dark-shade25;
     margin: 0;
     @extend %like-button-text;
-    display: flex;
-    align-items: center;
+    @include index.isFlex(row, flex-start, center, nowrap);
+    z-index: 2;
   }
-}
 
-.icon-heart-o::before {
-  @extend %like-button-text;
-  font-size: 8px;
+  &__number {
+    position: absolute;
+    right: 9px;
+  }
+
+  input.icon-heart-o::before {
+    @extend %like-button-text;
+    font-size: 8px;
+    margin-left: 5px;
+  }
+
+  input:checked.icon-heart-o::before {
+    content: index.$icon-heart;
+    color: index.$purple;
+
+
+  }
+
+  input:checked {
+    border-color: index.$purple;
+  }
+
+  input:checked+.like__number {
+    color: index.$purple;
+  }
 }
