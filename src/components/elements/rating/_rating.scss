@@ -1,0 +1,36 @@
+@use "/src/assets/common_style/index.common";
+
+.rating {
+  padding: 0 20px 0 0;
+  z-index: 0;
+
+  &__input {
+    height: fit-content;
+    width: 20px;
+    cursor: pointer;
+    margin: 0 4px 0 0;
+    // margin: 0;
+  }
+
+  &__input::before {
+    @extend %icon-font-bg-gradient;
+    font-size: 20px;
+  }
+
+  // All the iputs that are not checked
+  &__input:checked~&__input::before {
+    content: index.$icon-star-o;
+    color: index.$purple;
+  }
+
+  &:hover>&__input::before {
+    content: index.$icon-star;
+    @extend %icon-font-bg-gradient;
+  }
+
+  &__input:hover~&__input::before {
+    color: index.$purple;
+    content: index.$icon-star-o;
+  }
+
+}

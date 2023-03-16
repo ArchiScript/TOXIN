@@ -194,3 +194,9 @@
     z-index: 2;
   }
   }
+
+  %icon-font-bg-gradient{
+    color: transparent;
+    background-clip: text;
+    background-image: $controls-bg-gradient;
+  }

@@ -39,9 +39,7 @@
 
   input:checked.icon-heart-o::before {
     content: index.$icon-heart;
-    color: index.$purple;
-
-
+   @extend %icon-font-bg-gradient;
   }
 
   input:checked {
