@@ -1,0 +1,31 @@
+mixin range-slider(options={})
+  - const { name = "range1", min = 1, max = 10, value = [], step = 1 } = options;
+    .range-slider
+      .range-slider__value-text= `${value[0]}\u20BD  - ${value[1]}\u20BD`
+      input.range-slider__input-left(
+        type="range",
+        id=name + "-left",
+        name=name,
+        min=min,
+        max=max,
+        step=step,
+        value=value[0]
+      )
+      input.range-slider__input-right(
+        type="range",
+        id=name + "-right",
+        name=name,
+        min=min,
+        max=max,
+        step=step,
+        value=value[1]
+      )
+      .range-slider__slider 
+        |
+        |
+        |
+        |
+        .range-slider__track 
+        .range-slider__range
+        .range-slider__thumb.thumb-left 
+        .range-slider__thumb.thumb-right

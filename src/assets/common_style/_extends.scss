@@ -45,6 +45,10 @@
   @include font(fontRegular,10);
   color: $dark-shade25;
 }
+%paggination-text{
+  @include font(fontRegular,12);
+  color: $dark-shade50;
+}
 
 %inputForm {
   position: relative;

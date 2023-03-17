@@ -9,7 +9,6 @@
     width: 20px;
     cursor: pointer;
     margin: 0 4px 0 0;
-    // margin: 0;
   }
 
   &__input::before {
@@ -17,17 +16,18 @@
     font-size: 20px;
   }
 
-  // All the iputs that are not checked
+  // All the inputs that are not checked
   &__input:checked~&__input::before {
     content: index.$icon-star-o;
     color: index.$purple;
   }
 
+  //on hover at parent block all els are filled
   &:hover>&__input::before {
     content: index.$icon-star;
     @extend %icon-font-bg-gradient;
   }
-
+//but on hover at the actual el the rest are empty
   &__input:hover~&__input::before {
     color: index.$purple;
     content: index.$icon-star-o;

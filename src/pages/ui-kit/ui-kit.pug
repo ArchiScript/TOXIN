@@ -71,7 +71,12 @@ block content
               +rating({name: "rating1", value: 2, max: 5})
               +rating({name: "rating2", value: 5, max: 5})
 
-      .form-elements__buttons
+      .form-elements__buttons.column
+        .form-elements__range-slider
+          .form-elements__elements-block.elements-block
+            h3.form-elements__title.elements-block-title range slider
+
+            +range-slider({name: "range1",label: "rangeslider", min: "0", max: "15000", value: ["5000","10000"], step: "1000"})
     .container.row 
       |
       |

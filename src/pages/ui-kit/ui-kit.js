@@ -6,6 +6,7 @@ import "/src/components/plugins/selectPlugin/_selectPluginInit";
 import "/src/components/elements/checkbox/_checkbox";
 import "/src/components/elements/radio/_radio";
 import "/src/components/elements/like/_like-init";
+import "/src/components/elements/range/_range";
 
 // ----------CONNECTING SCSS FILES-------------
 import "/src/pages/ui-kit/ui-kit.scss";
