@@ -6,9 +6,10 @@
 
   &__input {
     height: fit-content;
-    width: 20px;
+    width: 24px;
     cursor: pointer;
-    margin: 0 4px 0 0;
+    // margin: 0 4px 0 0;
+    margin: 0;
   }
 
   &__input::before {

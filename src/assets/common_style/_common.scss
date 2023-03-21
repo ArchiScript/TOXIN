@@ -32,8 +32,14 @@ h3 {
 
 .column {
   @include m.isFlex(column, flex-start, space-between, nowrap);
+  width: 27,59%;
+//  width: $full-input-width;
+// padding: 0 10px;
 }
-
+// .column-3{
+//   @extend .column;
+// width: 27,59%;
+// }
 .column-center {
   @include m.isFlex(column, flex-start, center, nowrap);
 }

@@ -1,0 +1,5 @@
+mixin button(options = {})
+  - let { name = name, text = text, style = "filled", state } = options;
+  - let stateVal = state ? `--${state}` : "";
+  - const classlist = `button button-${style}${stateVal}`;
+    button(class=classlist, name=name)= text

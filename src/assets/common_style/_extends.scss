@@ -204,3 +204,16 @@
     background-clip: text;
     background-image: $controls-bg-gradient;
   }
+  %border-gradient{
+    background: linear-gradient(
+      to bottom, 
+      #BC9CFF 0%, #8BA4F9 100%) border-box ;
+    border: 2px solid transparent;
+    border-radius: 22px;
+
+  }
+
+  %button-size-small{
+    width: 99px;
+    height: 44px;
+  }

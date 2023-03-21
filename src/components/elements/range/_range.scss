@@ -1,14 +1,15 @@
 @use "/src/assets/common_style/index.common";
 
 .range-slider {
+  padding-top: 5px;
   position: relative;
-  width: 266px;
+  min-width: 266px;
 
   &__value-text {
     height: fit-content;
     position: absolute;
     right: 0;
-    bottom: 22px;
+    bottom: 27px;
     @extend %paggination-text;
     padding: 0;
   }
@@ -16,36 +17,42 @@
   input[type=range] {
     position: absolute;
     z-index: 2;
-    width: 100%;
+    width: calc(100% + 16px);
     margin: 0;
     height: 6px;
     appearance: none;
     opacity: 0;
     pointer-events: none;
-   
+    left: -3px;
+    border: 1px solid grey;
+    border-radius: 3px;
 
     &::-webkit-slider-thumb {
-      appearance: none;
-      pointer-events: all;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: index.$controls-bg-gradient-green;
-      border: 2px solid white;
-      opacity: 0;
-      cursor: pointer;
-      z-index: 2;
-      
+        position: relative;
+        appearance: none;
+        pointer-events: all;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: index.$controls-bg-gradient-green;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+        left: -4px;
+      }
+    
+    
     }
-  }
 
-  &__slider {
-    position: relative;
-    z-index: 1;
-    height: 6px;
-    margin: 0 8px;
-  }
-
+    
+    &__slider {
+      position: absolute;
+      z-index: 1;
+      height: 6px;
+      // margin: 0 8px;
+      width: 100%;
+    
+    }
   &__track {
     position: absolute;
     z-index: 1;
@@ -81,10 +88,12 @@
 
     &.thumb-left {
       transform: translate(-8px, -5px);
+
     }
 
     &.thumb-right {
       transform: translate(8px, -5px);
+
     }
   }
 
@@ -115,93 +124,3 @@
 
 
 
-
-
-
-
-
-
-
-
-// .range{
-//   position: relative;
-//   z-index: 1;
-
-//   &__input{
-//     width: 266px;
-//     height: 6px;
-//     border: 1px solid index.$dark-shade25;
-//     border-radius: 3px;
-//     // background: index.$controls-bg-gradient-green;
-//     &::-webkit-slider-thumb{
-//       appearance: none;
-//       width: 12px;
-//       height: 12px;
-//       border-radius: 50%;
-//       background:index.$controls-bg-gradient-green;
-//       border: 2px solid white;
-//       cursor: pointer;
-//       z-index: 2;
-//     }
-//     &::-webkit-slider-thumb + &::-webkit-slider-thumb{
-//       appearance: none;
-//       width: 12px;
-//       height: 12px;
-//       border-radius: 50%;
-//       background:index.$controls-bg-gradient-green;
-//       border: 2px solid white;
-//       cursor: pointer;
-//       z-index: 2;
-//     }
-
-//     &::-webkit-slider-runnable-track{
-//       height: 12px;
-//       border-radius: 6px;
-//       position: relative;
-//       &::before{
-//         content: "";
-//         position: absolute;
-//         left: 0;
-//         top: 0;
-//         height: 12px;
-//         background: index.$controls-bg-gradient-green;
-//         z-index: 0;
-//       }
-//     }
-
-    
-//   }
-
-//   &__input2{
-//     pointer-events: none;
-//     // @extend .range__input;
-//     position: absolute;
-//     top: 7px;
-//     left: 0;
-//     height: 6px;
-//     width: 266px;
-//     background-color: transparent;
-//     border: none;
-//     outline: none;
-
-//     &::-webkit-slider-thumb{
-//       pointer-events: all;
-//       appearance: none;
-//       position: relative;
-//       width: 12px;
-//       height: 12px;
-//       border-radius: 50%;
-//       background:index.$controls-bg-gradient-green;
-//       border: 2px solid white;
-//       z-index: 2;
-//     }
-//     &::-webkit-slider-runnable-track{
-//       height: 12px;
-//       border-radius: 6px;  
-//       z-index: 0;
-      
-//     }
-//   }
-
-
-// }

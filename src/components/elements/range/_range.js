@@ -16,6 +16,7 @@ function setLeft() {
   //  position of thumb is equal to range
   thumbLeft.style.left = percent + "%";
   range.style.left = percent + "%";
+
   printRangeValue();
 }
 setLeft();
@@ -38,8 +39,17 @@ setRight();
 
 function printRangeValue() {
   const txt = document.querySelector(".range-slider__value-text");
+
   txt.innerHTML = `${inputLeft.value}\u20BD  - ${inputRight.value}\u20BD`;
 }
 
 inputLeft.addEventListener("input", setLeft);
 inputRight.addEventListener("input", setRight);
+
+function getCompStyle(el, prop) {
+  const cStyle = window.getComputedStyle(el);
+  return cStyle.getPropertyValue(prop);
+}
+function getPercentFromPx(elWidth, px) {
+  return (perc = (px / elWidth) * 100);
+}

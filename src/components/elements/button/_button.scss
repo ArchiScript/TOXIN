@@ -1,0 +1,44 @@
+@use "/src/assets/common_style/index.common";
+
+.button {
+
+  width: 99px;
+  height: 44px;
+  @extend %h3label;
+  border-radius: 22px;
+  margin-right: 20px;
+
+  &-filled {
+    background: index.$controls-bg-gradient;
+    color: white;
+    border: none;
+
+    &:hover {
+      opacity: .5;
+    }
+
+    &--focused {
+      @extend .button-filled, :hover;
+    }
+  }
+
+    &-bordered {
+      border: 2px solid transparent;
+      border-radius: 22px;
+      box-shadow: 2px 1000px 1px white inset;
+      ;
+      background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+        linear-gradient(to bottom,
+          #BC9CFF 0%, #8BA4F9 100%);
+      color: index.$purple;
+      background-clip: content-box, border-box;
+      background-origin: border-box;
+      &:hover {
+        opacity: .5;
+        color: index.$purple;
+      }
+    }
+
+ 
+}
+
