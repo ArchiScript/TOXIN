@@ -1,5 +1,7 @@
 mixin button(options = {})
-  - let { name = name, text = text, style = "filled", state } = options;
+  - let { name = name, text = text, style = "filled", size = small, hasarrow = false, state } = options;
   - let stateVal = state ? `--${state}` : "";
-  - const classlist = `button button-${style}${stateVal}`;
+  - let sizeVal = size ? `--${size}` : "";
+  - let arrow = hasarrow ? `icon-arrow_forward` : "";
+  - const classlist = `button  ${arrow} button-${style}${stateVal} ${sizeVal}`;
     button(class=classlist, name=name)= text

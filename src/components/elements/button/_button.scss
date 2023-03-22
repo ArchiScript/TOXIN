@@ -1,12 +1,21 @@
 @use "/src/assets/common_style/index.common";
 
 .button {
-
+  position: relative;
   width: 99px;
   height: 44px;
   @extend %h3label;
+  @extend %sizes;
   border-radius: 22px;
   margin-right: 20px;
+  cursor: pointer;
+
+  &::before {
+    position: absolute;
+    right: 15px;
+    top: 11px;
+    font-size: 22px;
+  }
 
   &-filled {
     background: index.$controls-bg-gradient;
@@ -22,23 +31,43 @@
     }
   }
 
-    &-bordered {
-      border: 2px solid transparent;
-      border-radius: 22px;
-      box-shadow: 2px 1000px 1px white inset;
-      ;
-      background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+  &-bordered {
+    border: 2px solid transparent;
+    border-radius: 22px;
+    box-shadow: 2px 1000px 1px white inset;
+    ;
+    background: linear-gradient(white, white),
+      linear-gradient(to bottom,
+        #BC9CFF 0%, #8BA4F9 100%);
+    color: index.$purple;
+    background-clip: content-box, border-box;
+    background-origin: border-box;
+
+    &:hover {
+      background:
         linear-gradient(to bottom,
-          #BC9CFF 0%, #8BA4F9 100%);
-      color: index.$purple;
-      background-clip: content-box, border-box;
-      background-origin: border-box;
-      &:hover {
-        opacity: .5;
-        color: index.$purple;
-      }
+          rgba(188, 156, 255, .5), rgba(139, 164, 249, .5));
     }
 
- 
-}
+    &--focused {
+      @extend .button-bordered, :hover;
+    }
+  }
 
+  &-noborder {
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    background: transparent;
+    color: index.$purple;
+
+    &:hover {
+      color: index.$dark-shade50;
+    }
+
+    &--focused {
+      @extend .button-noborder, :hover;
+    }
+  }
+
+}

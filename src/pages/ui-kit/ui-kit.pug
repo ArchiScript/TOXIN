@@ -44,13 +44,9 @@ block content
             |
             |
             |
-            |
-            |
             h3.form-elements__title.elements-block-title radio buttons
             +radiobutton1("sexOptions",[{value: "Мужчина", id: 1},{value: "Женщина", id: 2}], "Мужчина")
         .form-elements__toggle-buttons.column 
-          |
-          |
           |
           |
           |
@@ -66,16 +62,12 @@ block content
           |
           |
           |
-          |
-          |
           .form-elements__elements-block.elements-block
             h3.form-elements__title.elements-block-title like button
             .form-elements__like-buttons-set.row
               +like("12","like_1","checked")
               +like("2","like_2")
         .form-elements__rating-buttons.colunn 
-          |
-          |
           |
           |
           |
@@ -97,18 +89,35 @@ block content
           |
           |
           |
+          |
           .form-elements__elements-block.elements-block.column
             h3.form-elements__title.elements-block-title buttons
-            .row
+            .elements-block-row
               +button({name: "button1",text: "click me", style: "filled"})
               +button({name: "button2",text: "click me", style: "filled", state: "focused"})
-            .row 
+            .elements-block-row 
+              |
+              |
+              |
+              |
               |
               +button({name: "button3",text: "click me", style: "bordered"})
-
+              +button({name: "button4",text: "click me", style: "bordered", state: "focused"})
+            .elements-block-row 
+              |
+              |
+              |
+              |
+              |
+              +button({name: "button5",text: "click me", style: "noborder"})
+              +button({name: "button6",text: "click me", style: "noborder",state: "focused"})
+            .elements-block-row 
+              |
+              |
+              |
+              |
+              +button({name: "button7",text: "перейти к оплате", style: "filled",size: "full-size", hasarrow: true})
     .container.row 
-      |
-      |
       |
       |
       |

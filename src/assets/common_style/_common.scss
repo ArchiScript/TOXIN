@@ -52,3 +52,7 @@ h3 {
   width: 100%;
   padding-bottom: 1rem;
 }
+.elements-block-row{
+  @include m.isFlex(row,flex-start,flex-start,nowrap);
+  padding: 0 20px 30px 0;
+}
