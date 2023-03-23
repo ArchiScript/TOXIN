@@ -1,0 +1,73 @@
+
+@use "/src/assets/common_style/index.common";
+
+.data {
+  display: none;
+}
+
+.pagination {
+  min-width: 241px;
+  @extend %paggination-text;
+
+
+  &__list {
+    user-select: none;
+    @include index.isFlex(row, center, center, nowrap);
+    padding: 0;
+    margin: 0;
+    color: index.$dark-shade50;
+
+  }
+
+  &__link--active {
+    min-width: 40px;
+    width: 100%;
+    border-radius: 50%;
+    background: index.$controls-bg-gradient;
+
+    a {
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+}
+
+.paginationjs {
+  position: relative;
+
+  &-nav {
+    position: absolute;
+    top: 50px;
+    @extend %bodyText;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 1.5rem;
+  }
+
+  &-prev, &-next {
+    min-width: 40px;
+    background: index.$controls-bg-gradient-green;
+
+    i::before {
+      font-size: 22px;
+      color: white;
+    }
+  }
+
+  &-page, &-prev, &-next,
+  &-ellipsis {
+    @include index.isFlex(row, center, center, nowrap);
+    width: 100%;
+    height: 40px;
+    border-radius: 50%;
+
+    &:not(.paginationjs-ellipsis) {
+      cursor: pointer;
+    }
+  }
+
+}
+
+

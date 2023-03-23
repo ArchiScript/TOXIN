@@ -3,6 +3,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
 const globule = require("globule");
+const webpack = require("webpack");
 const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FileLoader = require("file-loader");
@@ -89,6 +90,11 @@ module.exports = {
       watch: true,
     },
   },
+  resolve: {
+    alias: {
+      jquery: "jquery/src/jquery",
+    },
+  },
 
   module: {
     rules: [
@@ -151,6 +157,11 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+    }),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [path.join(__dirname, "dist/**/*")],
     }),

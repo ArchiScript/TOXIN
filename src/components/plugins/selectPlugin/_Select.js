@@ -39,19 +39,6 @@ const getTemplate = (data, placeholder, buttons, isInline) => {
           ${$buttonContainer}
     
   `;
-  // }
-  // ===========================
-  //   return `
-  //     <div class = "select__backdrop" data-type="backdrop"></div>
-  //     <div class="select__input" data-type="input">
-  //       <span>${placeholder}</span>
-  //       <div class="select__dropdown">
-  //         <div class="select__items">
-  //           ${items.join("")}
-  //         </div>
-  //           ${$buttonContainer}
-  //     </div>
-  // `;
 };
 
 export class Select {
@@ -149,7 +136,6 @@ export class Select {
 
       plusButton.addEventListener("click", () => {
         item.counter += 1;
-        console.log(item.counter);
         minusButton.classList.remove("inactive");
         itemValue.innerHTML = item.counter;
         this.$selectText.innerHTML = this.chosenUpdate();
