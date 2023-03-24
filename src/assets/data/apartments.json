@@ -1,0 +1,184 @@
+[
+  {
+    "number": 101,
+    "status": "lux",
+    "price": 1500,
+    "rate": 4,
+    "comment": "Beautiful apartment with great views"
+  },
+  {
+    "number": 204,
+    "status": "lux",
+    "price": 1800,
+    "rate": 4,
+    "comment": "Spacious apartment with modern amenities"
+  },
+  {
+    "number": 310,
+    "status": "lux",
+    "price": 2000,
+    "rate": 4,
+    "comment": "Amazing penthouse with private terrace"
+  },
+  {
+    "number": 407,
+    "status": "lux",
+    "price": 2200,
+    "rate": 4,
+    "comment": "Stunning apartment with ocean views"
+  },
+  {
+    "number": 512,
+    "status": "lux",
+    "price": 2500,
+    "rate": 4,
+    "comment": "Spacious apartment with private balcony"
+  },
+  {
+    "number": 623,
+    "status": "standard",
+    "price": 1200,
+    "rate": 4,
+    "comment": "Cozy apartment in a convenient location"
+  },
+  {
+    "number": 726,
+    "status": "standard",
+    "price": 900,
+    "rate": 3,
+    "comment": "Affordable apartment with basic amenities"
+  },
+  {
+    "number": 822,
+    "status": "lux",
+    "price": 2800,
+    "rate": 4,
+    "comment": "Exclusive apartment with top-of-the-line features"
+  },
+  {
+    "number": 927,
+    "status": "standard",
+    "price": 1000,
+    "rate": 4,
+    "comment": "Simple apartment with good value"
+  },
+  {
+    "number": 1031,
+    "status": "lux",
+    "price": 3500,
+    "rate": 5,
+    "comment": "The ultimate luxury apartment with unparalleled views"
+  },
+  {
+    "number": 1124,
+    "status": "standard",
+    "price": 1100,
+    "rate": 4,
+    "comment": "Basic apartment with all the essentials"
+  },
+  {
+    "number": 1229,
+    "status": "lux",
+    "price": 3200,
+    "rate": 4,
+    "comment": "Elegant apartment with stylish decor"
+  },
+  {
+    "number": 1332,
+    "status": "standard",
+    "price": 950,
+    "rate": 3,
+    "comment": "Budget-friendly apartment for a short stay"
+  },
+  {
+    "number": 101,
+    "status": "lux",
+    "price": 1500,
+    "rate": 4,
+    "comment": "Beautiful apartment with great views"
+  },
+  {
+    "number": 204,
+    "status": "lux",
+    "price": 1800,
+    "rate": 4,
+    "comment": "Spacious apartment with modern amenities"
+  },
+  {
+    "number": 310,
+    "status": "lux",
+    "price": 2000,
+    "rate": 4,
+    "comment": "Amazing penthouse with private terrace"
+  },
+  {
+    "number": 407,
+    "status": "lux",
+    "price": 2200,
+    "rate": 4,
+    "comment": "Stunning apartment with ocean views"
+  },
+  {
+    "number": 512,
+    "status": "lux",
+    "price": 2500,
+    "rate": 4,
+    "comment": "Spacious apartment with private balcony"
+  },
+  {
+    "number": 623,
+    "status": "standard",
+    "price": 1200,
+    "rate": 4,
+    "comment": "Cozy apartment in a convenient location"
+  },
+  {
+    "number": 726,
+    "status": "standard",
+    "price": 900,
+    "rate": 3,
+    "comment": "Affordable apartment with basic amenities"
+  },
+  {
+    "number": 822,
+    "status": "lux",
+    "price": 2800,
+    "rate": 4,
+    "comment": "Exclusive apartment with top-of-the-line features"
+  },
+  {
+    "number": 927,
+    "status": "standard",
+    "price": 1000,
+    "rate": 4,
+    "comment": "Simple apartment with good value"
+  },
+  {
+    "number": 1031,
+    "status": "lux",
+    "price": 3500,
+    "rate": 5,
+    "comment": "The ultimate luxury apartment with unparalleled views"
+  },
+  {
+    "number": 1124,
+    "status": "standard",
+    "price": 1100,
+    "rate": 4,
+    "comment": "Basic apartment with all the essentials"
+  },
+  {
+    "number": 1229,
+    "status": "lux",
+    "price": 3200,
+    "rate": 4,
+    "comment": "Elegant apartment with stylish decor"
+  },
+  {
+    "number": 1332,
+    "status": "standard",
+    "price": 950,
+    "rate": 3,
+    "comment": "Budget-friendly apartment for a short stay"
+  }
+]

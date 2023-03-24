@@ -7,7 +7,7 @@ import "/src/components/elements/checkbox/_checkbox";
 import "/src/components/elements/radio/_radio";
 import "/src/components/elements/like/_like-init";
 import "/src/components/elements/range/_range";
-import "/src/components/plugins/pagination/_pagination";
+import "/src/components/blocks/pagination/_pagination";
 
 // ----------CONNECTING SCSS FILES-------------
 import "/src/pages/ui-kit/ui-kit.scss";
