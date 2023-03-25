@@ -5,26 +5,30 @@ class Pagination {
     this.element = element;
     this.dataElement = dataElement;
     let self = this;
+
     this.options = {
       dataSource: function (done) {
-        // let result = [];
-        // for (var i = 1; i < 176; i++) {
-        //   result.push(i);
-        // }
-        // done(result);
-        $.ajax({
-          type: "GET",
-          url: "../../../assets/data/apartments.json",
-          dataType: "json",
-          success: function (data) {
-            done(data);
-          },
-          error: function (xhr, textStatus, error) {
-            console.log(xhr.statusText);
-            console.log(textStatus);
-            console.log(error);
-          },
-        });
+        if (dataElement.classList.contains("--disabled")) {
+          let result = [];
+          for (var i = 1; i < 176; i++) {
+            result.push(i);
+          }
+          done(result);
+        } else {
+          $.ajax({
+            type: "GET",
+            url: "../../../assets/data/apartments.json",
+            dataType: "json",
+            success: function (data) {
+              done(data);
+            },
+            error: function (xhr, textStatus, error) {
+              console.log(xhr.statusText);
+              console.log(textStatus);
+              console.log(error);
+            },
+          });
+        }
       },
 
       activeClassName: "pagination__link--active",
@@ -47,17 +51,12 @@ class Pagination {
     };
   }
 
-  // async renderData(data) {
-  //   let html = this.template(data);
-  //   $(this.dataElement).html(html);
-  // }
   template(data) {
     let html = "<ul>";
     $.each(data, function (index, item) {
       html += "<li>" + item.number + "</li>";
     });
     html += "</ul>";
-
     return html;
   }
 

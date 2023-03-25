@@ -2,32 +2,40 @@
 @use "/src/assets/common_style/index.common";
 
 .data {
-  // display: none;
+  &.--disabled{
+    display: none;
+  }
+  
 }
 
 .pagination {
   min-width: 241px;
   @extend %paggination-text;
+  width: 100%;
 
 
   &__list {
     user-select: none;
-    @include index.isFlex(row, center, center, nowrap);
+    @include index.isFlex(row, space-between, center, nowrap);
     padding: 0;
     margin: 0;
     color: index.$dark-shade50;
-
+ 
+    li{
+      min-width: 20px;
+    }
   }
 
   &__link--active {
     min-width: 40px;
-    width: 100%;
+    width: 40px;
     border-radius: 50%;
     background: index.$controls-bg-gradient;
 
     a {
       color: white;
       font-weight: bold;
+     
     }
   }
 
@@ -47,7 +55,7 @@
   }
 
   &-prev, &-next {
-    min-width: 40px;
+    width: 40px;
     background: index.$controls-bg-gradient-green;
 
     i::before {
@@ -59,7 +67,7 @@
   &-page, &-prev, &-next,
   &-ellipsis {
     @include index.isFlex(row, center, center, nowrap);
-    width: 100%;
+    max-width: 100%;
     height: 40px;
     border-radius: 50%;
 
