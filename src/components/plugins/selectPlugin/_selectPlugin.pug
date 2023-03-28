@@ -1,7 +1,8 @@
-mixin select-plugin(selectId, label, size)
+mixin select-plugin(selectCategory, id, label, size)
   .select-plugin
-    - let classList = `select-plugin__wrap --${size}-size`;
-    div(class=classList)
+    - let classWrapper = `select-plugin__wrap --${size}-size`;
+    - let classSelect = `select-plugin__select select-${selectCategory}`;
+    div(class=classWrapper)
       label(for=selectId)= label
       br
-      div(id=selectId)
+      div(class=classSelect, id=id)

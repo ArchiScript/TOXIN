@@ -23,7 +23,7 @@ block content
       .form-elements__inputs.column
         +input("Email", "text field", "Email", "email", "full")
         +input("text", "text field", "This is pretty awesome", "text","full")
-        +select-plugin("select-guests1", "dropdown", "full")
+        +select-plugin("guests","select0", "dropdown", "full")
         +input("date", "masked text field", "","masked-date","full")
         .form-elements__date-dropdowns.row
           +datepicker("text","date dropdown","ДД.ММ.ГГГГ","2")
@@ -40,11 +40,9 @@ block content
         .form-elements__radio-buttons.column
           .form-elements__elements-block.elements-block 
             |
-            |
             h3.form-elements__title.elements-block-title radio buttons
             +radiobutton1("sexOptions",[{value: "Мужчина", id: 1},{value: "Женщина", id: 2}], "Мужчина")
         .form-elements__toggle-buttons.column 
-          |
           |
           .form-elements__elements-block.elements-block
             h3.form-elements__title.elements-block-title toggle
@@ -52,14 +50,12 @@ block content
             +toggle("Получать спецпредложения","toggle2")
         .form-elements__like-buttons.column 
           |
-          |
           .form-elements__elements-block.elements-block
             h3.form-elements__title.elements-block-title like button
             .form-elements__like-buttons-set.row
               +like("12","like_1","checked")
               +like("2","like_2")
         .form-elements__rating-buttons.colunn 
-          |
           |
           .form-elements__elements-block.elements-block
             h3.form-elements__title.elements-block-title rate button
@@ -74,7 +70,6 @@ block content
             +range-slider({name: "range1",label: "rangeslider", min: "0", max: "15000", value: ["5000","10000"], step: "1000"})
         .form-elements__buttons 
           |
-          |
           .form-elements__elements-block.elements-block.column
             h3.form-elements__title.elements-block-title buttons
             .elements-block-row
@@ -82,11 +77,9 @@ block content
               +button({name: "button2",text: "click me", style: "filled", state: "focused"})
             .elements-block-row 
               |
-              |
               +button({name: "button3",text: "click me", style: "bordered"})
               +button({name: "button4",text: "click me", style: "bordered", state: "focused"})
             .elements-block-row 
-              |
               |
               +button({name: "button5",text: "click me", style: "noborder"})
               +button({name: "button6",text: "click me", style: "noborder",state: "focused"})
@@ -99,7 +92,10 @@ block content
 
     .container.row 
       |
-      |
       .form-elements__dropdowns.column
-        +select-plugin("select-accomodations","dropdown", "middle")
-        +select-plugin("select-accomodations-open", "dropdown", "middle")
+        +select-plugin("accomodations inline", "select1","dropdown", "middle")
+        +select-plugin("accomodations","select2", "dropdown", "middle")
+      .form-elements__dropdowns.column
+        +select-plugin("guests inline","select3", "dropdown", "full")
+      .form-elements__dropdowns.column
+        +select-plugin("guests inline", "select4", "dropdown", "full")

@@ -128,16 +128,18 @@
   }
 
   &__buttons {
+    width: 100%;
     @include index.isFlex(row, space-between, center, nowrap);
-    margin: 0 15px 7px 15px;
-    @extend %h3label;
-    color: index.$purple;
+   padding: 0 15px 7px 17px;
+    // @extend %h3label;
+    // color: index.$purple;
 
   }
 
   &__buttons>div {
     cursor: pointer;
     user-select: none;
+    margin-right: 0;
 
   }
   &.inline{

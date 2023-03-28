@@ -1,66 +1,38 @@
-const getTemplate = (data, placeholder, buttons, isInline) => {
-  const text = placeholder ?? "Выберите пожалуйста элемент";
-
-  let $buttonContainer = ``;
-  let buttonSet = "";
-
-  if (buttons) {
-    for (let button of buttons) {
-      buttonSet += `<div class="select__button-${button.name}">${button.value}</div>`;
-    }
-    $buttonContainer = `<div class= "select__buttons">${buttonSet}</div>`;
-  }
-
-  const items = data.map((item) => {
-    return `
-    
-      <div class="select__item select__item-${item.id}">
-      <div class="select__item-name">${item.value}</div>
-        <div class="select__item-choice">
-          <div class="select__item-minus inactive"><span>-</span></div>
-          <div class="select__item-number"><span>${item.counter}</span></div>
-          <div class="select__item-plus"><span>+</span></div>
-        </div>
-      </div>
-    
-    `;
-  });
-
-  // =========test =========================
-  // if (isInline === true) {
-  return `
-    <div class = "select__backdrop" data-type="backdrop"></div>
-    <div class="select__input" data-type="input">
-      <span>${placeholder}</span></div>
-    <div class="select__dropdown">
-        <div class="select__items"> 
-          ${items.join("")}
-        </div>
-          ${$buttonContainer}
-    
-  `;
-};
-
 export class Select {
   constructor(selector, options) {
-    this.options = options;
-    const { isInline } = this.options;
-    this.isInline = isInline;
     this.$el = document.querySelector(selector);
     if (!this.$el) {
       console.log("The essential DOM element for this script is not found");
       return;
     }
+    this.options = options
+      ? this.mergeUserOptions(options)
+      : this.getDefaultOptions();
+
+    const { isInline } = this.options;
+    this.isInline = isInline;
+
     this.#render();
     this.#setup();
     this.plus();
     this.minus();
+
+    this.print();
   }
 
   #render() {
-    const { placeholder, data, buttons } = this.options;
+    const { data, placeholder, buttons, hasButtons } = this.options;
+    // const data = this.getData();
+
     this.$el.classList.add("select");
-    this.$el.innerHTML = getTemplate(data, placeholder, buttons, this.isInline);
+
+    this.$el.innerHTML = getTemplate(
+      data,
+      placeholder,
+      buttons,
+      this.isInline,
+      hasButtons
+    );
   }
 
   #setup() {
@@ -68,7 +40,14 @@ export class Select {
     if (this.isInline === true) {
       this.inlineDropdown();
     }
+    if (this.$el.classList.contains("inline")) {
+      console.log(this.$el.classList.contains("inline"), this.isInline);
+      this.isInline === true;
+      console.log(this.$el.classList.contains("inline"), this.isInline);
+    }
+
     this.data = data;
+
     this.clickHandler = this.clickHandler.bind(this);
     this.$el.addEventListener("click", this.clickHandler);
     this.$items = this.$el.querySelectorAll(".select__item");
@@ -103,7 +82,10 @@ export class Select {
   }
 
   inlineDropdown() {
-    this.$el.classList.add("inline");
+    if (!this.$el.classList.contains("inline")) {
+      this.$el.classList.add("inline");
+    }
+
     this.open();
   }
 
@@ -207,4 +189,120 @@ export class Select {
         : cases[number % 10 < 5 ? number % 10 : 5]
     ];
   }
+
+  getDefaultAccomodations() {
+    const accoms = [
+      ["спальня", "спальни", "спален"],
+      ["кровать", "кровати", "кроватей"],
+      ["ванная комната", "ванные комнаты", "ванных комнат"],
+    ];
+
+    let dataArr = [];
+    for (let i = 0; i <= accoms.length - 1; i++) {
+      let data = {};
+      (data.id = i + 1),
+        (data.value = accoms[i][1]),
+        (data.counter = 0),
+        (data.cases = accoms[i]);
+      dataArr.push(data);
+    }
+    return dataArr;
+  }
+  print() {
+    // console.log(this.getDefaultAccomodations());
+    // console.log(this.getDefaultGuests());
+    console.log(this.getDefaultOptions());
+  }
+  getDefaultGuests() {
+    const guestsStart = ["взрослые", "дети", "младенцы"];
+    const guests = [
+      ["взрослый", "взрослых", "взрослых"],
+      ["ребёнок", "ребёнка", "детей"],
+      ["младенец", "младенца", "младенцев"],
+    ];
+
+    let dataArr = [];
+    for (let i = 0; i <= guests.length - 1; i++) {
+      let data = {};
+      (data.id = i + 1),
+        (data.value = guestsStart[i]),
+        (data.counter = 0),
+        (data.cases = guests[i]),
+        dataArr.push(data);
+    }
+    return dataArr;
+  }
+  getDefaultOptions() {
+    let category = this.$el.classList.contains("select-accomodations")
+      ? "accomodations"
+      : "guests";
+    let defaultPlaceholder = "Выберите пожалуйста элемент";
+    let defaultData;
+    let defaultInline = this.$el.classList.contains("inline") ? true : false;
+
+    const buttonsVar = [
+      { name: "buttonClear", value: "очистить" },
+      { name: "buttonSubmit", value: "применить" },
+    ];
+    let defaultButtons = false;
+
+    if (category == "accomodations") {
+      defaultPlaceholder = "Выберите удобства";
+      defaultData = this.getDefaultAccomodations();
+      defaultButtons;
+    } else {
+      defaultPlaceholder = "Сколько гостей";
+      defaultData = this.getDefaultGuests();
+      defaultButtons = buttonsVar;
+    }
+    return {
+      placeholder: defaultPlaceholder,
+      isInline: defaultInline,
+      data: defaultData,
+      buttons: defaultButtons,
+    };
+  }
+
+  mergeUserOptions(userOptions) {
+    return Object.assign(this.getDefaultOptions(), userOptions);
+  }
 }
+const getTemplate = (data, placeholder, buttons) => {
+  let $buttonContainer = ``;
+  let buttonSet = "";
+
+  // =============== buttons =================
+  if (buttons) {
+    for (let button of buttons) {
+      buttonSet += `<div class="button button-noborder select__button-${button.name}">${button.value}</div>`;
+    }
+    $buttonContainer = `<div class= "select__buttons">${buttonSet}</div>`;
+  }
+
+  const items = data.map((item) => {
+    // ============= items ======================
+    return `
+    
+      <div class="select__item select__item-${item.id}">
+      <div class="select__item-name">${item.value}</div>
+        <div class="select__item-choice">
+          <div class="select__item-minus inactive"><span>-</span></div>
+          <div class="select__item-number"><span>${item.counter}</span></div>
+          <div class="select__item-plus"><span>+</span></div>
+        </div>
+      </div>  
+    `;
+  });
+
+  // ========= dropdown =========================
+  return `
+    <div class = "select__backdrop" data-type="backdrop"></div>
+    <div class="select__input" data-type="input">
+      <span>${placeholder}</span></div>
+    <div class="select__dropdown">
+        <div class="select__items"> 
+          ${items.join("")}
+        </div>
+          ${$buttonContainer}
+  `;
+};
