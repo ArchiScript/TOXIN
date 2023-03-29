@@ -21,18 +21,9 @@ export class Select {
   }
 
   #render() {
-    const { data, placeholder, buttons, hasButtons } = this.options;
-    // const data = this.getData();
-
+    const { data, placeholder, buttons } = this.options;
     this.$el.classList.add("select");
-
-    this.$el.innerHTML = getTemplate(
-      data,
-      placeholder,
-      buttons,
-      this.isInline,
-      hasButtons
-    );
+    this.$el.innerHTML = getTemplate(data, placeholder, buttons);
   }
 
   #setup() {
@@ -40,14 +31,8 @@ export class Select {
     if (this.isInline === true) {
       this.inlineDropdown();
     }
-    if (this.$el.classList.contains("inline")) {
-      console.log(this.$el.classList.contains("inline"), this.isInline);
-      this.isInline === true;
-      console.log(this.$el.classList.contains("inline"), this.isInline);
-    }
 
     this.data = data;
-
     this.clickHandler = this.clickHandler.bind(this);
     this.$el.addEventListener("click", this.clickHandler);
     this.$items = this.$el.querySelectorAll(".select__item");
@@ -55,7 +40,8 @@ export class Select {
     this.$selectText = this.$el.querySelector(".select__input span");
     this.$buttonClear = this.$el.querySelector(".select__button-buttonClear");
     this.$buttonSubmit = this.$el.querySelector(".select__button-buttonSubmit");
-
+    const { countItems } = this.options;
+    this.countItems = countItems;
     this.buttonsClickHandler();
   }
 
@@ -85,7 +71,6 @@ export class Select {
     if (!this.$el.classList.contains("inline")) {
       this.$el.classList.add("inline");
     }
-
     this.open();
   }
 
@@ -119,8 +104,10 @@ export class Select {
       plusButton.addEventListener("click", () => {
         item.counter += 1;
         minusButton.classList.remove("inactive");
+
         itemValue.innerHTML = item.counter;
         this.$selectText.innerHTML = this.chosenUpdate();
+        this.buttonRegulator();
       });
     }
   }
@@ -140,10 +127,20 @@ export class Select {
         }
         itemValue.innerHTML = item.counter;
         this.$selectText.innerHTML = this.chosenUpdate();
+        this.buttonRegulator();
       });
     }
   }
 
+  buttonRegulator() {
+    if (this.countTotal() === 0) {
+      this.$buttonClear?.classList.add("disabled");
+      this.$buttonClear?.classList.remove("enabled");
+    } else {
+      this.$buttonClear?.classList.add("enabled");
+      this.$buttonClear?.classList.remove("disabled");
+    }
+  }
   declinedText(num, cases) {
     return num + " " + this.declineByQuan(num, cases);
   }
@@ -157,24 +154,43 @@ export class Select {
       item.querySelector(".select__item-number").innerHTML = 0;
       item.querySelector(".select__item-minus").classList.add("inactive");
     });
+    this.buttonRegulator();
   }
 
   submit() {
     this.$selectText.innerHTML = this.chosenUpdate();
-    this.close();
+    if (!this.isInline) {
+      this.close();
+    }
   }
 
-  chosenUpdate() {
+  countTotal() {
+    let total = 0;
+    for (let item of this.data) {
+      total += item.counter;
+    }
+    return total;
+  }
+  showByTotal() {
+    let num = this.countTotal();
+    if (!this.#isZero(num)) {
+      return this.declinedText(num, ["гость", "гостя", "гостей"]);
+    }
+  }
+  showByTitles() {
     let chosenArr = [];
     for (let item of this.data) {
       if (!this.#isZero(item.counter)) {
         chosenArr.push(this.declinedText(item.counter, item.cases));
       }
     }
-    if (chosenArr.length === 0) {
-      return this.options.placeholder;
-    } else {
-      return chosenArr.join(", ");
+    return chosenArr.join(", ");
+  }
+  chosenUpdate() {
+    if (this.countItems == "byTitles") {
+      return this.showByTitles() || this.options.placeholder;
+    } else if (this.countItems == "byTotalNumber") {
+      return this.showByTotal() || this.options.placeholder;
     }
   }
 
@@ -211,7 +227,7 @@ export class Select {
   print() {
     // console.log(this.getDefaultAccomodations());
     // console.log(this.getDefaultGuests());
-    console.log(this.getDefaultOptions());
+    // console.log(this.getDefaultOptions());
   }
   getDefaultGuests() {
     const guestsStart = ["взрослые", "дети", "младенцы"];
@@ -237,7 +253,7 @@ export class Select {
       ? "accomodations"
       : "guests";
     let defaultPlaceholder = "Выберите пожалуйста элемент";
-    let defaultData;
+    let defaultData, byTitle, byTotalNumber;
     let defaultInline = this.$el.classList.contains("inline") ? true : false;
 
     const buttonsVar = [
@@ -245,21 +261,24 @@ export class Select {
       { name: "buttonSubmit", value: "применить" },
     ];
     let defaultButtons = false;
-
+    let defaultCountItems = "byTitles";
     if (category == "accomodations") {
       defaultPlaceholder = "Выберите удобства";
       defaultData = this.getDefaultAccomodations();
       defaultButtons;
+      defaultCountItems;
     } else {
       defaultPlaceholder = "Сколько гостей";
       defaultData = this.getDefaultGuests();
       defaultButtons = buttonsVar;
+      defaultCountItems = "byTotalNumber";
     }
     return {
       placeholder: defaultPlaceholder,
       isInline: defaultInline,
       data: defaultData,
       buttons: defaultButtons,
+      countItems: defaultCountItems,
     };
   }
 
@@ -274,7 +293,8 @@ const getTemplate = (data, placeholder, buttons) => {
   // =============== buttons =================
   if (buttons) {
     for (let button of buttons) {
-      buttonSet += `<div class="button button-noborder select__button-${button.name}">${button.value}</div>`;
+      let disabled = button.name == "buttonClear" ? "disabled" : "";
+      buttonSet += `<div class="button button-noborder select__button-${button.name} ${disabled}">${button.value}</div>`;
     }
     $buttonContainer = `<div class= "select__buttons">${buttonSet}</div>`;
   }

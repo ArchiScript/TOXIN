@@ -2,12 +2,12 @@
 
 import "/src/components/elements/input/_input";
 import "/src/components/plugins/datepicker/_datepicker";
-import "/src/components/plugins/selectPlugin/_selectPluginInit";
 import "/src/components/elements/checkbox/_checkbox";
 import "/src/components/elements/radio/_radio";
 import "/src/components/elements/like/_like-init";
 import "/src/components/elements/range/_range";
 import "/src/components/blocks/pagination/_pagination";
+import "/src/components/plugins/selectPlugin/_selectPluginInit";
 
 // ----------CONNECTING SCSS FILES-------------
 import "/src/pages/ui-kit/ui-kit.scss";

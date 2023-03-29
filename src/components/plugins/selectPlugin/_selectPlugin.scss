@@ -131,8 +131,10 @@
     width: 100%;
     @include index.isFlex(row, space-between, center, nowrap);
    padding: 0 15px 7px 17px;
-    // @extend %h3label;
-    // color: index.$purple;
+
+  &__button-buttonClear{
+
+  }
 
   }
 
@@ -163,4 +165,8 @@
   opacity: 0.6;
   cursor: default;
 }
+}
+
+.disabled{
+visibility: hidden;
 }
