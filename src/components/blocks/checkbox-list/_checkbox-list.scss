@@ -1,0 +1,35 @@
+@use "/src/assets/common_style/index.common";
+
+.checkbox-list{
+  // position: relative;
+  @extend %sizes;
+
+&__header{
+  width: 100%;
+  padding-bottom: 1rem;
+  position: relative;
+  &::before{
+    @extend %arrow-down;
+    // transform: rotate(-45deg);
+    transition: all .2s;
+  }
+}
+&__inner{
+  width: 100%;
+  // position: absolute;
+  top: 30px;
+  
+}
+&.expanded{
+  .checkbox-list__header::before{
+    transform:rotate(-45deg);
+    
+  }
+ 
+}
+&.expanded &__inner{
+  top: -100%;
+  opacity: 0;
+  transition: all .2s;
+}
+}

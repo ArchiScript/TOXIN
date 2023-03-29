@@ -8,6 +8,7 @@ import "/src/components/elements/like/_like-init";
 import "/src/components/elements/range/_range";
 import "/src/components/blocks/pagination/_pagination";
 import "/src/components/plugins/selectPlugin/_selectPluginInit";
+import "/src/components/blocks/checkbox-list/_checkbox-list";
 
 // ----------CONNECTING SCSS FILES-------------
 import "/src/pages/ui-kit/ui-kit.scss";

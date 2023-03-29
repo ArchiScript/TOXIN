@@ -42,9 +42,13 @@ block content
             |
             |
             |
+            |
+            |
             h3.form-elements__title.elements-block-title radio buttons
             +radiobutton1("sexOptions",[{value: "Мужчина", id: 1},{value: "Женщина", id: 2}], "Мужчина")
         .form-elements__toggle-buttons.column 
+          |
+          |
           |
           |
           |
@@ -56,12 +60,16 @@ block content
           |
           |
           |
+          |
+          |
           .form-elements__elements-block.elements-block
             h3.form-elements__title.elements-block-title like button
             .form-elements__like-buttons-set.row
               +like("12","like_1","checked")
               +like("2","like_2")
         .form-elements__rating-buttons.colunn 
+          |
+          |
           |
           |
           |
@@ -80,6 +88,8 @@ block content
           |
           |
           |
+          |
+          |
           .form-elements__elements-block.elements-block.column
             h3.form-elements__title.elements-block-title buttons
             .elements-block-row
@@ -89,9 +99,13 @@ block content
               |
               |
               |
+              |
+              |
               +button({name: "button3",text: "click me", style: "bordered"})
               +button({name: "button4",text: "click me", style: "bordered", state: "focused"})
             .elements-block-row 
+              |
+              |
               |
               |
               |
@@ -108,6 +122,8 @@ block content
       |
       |
       |
+      |
+      |
       .form-elements__dropdowns.column
         +select-plugin("accomodations", "select1","dropdown", "middle")
         +select-plugin("accomodations inline","select2", "dropdown", "middle")
@@ -115,3 +131,10 @@ block content
         +select-plugin("guests inline","select3", "dropdown", "full")
       .form-elements__dropdowns.column
         +select-plugin("guests inline", "select4", "dropdown", "full")
+    .container.row 
+      |
+      .blocks-set
+        .form-elements__expandable-checkboxes.column 
+          |
+          .form-elements__elements-block.elements-block.column
+            +checkbox-list({options:[ ["Завтрак","checkbox4"], ["Письменный стол","checkbox5", "checked"], ["Стул для кормления","checkbox6", "checked"],["Кроватка","checkbox7", "checked"], ["Шампунь","checkbox9"]]})
