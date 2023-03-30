@@ -1,35 +1,39 @@
 @use "/src/assets/common_style/index.common";
 
-.checkbox-list{
-  // position: relative;
+.checkbox-list {
   @extend %sizes;
+  padding: 15px 0;
 
-&__header{
-  width: 100%;
-  padding-bottom: 1rem;
-  position: relative;
-  &::before{
-    @extend %arrow-down;
-    // transform: rotate(-45deg);
-    transition: all .2s;
+  &__header {
+    width: 100%;
+    padding-bottom: 1rem;
+    position: relative;
+
+    &::before {
+      @extend %arrow-down;
+      transform: rotate(45deg);
+      transition: all .2s;
+    }
   }
-}
-&__inner{
-  width: 100%;
-  // position: absolute;
-  top: 30px;
-  
-}
-&.expanded{
-  .checkbox-list__header::before{
-    transform:rotate(-45deg);
-    
+
+  &__inner {
+    max-height: 0px;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+    top: 30px;
+    opacity: 0;
   }
+
+  &.--expanded {
+    .checkbox-list__header::before {
+      transform: rotate(-135deg);
+      top: 5px;
  
-}
-&.expanded &__inner{
-  top: -100%;
-  opacity: 0;
-  transition: all .2s;
-}
+    }
+  }
+
+  &.--expanded &__inner {
+    opacity: 1;
+    max-height: 100vh;
+  }
 }
