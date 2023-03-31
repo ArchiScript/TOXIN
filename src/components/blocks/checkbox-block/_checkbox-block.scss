@@ -14,15 +14,15 @@
     max-height: 100vh;
     top: 30px;
   }
-  .checkbox__label-text{
-    @include index.font(fontBold,14);
+
+  .checkbox__label-text {
+    @include index.font(fontBold, 14);
     color: index.$dark-shade75;
-    
+
   }
-  .checkbox__label-subtitle{
+
+  .checkbox__label-subtitle {
     @extend %pagination-text;
     margin-top: 5px;
   }
 }
-
-

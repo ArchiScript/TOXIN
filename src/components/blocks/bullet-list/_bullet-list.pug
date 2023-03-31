@@ -1,0 +1,5 @@
+mixin bullet-list({title="bullet list", options, size= "--middle-size"}={})
+  div(class=`bullet-list ${size}`)
+    ul.bullet-list__header= title
+    each item in options
+      li.bullet-list__item= item
