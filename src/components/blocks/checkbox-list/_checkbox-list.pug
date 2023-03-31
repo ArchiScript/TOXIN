@@ -1,7 +1,7 @@
-mixin checkbox-list({title= "expandable checkbox-list", expanded,options}={},size="")
+mixin checkbox-list({title= "expandable checkbox-list", expanded,options}={},size="--middle-size")
   - let exp = expanded ? "--expanded" : "";
-  div(class=`checkbox-list --middle-size ${exp}`)
+  div(class=`checkbox-list ${size} ${exp}`)
     h3.checkbox-list__header= title
     .checkbox-list__inner
       each item in options 
-        +checkbox(item[0],item[1],item[2])
+        +checkbox(item[0],item[1],item[2],item[3])

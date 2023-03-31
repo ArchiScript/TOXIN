@@ -1,0 +1,6 @@
+mixin checkbox-block({title= "rich checkbox buttons", options}={},size="--middle-size")
+  div(class=`checkbox-block ${size}`)
+    h3.checkbox-block__header= title
+    .checkbox-block__inner
+      each item in options 
+        +checkbox(item[0],item[1],item[2],item[3])

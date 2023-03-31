@@ -1,0 +1,28 @@
+@use "/src/assets/common_style/index.common";
+
+.checkbox-block {
+  @extend %sizes;
+  padding: 15px 0;
+
+  &__header {
+    width: 100%;
+    padding-bottom: 1rem;
+    position: relative;
+  }
+
+  &__inner {
+    max-height: 100vh;
+    top: 30px;
+  }
+  .checkbox__label-text{
+    @include index.font(fontBold,14);
+    color: index.$dark-shade75;
+    
+  }
+  .checkbox__label-subtitle{
+    @extend %pagination-text;
+    margin-top: 5px;
+  }
+}
+
+
