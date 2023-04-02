@@ -1,0 +1,7 @@
+mixin media-block({direction= "horizontal", size="--middle-size", media={}, title="Media-block title",description="Media-block description" }={})
+  div(class=`media-block media-block-${direction} ${size}`)
+    .media-block__media
+      +image(media.imgName,media.alt)
+    .media-block__text
+      .media-block__title= title
+      .media-block__description= description

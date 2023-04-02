@@ -1,0 +1,36 @@
+@use "/src/assets/common_style/_index.common" ;
+
+.media-block{
+  @include index.isFlex(row,flex-start,flex-start,nowrap);
+  @extend %sizes;
+  position: relative;
+  padding: 20px 0 ;
+
+  &__media{
+    height: 100%;
+    padding-top: 4px; 
+  }
+  &__text{
+    @include index.isFlex(column,flex-start,flex-start,nowrap);
+    margin-left: 10px;
+    line-height: 24px;
+  }
+  &__title{
+    @include index.font(fontBold,14);
+    color: index.$dark-shade75;
+  }
+  &__description{
+    flex-wrap: wrap;
+    @include index.font(fontRegular,14);
+    color: index.$dark-shade75;
+  }
+  &::after{
+    position: absolute;
+    width:100%;
+    content: "";
+    height: 1px;
+    background: rgba(31, 32, 65, 0.1);
+    bottom: 0;
+    left: 0;
+  }
+}

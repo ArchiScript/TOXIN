@@ -195,6 +195,12 @@ module.exports = {
             .resolve(__dirname, "dist/assets/favicons")
             .replace(/\\/g, "/"),
         },
+        // {
+        //   from: path
+        //     .resolve(__dirname, "src/assets/images")
+        //     .replace(/\\/g, "/"),
+        //   to: path.resolve(__dirname, "dist/assets/images").replace(/\\/g, "/"),
+        // },
       ],
     }),
   ],
