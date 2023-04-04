@@ -1,0 +1,14 @@
+mixin comment({avatarImage={},title="Name Surname",published,likes={},message="Comment main text", size="--double-size"}={})
+  div(class=`comment ${size}`)
+    .comment__author
+      .comment__image
+        +image(avatarImage.imgName,avatarImage.alt) 
+      .comment__like
+        +like(likes.num, likes.id, likes.checkedValue) 
+    .comment__text 
+      |
+      .comment__title-block 
+        |
+        .comment__title= title
+        .comment__published= published
+      .comment__message= message

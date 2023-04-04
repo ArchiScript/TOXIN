@@ -25,6 +25,7 @@ h3 {
 
 .row {
   @include m.isFlex(row, space-between, flex-start, nowrap);
+  width: 100%;
 }
 
 .row-start {
@@ -36,7 +37,14 @@ h3 {
   width: 27,59%;
 
 }
-
+.column-3{
+  @include m.isFlex(column, flex-start, space-between, nowrap);
+  width: $full-input-width;
+}
+.column-double{
+  @include m.isFlex(column, flex-start, space-between, nowrap);
+  width: $double-input-width;
+}
 .column-center {
   @include m.isFlex(column, flex-start, center, nowrap);
 }
@@ -44,6 +52,8 @@ h3 {
 .elements-block {
   @include m.isFlex(column,flex-start,flex-start,nowrap);
   padding: 20px 0;
+  // width: 100%;
+
 }
 .elements-block-title{
   width: 100%;

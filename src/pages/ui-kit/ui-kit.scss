@@ -98,10 +98,18 @@ body{min-height: 100%;}
   // margin-top: 25px;
 }
 .blocks-set{
-  
+// width: 100%;
   padding-top: 20px;
 }
 .form-elements__rich-checkboxes,
 .form-elements__bullet-list{
   width: index.$full-input-width;
+}
+.form-elements__info{
+  width: 320px;
+  flex: 0 0 auto;
+}
+.form-elements__comment{
+  width: 63.7%;
+  flex: 0 1 auto;
 }

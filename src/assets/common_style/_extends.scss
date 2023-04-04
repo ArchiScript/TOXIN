@@ -49,6 +49,10 @@
   @include font(fontRegular,12);
   color: $dark-shade50;
 }
+%control-item-title{
+  @include font(fontBold,14);
+  color: $dark-shade75;
+}
 
 %inputForm {
   position: relative;
@@ -79,7 +83,7 @@
 
 %sizes{
   &.--full-size {
-    width: $full-input-width
+    width: $full-input-width;
   }
 
   &.--middle-size {
@@ -88,6 +92,10 @@
 
   &.--half-size {
     width: $half-input-width;
+  }
+  &.--double-size {
+    width: $double-input-width;
+   
   }
 }
 
@@ -217,3 +225,4 @@
     width: 99px;
     height: 44px;
   }
+

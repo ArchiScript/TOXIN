@@ -20,7 +20,7 @@ block content
         +card-simple("Body", "This is the body text which is used for most of the design, like paragraphs, lists, etc.", "colors-type__type")
   section.form-elements
     .container.row
-      .form-elements__inputs.column
+      .form-elements__inputs.column-3
         +input("Email", "text field", "Email", "email", "full")
         +input("text", "text field", "This is pretty awesome", "text","full")
         +select-plugin("guests","select0", "dropdown", "full")
@@ -30,8 +30,8 @@ block content
           +datepicker("text","date dropdown","ДД.ММ.ГГГГ","3")
         +filter-datepicker("text","filter date dropdown","ДД.ММ.ГГГГ","3")
         +input("text", "subscription text field", "Email", "subscription","middle")
-      .form-elements__selection-controls.column
-        .form-elements__checkbox-buttons.column
+      .form-elements__selection-controls.column-3
+        .form-elements__checkbox-buttons
           .form-elements__elements-block.elements-block
             h3.form-elements__title.elements-block-title checkbox buttons
             +checkbox("Можно курить","checkbox1") 
@@ -52,37 +52,24 @@ block content
             |
             |
             |
+            |
+            |
+            |
+            |
+            |
+            |
+            |
+            |
+            |
+            |
             h3.form-elements__title.elements-block-title radio buttons
             +radiobutton1("sexOptions",[{value: "Мужчина", id: 1},{value: "Женщина", id: 2}], "Мужчина")
-        .form-elements__toggle-buttons.column 
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
+        .form-elements__toggle-buttons
           .form-elements__elements-block.elements-block
             h3.form-elements__title.elements-block-title toggle
             +toggle("Получать спецпредложения","toggle1","checked")
             +toggle("Получать спецпредложения","toggle2")
-        .form-elements__like-buttons.column 
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
+        .form-elements__like-buttons
           |
           |
           |
@@ -91,7 +78,16 @@ block content
             .form-elements__like-buttons-set.row
               +like("12","like_1","checked")
               +like("2","like_2")
-        .form-elements__rating-buttons.colunn 
+        .form-elements__rating-buttons 
+          |
+          |
+          |
+          |
+          |
+          |
+          |
+          |
+          |
           |
           |
           |
@@ -111,7 +107,7 @@ block content
               +rating({name: "rating1", value: 2, max: 5})
               +rating({name: "rating2", value: 5, max: 5})
 
-      .form-elements__buttons.column
+      .form-elements__buttons.column-3
         .form-elements__range-slider
           .form-elements__elements-block.elements-block
             h3.form-elements__title.elements-block-title range slider
@@ -130,12 +126,38 @@ block content
           |
           |
           |
-          .form-elements__elements-block.elements-block.column
+          |
+          |
+          |
+          |
+          |
+          |
+          |
+          |
+          |
+          |
+          |
+          |
+          |
+          .form-elements__elements-block.elements-block.column-3
             h3.form-elements__title.elements-block-title buttons
             .elements-block-row
               +button({name: "button1",text: "click me", style: "filled"})
               +button({name: "button2",text: "click me", style: "filled", state: "focused"})
             .elements-block-row 
+              |
+              |
+              |
+              |
+              |
+              |
+              |
+              |
+              |
+              |
+              |
+              |
+              |
               |
               |
               |
@@ -165,11 +187,24 @@ block content
               |
               |
               |
+              |
+              |
+              |
+              |
+              |
+              |
+              |
+              |
+              |
+              |
+              |
+              |
+              |
               +button({name: "button5",text: "click me", style: "noborder"})
               +button({name: "button6",text: "click me", style: "noborder",state: "focused"})
             .elements-block-row--end
               +button({name: "button7",text: "перейти к оплате", style: "filled",size: "full-size", hasarrow: true})
-          .form-elements__elements-block.elements-block.column
+          .form-elements__elements-block.elements-block.column-3
             h3.form-elements__title.elements-block-title pagination
             .elements-block-row
               +pagination
@@ -188,12 +223,21 @@ block content
       |
       |
       |
-      .form-elements__dropdowns.column
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      .form-elements__dropdowns.column-3
         +select-plugin("accomodations", "select1","dropdown", "middle")
         +select-plugin("accomodations inline","select2", "dropdown", "middle")
-      .form-elements__dropdowns.column
+      .form-elements__dropdowns.column-3
         +select-plugin("guests inline","select3", "dropdown", "full")
-      .form-elements__dropdowns.column
+      .form-elements__dropdowns.column-3
         +select-plugin("guests inline", "select4", "dropdown", "full")
     .container.row 
       |
@@ -209,8 +253,17 @@ block content
       |
       |
       |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
       .blocks-set
-        .form-elements__expandable-checkboxes.column 
+        .form-elements__expandable-checkboxes.column-3 
           |
           |
           |
@@ -224,59 +277,38 @@ block content
           |
           |
           |
-          .form-elements__elements-block.elements-block.column
+          |
+          |
+          |
+          |
+          |
+          |
+          |
+          |
+          |
+          .form-elements__elements-block.elements-block
             +checkbox-list({options:[ ["Завтрак","checkbox4"], ["Письменный стол","checkbox5", "checked"], ["Стул для кормления","checkbox6", "checked"],["Кроватка","checkbox7", "checked"], ["Шампунь","checkbox8"]]})
             +checkbox-list({expanded:"true",options:[ ["Завтрак","checkbox9"], ["Письменный стол","checkbox10", "checked"], ["Стул для кормления","checkbox11", "checked"],["Кроватка","checkbox12", "checked"], ["Шампунь","checkbox13"]]})
       .blocks-set
-        .form-elements__rich-checkboxes.column 
+        .form-elements__rich-checkboxes.column-3 
           |
           |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          .form-elements__elements-block.elements-block.column
+          .form-elements__elements-block.elements-block
             +checkbox-block({options:[["Широкий коридор","checkbox14",false,"Ширина коридоров в номере не менее 91 см."],["Помощник для инвалидов","checkbox15",false,"На 1 этаже вас встретит специалист и проводит до номера."]]})
       .blocks-set
-        .form-elements__bullet-list.column 
+        .form-elements__bullet-list.column-3 
           |
           |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          .form-elements__elements-block.elements-block.column
+          .form-elements__elements-block.elements-block
             +bullet-list({options:["Нельзя с питомцами", "Без вечеринок и мероприятий","Время прибытия — после 13:00, а выезд до 12:00"]})
     .container.row 
       |
       |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
-      .blocks-set
-        .form-elements__info.column
-          .form-elements__elements-block.elements-block.column
-            +media-block({media:{imgName: "emoticon", alt: "Комфорт"}, title: "Комфорт",description: "Шумопоглощающие стены"})
-            +media-block({media:{imgName: "location_city", alt: "Удобство"}, title: "Удобство",description: "Окно в каждой из спален"})
+      .form-elements__info
+        .form-elements__elements-block.elements-block
+          +media-block({media:{imgName: "emoticon", alt: "Комфорт"}, title: "Комфорт",description: "Шумопоглощающие стены"})
+          +media-block({media:{imgName: "location_city", alt: "Удобство"}, title: "Удобство",description: "Окно в каждой из спален"})
+
+      .form-elements__comment
+        .form-elements__elements-block.elements-block
+          +comment({avatarImage: {imgName: "avatar-comment", alt: "avatar image"}, title: "Мурад Сарафанов", published: "5 дней назад", likes: {num:"12", id: "avatar1", checkedValue: true},message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."})
