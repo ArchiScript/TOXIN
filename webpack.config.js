@@ -27,7 +27,11 @@ const componentsBundles = globule.find([
 // ---------- Adding bundle and searchfile to array -------
 componentsBundles.forEach(function (bundle) {
   componentsWriteFiles.push(
-    bundle + "," + bundle.split("/").slice(0, 3).join("/").concat("/**/_*.pug")
+    bundle +
+      "," +
+      bundle.split("/").slice(0, 3).join("/").concat("/**/_*.pug") +
+      "," +
+      path.parse(bundle).dir.split("/").pop()
   );
 });
 
@@ -36,13 +40,22 @@ componentsWriteFiles.forEach(function (fileSet, index) {
   let fileSetArr = fileSet.split(",");
   let bundleFile = fileSetArr[0];
   let searchMixinFile = fileSetArr[1];
+  let bundleFileName = fileSetArr[2];
   console.log(
-    `${index} FileSetArr = ${fileSetArr} \n bundleFile = ${bundleFile} \n searchMixinFile = ${searchMixinFile}`
+    `${index} FileSetArr = ${fileSetArr} \n bundleFile = ${bundleFile} \n searchMixinFile = ${searchMixinFile} \n bundleFileName = ${bundleFileName}`
   );
   let bundleMixins = globule
     .find(searchMixinFile)
-    .map((path) => path.split("/").slice(-2).join("/").split(".").slice(0, -1))
+    .map((path) =>
+      path
+        .split("/")
+        .slice(path.split("/").indexOf(bundleFileName) + 1) //--3
+        .join("/")
+        .split(".")
+        .slice(0, -1)
+    )
     .reduce((acc, currentItem) => acc + `include ${currentItem}\n`, ``);
+
   console.log(`Mixins found .. \n  ${bundleMixins}`);
 
   // -------- Writing mixins to bundle files -----------

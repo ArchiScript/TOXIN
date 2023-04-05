@@ -1,0 +1,13 @@
+@use "/src/assets/common_style/index.common";
+
+.form-elements__comments{
+  width: 100%;
+}
+.form-elements__info-comment{
+  width:index.$full-input-width;
+  flex: 0 0 auto;
+}
+.form-elements__feedback-comment{
+  width: 63.9%;
+  flex: 0 1 auto;
+}

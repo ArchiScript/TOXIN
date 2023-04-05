@@ -1,0 +1,13 @@
+@use "/src/assets/common_style/index.common";
+
+.form-elements__date-dropdowns.row{
+  justify-content: space-between;
+  margin-top: 0;
+}
+.form-elements__dropdowns{
+  padding-top: 80px;
+  @extend %elements-gap;
+}
+// .form-elements__selection-controls{
+//   margin-top: 25px;
+// }

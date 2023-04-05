@@ -8,13 +8,20 @@
     @include index.isFlex(column, flex-start, flex-end, nowrap);
   }
   &__image{
-
+position: relative;
   margin-bottom: 20px;
    height: 56px;
-   width: 83px;
-   margin-bottom:10px ;
+  //  width: 83px;
+  width: 70px;
+   margin-bottom:15px ;
    margin-right: 0;
    background-position: center center;
+ 
+   img{
+    position: absolute;
+    top: 0;
+    left:-10px;
+   }
   }
  &__like{
   width: 40px;

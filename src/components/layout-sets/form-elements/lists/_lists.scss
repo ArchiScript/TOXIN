@@ -1,0 +1,9 @@
+@use "/src/assets/common_style/index.common";
+
+.form-elements__lists{
+  width: 100%;
+}
+.form-elements__rich-checkboxes,
+.form-elements__bullet-list{
+  width: index.$full-input-width;
+}

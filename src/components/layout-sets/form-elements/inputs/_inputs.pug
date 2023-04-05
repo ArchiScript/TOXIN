@@ -1,0 +1,11 @@
+mixin inputs
+  .form-elements__inputs.column-3
+    +input("Email", "text field", "Email", "email", "full")
+    +input("text", "text field", "This is pretty awesome", "text","full")
+    +select-plugin("guests","select0", "dropdown", "full")
+    +input("date", "masked text field", "","masked-date","full")
+    .form-elements__date-dropdowns.row
+      +datepicker("text","date dropdown","ДД.ММ.ГГГГ","2")
+      +datepicker("text","date dropdown","ДД.ММ.ГГГГ","3")
+    +filter-datepicker("text","filter date dropdown","ДД.ММ.ГГГГ","3")
+    +input("text", "subscription text field", "Email", "subscription","middle")

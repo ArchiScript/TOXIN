@@ -1,0 +1,18 @@
+mixin lists
+  .form-elements__lists.row
+    .blocks-set
+      .form-elements__expandable-checkboxes.column-3 
+        |
+        .form-elements__elements-block.elements-block
+          +checkbox-list({options:[ ["Завтрак","checkbox4"], ["Письменный стол","checkbox5", "checked"], ["Стул для кормления","checkbox6", "checked"],["Кроватка","checkbox7", "checked"], ["Шампунь","checkbox8"]]})
+          +checkbox-list({expanded:"true",options:[ ["Завтрак","checkbox9"], ["Письменный стол","checkbox10", "checked"], ["Стул для кормления","checkbox11", "checked"],["Кроватка","checkbox12", "checked"], ["Шампунь","checkbox13"]]})
+    .blocks-set
+      .form-elements__rich-checkboxes.column-3 
+        |
+        .form-elements__elements-block.elements-block
+          +checkbox-block({options:[["Широкий коридор","checkbox14",false,"Ширина коридоров в номере не менее 91 см."],["Помощник для инвалидов","checkbox15",false,"На 1 этаже вас встретит специалист и проводит до номера."]]})
+    .blocks-set
+      .form-elements__bullet-list.column-3 
+        |
+        .form-elements__elements-block.elements-block
+          +bullet-list({options:["Нельзя с питомцами", "Без вечеринок и мероприятий","Время прибытия — после 13:00, а выезд до 12:00"]})
