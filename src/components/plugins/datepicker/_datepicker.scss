@@ -1,9 +1,10 @@
 @use "/src/assets/common_style/index.common";
-
-.date-dropdown-container {
+@use "/src/components/elements/button/button";
+.date-dropdown {
   position: relative;
   width: index.$half-input-width;
-
+  margin-top: 20px;
+  
   input {
     @extend %inputForm;
     width: inherit;
@@ -13,14 +14,22 @@
     @extend %arrow-down;
   }
 }
-
-
-.air-datepicker-button,
-.datepicker-custom-button {
-  @extend %h3label;
-  color: index.$purple;
-
+.filter-date-dropdown{
+  @extend %sizes;
+  margin-top: 20px;
 }
+ 
+.air-datepicker-button,
+.datepicker-custom-button{
+  
+  @extend %h3label ;
+  color: index.$purple !important;
+ &:hover{
+  background-color: transparent;
+  color: index.$dark-shade50 !important;
+  }
+}
+
 
 .air-datepicker-buttons {
   @include index.isFlex(row, space-between);
@@ -62,9 +71,9 @@
   padding: 0 20px;
 }
 
-.filter-date-dropdown-container {
+.filter-date-dropdown {
   position: relative;
-  width: index.$middle-input-width;
+  // width: index.$middle-input-width;
 
   input {
     @extend %inputForm;
@@ -134,7 +143,7 @@
 }
 .air-datepicker-cell.-day-.-selected-{
   border-radius: 50%;
-  background: index.$datepicker-date-current;
+  background: index.$datepicker-date-from-to;
   color: white;
 }
 

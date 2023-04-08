@@ -2,6 +2,7 @@
 
 .select-plugin {
   @include index.isFlex(row, flex-start, flex-start, nowrap);
+  margin-top: 20px;
 }
 
 .select-plugin__wrap {

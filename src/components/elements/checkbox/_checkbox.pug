@@ -1,9 +1,11 @@
-mixin checkbox(label, id,checked,subtitle)
+mixin checkbox({label,subtitle,checked}={})
+  - mixinCount++;
+  - let gId = `checkbox-el-${mixinCount}`;
   - let sub = subtitle ? subtitle : null;
   - let ch = checked ? checked : "";
     .checkbox
-      label.checkbox__label(for=id)
-        input(type="checkbox", id=id, name=id, checked=checked)
+      label.checkbox__label(for=gId)
+        input(type="checkbox", id=gId, name=gId, checked=checked)
         span.checkbox__checkmark
         .checkbox__label-text= label
           span.checkbox__label-subtitle= sub

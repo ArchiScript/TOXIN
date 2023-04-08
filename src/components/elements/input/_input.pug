@@ -1,6 +1,9 @@
-mixin input(type ,label, placehld, inputId, size)
-  div(class=`input-container input-container-${inputId} --${size}-size`)
-    label(for=label)= label
+mixin input(type, label, placehld,size)
+  - mixinCount++;
+  - if (!label) label == "";
+
+  div(class=`input-container --${size}-size`)
+    label(for=inputId)= label
     br
     - let inputTypeClass = `input-container__${type.toLowerCase()}-input`;
     input(
@@ -8,6 +11,5 @@ mixin input(type ,label, placehld, inputId, size)
       placeholder=placehld,
       name=`${type.toLowerCase()}-input`,
       class=inputTypeClass,
-      id=inputId
+      id=`input-el-${mixinCount}`
     )
-//-// div(class=`input-container__${inputId}-shell`)

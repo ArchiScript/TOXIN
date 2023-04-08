@@ -3,5 +3,5 @@ mixin checkbox-list({title= "expandable checkbox-list", expanded,options}={},siz
   div(class=`checkbox-list ${size} ${exp}`)
     h3.checkbox-list__header= title
     .checkbox-list__inner
-      each item in options 
-        +checkbox(item[0],item[1],item[2],item[3])
+      each i in options 
+        +checkbox({label:i.label,subtitle:i.subtitle,checked:i.checked})

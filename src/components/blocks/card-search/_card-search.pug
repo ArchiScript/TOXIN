@@ -1,0 +1,14 @@
+mixin card-search({title= "Найдём номера под ваши пожелания", options}={})
+  .card.card-search
+    .card-search__inner
+      .card__title.card-search__title= title
+      .card-search__form
+        form
+          .card-search__date-dropdowns.row 
+            |
+            +datepicker("прибытие","ДД.ММ.ГГГГ")
+            +datepicker("выезд","ДД.ММ.ГГГГ")
+          .card-search__guests-dropdown 
+            |
+            +select-plugin("guests", "гости", "full")
+            +button({name: "button",text: "подобрать номера", style: "filled",size: "full-size", hasarrow: true})

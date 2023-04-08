@@ -3,29 +3,30 @@ mixin selection-controls
     .form-elements__checkbox-buttons
       .form-elements__elements-block.elements-block
         h3.form-elements__title.elements-block-title checkbox buttons
-        +checkbox("Можно курить","checkbox1") 
-        +checkbox("Можно с питомцами","checkbox2", "checked") 
-        +checkbox("Можно пригласить гостей (до 10 человек)","checkbox3") 
+        +checkbox({label:"Можно курить"}) 
+        +checkbox({label:"Можно с питомцами", checked:true}) 
+        +checkbox({label:"Можно пригласить гостей (до 10 человек)"}) 
     .form-elements__radio-buttons.column
       .form-elements__elements-block.elements-block 
         |
+        |
         h3.form-elements__title.elements-block-title radio buttons
-        +radiobutton1("sexOptions",[{value: "Мужчина", id: 1},{value: "Женщина", id: 2}], "Мужчина")
+        +radiobutton({name: "sex",options:[{value: "Мужчина",id:1},{value: "Женщина",id:2}], checkedValue:"Мужчина"})
     .form-elements__toggle-buttons
       .form-elements__elements-block.elements-block
         h3.form-elements__title.elements-block-title toggle
-        +toggle("Получать спецпредложения","toggle1","checked")
-        +toggle("Получать спецпредложения","toggle2")
+        +toggle({label:"Получать спецпредложения",checked:true})
+        +toggle({label:"Получать спецпредложения"})
     .form-elements__like-buttons
       .form-elements__elements-block.elements-block
         h3.form-elements__title.elements-block-title like button
         .form-elements__like-buttons-set.row
-          +like("12","like_1","checked")
-          +like("2","like_2")
+          +like({count:"12",checked:true})
+          +like({count:"2",checked:false})
     .form-elements__rating-buttons 
       |
       .form-elements__elements-block.elements-block
         h3.form-elements__title.elements-block-title rate button
         .form-elements__rate-buttons.row
-          +rating({name: "rating1", value: 2, max: 5})
-          +rating({name: "rating2", value: 5, max: 5})
+          +rating({value: 2, max: 5})
+          +rating({value: 5, max: 5})

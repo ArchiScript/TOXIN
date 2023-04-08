@@ -1,0 +1,16 @@
+
+mixin color-sample(title, subtitle, colorName)
+  - let classlist = `color-sample__color color-sample__color-${colorName}`;
+  .color-sample
+    div(class=classlist)
+    .color-sample__title= title
+      .color-sample__subtitle= subtitle
+
+
+mixin type-sample(tag, text, parentclass)
+  - let classlist = `${parentclass}-sample`;
+  div(class=classlist)
+    div(class=parentclass + "-tag")= tag
+    div(class=parentclass + "-text")= text
+
+

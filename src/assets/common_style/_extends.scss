@@ -10,8 +10,9 @@
 }
 
 %h1title {
-  // @include m.font(fontBold, 24);
+
   @include font(fontBold, 24);
+  color: $dark-shade100;
 }
 
 %h2title {

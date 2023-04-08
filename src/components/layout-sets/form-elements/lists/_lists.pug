@@ -4,13 +4,13 @@ mixin lists
       .form-elements__expandable-checkboxes.column-3 
         |
         .form-elements__elements-block.elements-block
-          +checkbox-list({options:[ ["Завтрак","checkbox4"], ["Письменный стол","checkbox5", "checked"], ["Стул для кормления","checkbox6", "checked"],["Кроватка","checkbox7", "checked"], ["Шампунь","checkbox8"]]})
-          +checkbox-list({expanded:"true",options:[ ["Завтрак","checkbox9"], ["Письменный стол","checkbox10", "checked"], ["Стул для кормления","checkbox11", "checked"],["Кроватка","checkbox12", "checked"], ["Шампунь","checkbox13"]]})
+          +checkbox-list({options:[ {label:"Завтрак"}, {label:"Письменный стол", checked:true}, {label:"Стул для кормления", checked:true},{label:"Кроватка", checked:true}, {label:"Шампунь"}]})
+          +checkbox-list({expanded:"true",options:[ {label:"Завтрак"}, {label: "Письменный стол", checked:true}, {label:"Стул для кормления",checked:true},{label:"Кроватка", checked:true}, {label:"Шампунь"}]})
     .blocks-set
       .form-elements__rich-checkboxes.column-3 
         |
         .form-elements__elements-block.elements-block
-          +checkbox-block({options:[["Широкий коридор","checkbox14",false,"Ширина коридоров в номере не менее 91 см."],["Помощник для инвалидов","checkbox15",false,"На 1 этаже вас встретит специалист и проводит до номера."]]})
+          +checkbox-block({options:[{label:"Широкий коридор",subtitle:"Ширина коридоров в номере не менее 91 см."},{label:"Помощник для инвалидов",subtitle:"На 1 этаже вас встретит специалист и проводит до номера."}]})
     .blocks-set
       .form-elements__bullet-list.column-3 
         |

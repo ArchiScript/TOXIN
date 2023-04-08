@@ -1,0 +1,33 @@
+mixin card-reg({title= "Регистрация аккаунта", options}={})
+  .card.card-reg 
+    |
+    .card-reg__inner 
+      |
+      .card__title.card-reg__title= title
+      form.card-reg__form
+        .card-reg__input-name 
+          |
+          +input("text","" , "имя", "full")
+        .card-reg__input-surname
+          +input("text","", "фамилия","full")
+        .card-reg__sex-radio
+          +radiobutton({options:[{value: "Мужчина", id: 1},{value: "Женщина", id: 2}],checkedValue: "Мужчина"})
+        .card-reg__birthdate
+          +datepicker("дата рождения","ДД.ММ.ГГГГ")
+      .card-reg__signin-fields 
+        |
+        .card-reg__email 
+          |
+          +input("Email", "данные для входа в сервис", "Email", "email", "full")
+        .card-reg__password
+          +input("password", "", "Пароль", "pass", "full")
+        .card-reg__specials 
+          |
+          +toggle("Получать спецпредложения","toggle3")
+      .card-reg__button 
+        |
+        +button({name: "button",text: "перейти к оплате", style: "filled",size: "full-size", hasarrow: true})
+      .card-reg__footer Уже есть аккаунт на Toxin
+        .card-reg__signin-button 
+          |
+          +button({name: "button",text: "войти", style: "bordered"})

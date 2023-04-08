@@ -34,7 +34,7 @@ h3 {
 
 .column {
   @include m.isFlex(column, flex-start, space-between, nowrap);
-  width: 27,59%;
+  // width: 27,59%;
 
 }
 .column-3{
@@ -63,4 +63,16 @@ h3 {
   @include m.isFlex(row,flex-start,flex-start,nowrap);
   padding: 0 0 30px 0;
   &--end{padding: 0 20px 0 0;}
+}
+.card{
+  margin: 20px 0;
+  width: 380px;
+  padding: 40px 30px 30px 30px;
+
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  &__title{
+    @extend %h1title;
+  }
 }

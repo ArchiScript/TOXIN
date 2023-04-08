@@ -1,5 +1,10 @@
-mixin like(likesNum, id, checkedValue)
+mixin like({count, checked}={})
+  - mixinCount++;
   .like
-    label.like__label(for=id)
-      input.like__input.icon-heart-o(type="checkbox", checked=checkedValue)
-      span.like__number= likesNum
+    label.like__label(for=`like-el-${mixinCount}`)
+      input.like__input.icon-heart-o(
+        type="checkbox",
+        checked=checked,
+        id=`like-el-${mixinCount}`
+      )
+      span.like__number= count

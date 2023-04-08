@@ -7,6 +7,7 @@ include ../../components/layout-sets/layout-sets.pug
 block title
   title TOXIN UI-KIT
 block content
+  - var mixinCount = 0;
   +header-ui
   section.colors-type
     .container.row
@@ -26,3 +27,10 @@ block content
     .container.row 
       |
       +comments
+  section.cards 
+    |
+    .container.row 
+      |
+      .cards__column.column
+        +card-search
+        +card-reg

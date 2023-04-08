@@ -4,7 +4,7 @@ mixin comment({avatarImage={},title="Name Surname",published,likes={},message="C
       .comment__image
         +image(avatarImage.imgName,avatarImage.alt) 
       .comment__like
-        +like(likes.num, likes.id, likes.checkedValue) 
+        +like({count:likes.count, checked:likes.checked}) 
     .comment__text 
       |
       .comment__title-block 

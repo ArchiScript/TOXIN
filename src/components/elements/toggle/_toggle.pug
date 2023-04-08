@@ -1,7 +1,14 @@
-mixin toggle(label, id, checkedValue)
+mixin toggle({label, checked}={})
+  - mixinCount++;
   .toggle 
     |
-    label.toggle__label(for=id)
-      input.toggle__input(type="checkbox", name=id, id=id, checked=checkedValue)
+    |
+    label.toggle__label(for=`toggle-el-${mixinCount}`)
+      input.toggle__input(
+        type="checkbox",
+        name=`toggle-el-${mixinCount}`,
+        id=`toggle-el-${mixinCount}`,
+        checked=checked
+      )
       span.toggle__slider
       span.toggle__label-text= label

@@ -1,0 +1,61 @@
+@use "/src/assets/common_style/_index.common" ;
+
+.color-sample {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 0 10px 0;
+
+  &__color {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    color: rgba(31, 32, 65);
+  }
+
+  &__title {
+    color: rgba(31, 32, 65);
+    @include index.isFlex(column, center, flex-start);
+    @extend %fontBold;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 146%;
+    margin-left: 40px;
+
+  }
+
+  &__subtitle {
+    @extend %fontRegular;
+    font-weight: normal;
+    font-size: 19px;
+    display: block;
+    text-align: left;
+  }
+
+  &__color-primary-100 {
+    background-color: rgba(31, 32, 65);
+  }
+
+  &__color-primary-75 {
+    background-color: rgba(31, 32, 65, .75);
+  }
+
+  &__color-primary-50 {
+    background-color: rgba(31, 32, 65, .5);
+  }
+
+  &__color-primary-25 {
+    background-color: rgba(31, 32, 65, .25);
+  }
+
+  &__color-primary-5 {
+    background-color: rgba(31, 32, 65, .05);
+  }
+
+  &__color-Purple {
+    background-color: #BC9CFF;
+  }
+
+  &__color-Green {
+    background-color: #6FCF97;
+  }
+}

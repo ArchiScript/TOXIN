@@ -1,25 +1,27 @@
-mixin datepicker(type ,label, placehld, inputId)
-  .date-dropdown-container
+mixin datepicker(label, placehld,size="--middle-size")
+  - mixinCount++;
+  div(class=`date-dropdown ${size}`)
     label(for=label)= label
     br
-    - let inputTypeClass = `date-dropdown-container__datepicker`;
-    - let compoundId = `datepicker` + inputId;
+    - let inputTypeClass = `date-dropdown__input`;
+    - let compoundId = `datepicker-el-${mixinCount}`;
     input(
-      type=type,
+      type="text",
       placeholder=placehld,
       name=label,
       class=inputTypeClass,
       id=compoundId
     )
 
-mixin filter-datepicker(type,label,placehld,inputId)
-  .filter-date-dropdown-container
+mixin filter-datepicker(label,placehld,inputId,size="--middle-size")
+  - mixinCount++;
+  div(class=`filter-date-dropdown ${size}`)
     label(for=label)= label
     br
-    - let inputTypeClass = `date-dropdown-container__datepicker`;
-    - let compoundId = `datepicker` + inputId;
+    - let inputTypeClass = `filter-date-dropdown__input`;
+    - let compoundId = `filterdatepicker-el-${mixinCount}`;
     input(
-      type=type,
+      type="text",
       placeholder=placehld,
       name=label,
       class=inputTypeClass,

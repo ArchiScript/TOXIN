@@ -1,8 +1,10 @@
-mixin select(selectId,label,name, ...options)
+mixin select(label,name, ...options)
+  - mixinCounter++;
   .select-container
-    label(for=selectId)= label
+    label(for=`el-${mixinCount}`)= label
     br
-    select(id=`${selectId}`, name=name) 
+    select(id=`el-${mixinCount}`, name=name) 
+      |
       |
       |
       each item in options

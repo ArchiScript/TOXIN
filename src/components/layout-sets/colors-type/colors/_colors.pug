@@ -1,5 +1,5 @@
 mixin colors
   .colors-type__colors
-    - let objarr = [{text: "Dark Shade 100%", color:"#1F2041", colorName: "Dark_Shade_100"},{text: "Dark Shade 75%", color: "#1F2041", colorName: "Dark_Shade_75"},{text: "Dark Shade 50%", color: "#1F2041", colorName: "Dark_Shade_50"},{text: "Dark Shade 25%", color: "#1F2041", colorName: "Dark_Shade_25"},{text: "Dark Shade 5%", color: "#1F2041", colorName: "Dark_Shade_5"},{text: "Purple", color: "#BC9CFF", colorName: "Purple"},{text: "Green", color: "#6FCF97", colorName:"Green"}]
-    each i in objarr 
-      +card-horizontal(i.text, i.color, i.colorName)
+    - let objarr1 = [{title: "Dark Shade 100", subtitle:"#1F2041", colorName: "primary-100"},{title: "Dark Shade 75%", subtitle: "#1F2041", colorName: "primary-75"},{title: "Dark Shade 50%", subtitle: "#1F2041", colorName: "primary-50"},{title: "Dark Shade 25%", subtitle: "#1F2041", colorName: "primary-25"},{title: "Dark Shade 5%", subtitle: "#1F2041", colorName: "primary-5"},{title: "Purple", subtitle: "#BC9CFF", colorName: "Purple"},{title: "Green", subtitle: "#6FCF97", colorName:"Green"}]
+    each k in objarr1 
+      +color-sample(k.title, k.subtitle, k.colorName)
