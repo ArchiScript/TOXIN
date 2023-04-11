@@ -59,11 +59,12 @@
   position: relative;
   height: $input-height;
   border-radius: 4px;
-  margin-top: 5px;
+  // margin-top: 5px;
   background: #FFFFFF;
   border: 1px solid $dark-shade25;
   padding: 10px 30px 10px 15px;
   @extend %bodyText;
+  cursor: pointer;
 
   &::placeholder {
     color: $dark-shade25;
@@ -78,7 +79,7 @@
 
 %elements-gap{
   &>div {
-    margin-top: 20px;
+    // margin-top: 20px;
   }
 }
 

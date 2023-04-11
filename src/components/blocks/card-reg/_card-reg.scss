@@ -1,8 +1,17 @@
 @use "/src/assets/common_style/index.common";
 
-.card-reg{
+.card-reg {
+  form {
+    margin-top: 10px;
+  }
 
-  button{
-    margin: 30px 0 0 0;
+  &__footer {
+    @include index.isFlex(row, center, center, nowrap);
+
+    &-text {
+      @extend %bodyText;
+      align-self: center;
+      margin-top: 20px;
+    }
   }
 }

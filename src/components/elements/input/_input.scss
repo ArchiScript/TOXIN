@@ -2,16 +2,14 @@
 
 .input-container {
   @extend %sizes;
-
+  
+  &:not(.input-container.--noLabel){margin-top: 20px;}
   input {
+    box-sizing:border-box;
     position: relative;
     width: 100%;
     @extend %inputForm;
    
-  }
-
-  label {
-
   }
 
   input[type=date] {

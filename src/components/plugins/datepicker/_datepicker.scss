@@ -4,7 +4,7 @@
   position: relative;
   width: index.$half-input-width;
   margin-top: 20px;
-  
+  @extend %sizes;
   input {
     @extend %inputForm;
     width: inherit;
