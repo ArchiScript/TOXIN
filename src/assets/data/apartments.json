@@ -1,5 +1,12 @@
 [
   {
+    "number": 888,
+    "status": "lux",
+    "price": 9990,
+    "rate": 5,
+    "comment": "Beautiful apartment with great views"
+  },
+  {
     "number": 101,
     "status": "lux",
     "price": 1500,

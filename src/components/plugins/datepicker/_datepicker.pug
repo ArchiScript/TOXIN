@@ -1,4 +1,4 @@
-mixin datepicker(label, placehld,size="--half-size")
+mixin datepicker({label,name, placehld,size="--half-size"}={})
   - mixinCount++;
   - let inputTypeClass = `date-dropdown__input`;
   - let compoundId = `datepicker-el-${mixinCount}`;
@@ -8,12 +8,12 @@ mixin datepicker(label, placehld,size="--half-size")
     input(
       type="text",
       placeholder=placehld,
-      name=compoundId,
+      name=name ? name : compoundId,
       class=inputTypeClass,
       id=compoundId
     )
 
-mixin filter-datepicker(label,placehld,size="--middle-size")
+mixin filter-datepicker({label,placehld,name,size="--middle-size"}={})
   - mixinCount++;
   - let inputTypeClass = `filter-date-dropdown__input`;
   - let compoundId = `filterdatepicker-el-${mixinCount}`;
@@ -24,7 +24,8 @@ mixin filter-datepicker(label,placehld,size="--middle-size")
     input(
       type="text",
       placeholder=placehld,
-      name=compoundId,
+      name=name ? name : compoundId,
+      ,
       class=inputTypeClass,
       id=compoundId
     )

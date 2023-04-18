@@ -9,7 +9,6 @@ mixin selection-controls
     .form-elements__radio-buttons.column
       .form-elements__elements-block.elements-block 
         |
-        |
         h3.form-elements__title.elements-block-title radio buttons
         +radiobutton({name: "sex",options:[{value: "Мужчина",id:1},{value: "Женщина",id:2}], checkedValue:"Мужчина"})
     .form-elements__toggle-buttons
@@ -24,6 +23,7 @@ mixin selection-controls
           +like({count:"12",checked:true})
           +like({count:"2",checked:false})
     .form-elements__rating-buttons 
+      |
       |
       .form-elements__elements-block.elements-block
         h3.form-elements__title.elements-block-title rate button

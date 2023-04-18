@@ -37,12 +37,14 @@ export class Select {
     this.$el.addEventListener("click", this.clickHandler);
     this.$items = this.$el.querySelectorAll(".select__item");
     this.$num = this.$el.querySelector(".select__item-number");
-    this.$selectText = this.$el.querySelector(".select__input span");
+    this.$input = this.$el.querySelector(".select__input");
+    this.$selectText = this.$input.querySelector("span");
     this.$buttonClear = this.$el.querySelector(".select__button-buttonClear");
     this.$buttonSubmit = this.$el.querySelector(".select__button-buttonSubmit");
     const { countItems } = this.options;
     this.countItems = countItems;
     this.buttonsClickHandler();
+    // this.total = this.countTotal();
   }
 
   clickHandler(event) {
@@ -108,6 +110,7 @@ export class Select {
         itemValue.innerHTML = item.counter;
         this.$selectText.innerHTML = this.chosenUpdate();
         this.buttonRegulator();
+        this.setInputValue();
       });
     }
   }
@@ -128,8 +131,13 @@ export class Select {
         itemValue.innerHTML = item.counter;
         this.$selectText.innerHTML = this.chosenUpdate();
         this.buttonRegulator();
+        this.setInputValue();
       });
     }
+  }
+
+  setInputValue() {
+    this.$input.dataset.value = this.countTotal();
   }
 
   buttonRegulator() {
@@ -155,6 +163,7 @@ export class Select {
       item.querySelector(".select__item-minus").classList.add("inactive");
     });
     this.buttonRegulator();
+    this.setInputValue();
   }
 
   submit() {
@@ -316,13 +325,14 @@ const getTemplate = (data, placeholder, buttons) => {
 
   // ========= dropdown =========================
   return `
-    <div class = "select__backdrop" data-type="backdrop"></div>
-    <div class="select__input" data-type="input">
-      <span>${placeholder}</span></div>
-    <div class="select__dropdown">
-        <div class="select__items"> 
-          ${items.join("")}
-        </div>
-          ${$buttonContainer}
+  <div class = "select__backdrop" data-type="backdrop"></div>
+  <div class="select__input" data-value="0" data-type="input">
+    <span>${placeholder}</span></div>
+  <div class="select__dropdown">
+      <div class="select__items"> 
+        ${items.join("")}
+      </div>
+        ${$buttonContainer}
+  </div>
   `;
 };

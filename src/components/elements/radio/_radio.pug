@@ -6,7 +6,7 @@ mixin radiobutton({name,options, checkedValue}={})
         input(
           type="radio",
           id=`radio-${mixinCount}-${option.id}`,
-          name=`radio-${name}`,
+          name=name ? name : `radio-${option.id}`,
           value=option.value,
           checked=option.value === checkedValue
         )

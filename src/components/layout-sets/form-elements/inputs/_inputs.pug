@@ -1,11 +1,11 @@
 mixin inputs
   .form-elements__inputs.column-3
-    +input("Email", "text field", "Email", "full")
-    +input("text", "text field", "This is pretty awesome", "full")
-    +select-plugin("guests", "dropdown", "full")
-    +input("date", "masked text field", "masked-date","full")
+    +input({type:"Email", label:"text field", placehld:"Email", size:"full"})
+    +input({type:"text", label:"text field", placehld:"This is pretty awesome", size:"full"})
+    +select-plugin({category:"guests", label:"dropdown", size:"full"})
+    +input({type:"date", label:"masked text field", placehld:"masked-date",size:"full"})
     .form-elements__date-dropdowns.row
-      +datepicker("date dropdown","ДД.ММ.ГГГГ")
-      +datepicker("date dropdown","ДД.ММ.ГГГГ")
-    +filter-datepicker("filter date dropdown","ДД.ММ.ГГГГ")
-    +input("text", "subscription text field", "Email", "middle")
+      +datepicker({label:"date dropdown",placehld:"ДД.ММ.ГГГГ"})
+      +datepicker({label:"date dropdown",placehld:"ДД.ММ.ГГГГ"})
+    +filter-datepicker({label:"filter date dropdown",placehld:"ДД.ММ.ГГГГ"})
+    +input({type:"text", label:"subscription text field", placehld:"Email", size:"middle"})

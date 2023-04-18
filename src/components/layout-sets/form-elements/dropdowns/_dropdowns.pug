@@ -1,8 +1,8 @@
 mixin dropdowns
   .form-elements__dropdowns.column-3
-    +select-plugin("accomodations","dropdown", "middle")
-    +select-plugin("accomodations inline","dropdown", "middle")
+    +select-plugin({category:"accomodations",label:"dropdown", size:"middle"})
+    +select-plugin({category:"accomodations inline",label:"dropdown", size:"middle"})
   .form-elements__dropdowns.column-3
-    +select-plugin("guests inline", "dropdown", "full")
+    +select-plugin({category:"guests inline",label: "dropdown",size: "full"})
   .form-elements__dropdowns.column-3
-    +select-plugin("guests inline", "dropdown", "full")
+    +select-plugin({category:"guests inline", label:"dropdown",size: "full"})

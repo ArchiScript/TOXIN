@@ -1,12 +1,11 @@
-mixin toggle({label, checked}={})
+mixin toggle({label, checked, name}={})
   - mixinCount++;
   .toggle 
-    |
     |
     label.toggle__label(for=`toggle-el-${mixinCount}`)
       input.toggle__input(
         type="checkbox",
-        name=`toggle-el-${mixinCount}`,
+        name=name ? name : `toggle-el-${mixinCount}`,
         id=`toggle-el-${mixinCount}`,
         checked=checked
       )

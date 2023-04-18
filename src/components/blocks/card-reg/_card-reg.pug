@@ -1,70 +1,34 @@
 mixin card-reg({title= "Регистрация аккаунта", options}={})
+  - formCount++;
   .card.card-reg 
-    |
-    |
-    |
-    |
-    |
     |
     .card-reg__inner 
       |
-      |
-      |
-      |
-      |
-      |
       .card__title.card-reg__title= title
-      form.card-reg__form
+      form.card-reg__form(id=`form-${formCount}`)
         .card-reg__input-name 
           |
-          |
-          |
-          |
-          |
-          |
-          +input("text","" , "имя", "full")
+          +input({type:"text",name: "name", label:"" , placehld: "имя", size:"full"})
         .card-reg__input-surname
-          +input("text","", "фамилия","full")
+          +input({type:"text",name: "surname",label:"", placehld:"фамилия",size:"full"})
         .card-reg__sex-radio
           +radiobutton({options:[{value: "Мужчина", id: 1},{value: "Женщина", id: 2}],checkedValue: "Мужчина"})
         .card-reg__birthdate
-          +datepicker("дата рождения","ДД.ММ.ГГГГ","--full-size")
+          +datepicker({label:"дата рождения",placehld:"ДД.ММ.ГГГГ",size:"--full-size"})
         .card-reg__signin-fields 
-          |
-          |
-          |
-          |
-          |
           |
           .card-reg__email 
             |
-            |
-            |
-            |
-            |
-            |
-            +input("Email", "данные для входа в сервис", "Email", "email", "full")
+            +input({type:"Email",name: "email",label: "данные для входа в сервис", placehld: "Email", size: "full"})
           .card-reg__password
-            +input("password", "", "Пароль", "pass", "full")
+            +input({type:"password",label: "",placehld: "Пароль", name: "pass",size: "full"})
           .card-reg__specials 
             |
-            |
-            |
-            |
-            |
-            |
-            +toggle("Получать спецпредложения")
+            +toggle({label:"Получать спецпредложения"})
         .card-reg__button 
-          |
-          |
-          |
-          |
-          |
           |
           +button({name: "button",text: "перейти к оплате", style: "filled",size: "full-size", hasarrow: true})
         .card-reg__footer.row
           .card-reg__footer-text Уже есть аккаунт на Toxin
           .card-reg__signin-button 
-          |
-          |
           +button({name: "button",text: "войти", style: "bordered"})

@@ -1,4 +1,4 @@
-mixin input(type, label, placehld,size)
+mixin input({type, name, label, placehld,size}={})
   - mixinCount++;
   - let noLabel = "";
   - if (!label) { noLabel = "--noLabel";} 
@@ -9,7 +9,7 @@ mixin input(type, label, placehld,size)
     input(
       type=type,
       placeholder=placehld,
-      name=`${type.toLowerCase()}-input`,
+      name=name ? name : `${type.toLowerCase()}`,
       class=inputTypeClass,
       id=`input-el-${mixinCount}`
     )
