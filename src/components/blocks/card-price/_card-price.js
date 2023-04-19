@@ -1,8 +1,11 @@
 import { Order } from "./Order";
+
+const OrderInstance = new Order({
+  aptNumber: "888",
+  status: "люкс",
+  price: 9990,
+});
 export { OrderInstance };
-
-const OrderInstance = new Order("888");
-
 // import Order from "./Order";
 
 // const order = new Order("888");

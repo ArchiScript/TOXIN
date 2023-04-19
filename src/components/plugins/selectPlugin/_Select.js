@@ -1,3 +1,5 @@
+import { OrderInstance } from "/src/components/blocks/card-price/_card-price";
+
 export class Select {
   constructor(selector, options) {
     this.$el = document.querySelector(selector);
@@ -111,6 +113,7 @@ export class Select {
         this.$selectText.innerHTML = this.chosenUpdate();
         this.buttonRegulator();
         this.setInputValue();
+        this.onChange();
       });
     }
   }
@@ -132,6 +135,7 @@ export class Select {
         this.$selectText.innerHTML = this.chosenUpdate();
         this.buttonRegulator();
         this.setInputValue();
+        this.onChange();
       });
     }
   }
@@ -215,6 +219,9 @@ export class Select {
     ];
   }
 
+  onChange() {
+    OrderInstance.calculatePrice();
+  }
   getDefaultAccomodations() {
     const accoms = [
       ["спальня", "спальни", "спален"],
@@ -288,6 +295,7 @@ export class Select {
       data: defaultData,
       buttons: defaultButtons,
       countItems: defaultCountItems,
+      onChange: this.onChange(),
     };
   }
 

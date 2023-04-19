@@ -1,189 +1,189 @@
 [
   {
     "number": 888,
-    "status": "lux",
+    "status": "люкс",
     "price": 9990,
     "rate": 5,
     "comment": "Beautiful apartment with great views"
   },
   {
     "number": 101,
-    "status": "lux",
+    "status": "люкс",
     "price": 1500,
     "rate": 4,
     "comment": "Beautiful apartment with great views"
   },
   {
     "number": 204,
-    "status": "lux",
+    "status": "люкс",
     "price": 1800,
     "rate": 4,
     "comment": "Spacious apartment with modern amenities"
   },
   {
     "number": 310,
-    "status": "lux",
+    "status": "люкс",
     "price": 2000,
     "rate": 4,
     "comment": "Amazing penthouse with private terrace"
   },
   {
     "number": 407,
-    "status": "lux",
+    "status": "люкс",
     "price": 2200,
     "rate": 4,
     "comment": "Stunning apartment with ocean views"
   },
   {
     "number": 512,
-    "status": "lux",
+    "status": "люкс",
     "price": 2500,
     "rate": 4,
     "comment": "Spacious apartment with private balcony"
   },
   {
     "number": 623,
-    "status": "standard",
+    "status": "стандарт",
     "price": 1200,
     "rate": 4,
     "comment": "Cozy apartment in a convenient location"
   },
   {
     "number": 726,
-    "status": "standard",
+    "status": "стандарт",
     "price": 900,
     "rate": 3,
     "comment": "Affordable apartment with basic amenities"
   },
   {
     "number": 822,
-    "status": "lux",
+    "status": "люкс",
     "price": 2800,
     "rate": 4,
     "comment": "Exclusive apartment with top-of-the-line features"
   },
   {
     "number": 927,
-    "status": "standard",
+    "status": "стандарт",
     "price": 1000,
     "rate": 4,
     "comment": "Simple apartment with good value"
   },
   {
     "number": 1031,
-    "status": "lux",
+    "status": "люкс",
     "price": 3500,
     "rate": 5,
-    "comment": "The ultimate luxury apartment with unparalleled views"
+    "comment": "The ultimate люксury apartment with unparalleled views"
   },
   {
     "number": 1124,
-    "status": "standard",
+    "status": "стандарт",
     "price": 1100,
     "rate": 4,
     "comment": "Basic apartment with all the essentials"
   },
   {
     "number": 1229,
-    "status": "lux",
+    "status": "люкс",
     "price": 3200,
     "rate": 4,
     "comment": "Elegant apartment with stylish decor"
   },
   {
     "number": 1332,
-    "status": "standard",
+    "status": "стандарт",
     "price": 950,
     "rate": 3,
     "comment": "Budget-friendly apartment for a short stay"
   },
   {
     "number": 101,
-    "status": "lux",
+    "status": "люкс",
     "price": 1500,
     "rate": 4,
     "comment": "Beautiful apartment with great views"
   },
   {
     "number": 204,
-    "status": "lux",
+    "status": "люкс",
     "price": 1800,
     "rate": 4,
     "comment": "Spacious apartment with modern amenities"
   },
   {
     "number": 310,
-    "status": "lux",
+    "status": "люкс",
     "price": 2000,
     "rate": 4,
     "comment": "Amazing penthouse with private terrace"
   },
   {
     "number": 407,
-    "status": "lux",
+    "status": "люкс",
     "price": 2200,
     "rate": 4,
     "comment": "Stunning apartment with ocean views"
   },
   {
     "number": 512,
-    "status": "lux",
+    "status": "люкс",
     "price": 2500,
     "rate": 4,
     "comment": "Spacious apartment with private balcony"
   },
   {
     "number": 623,
-    "status": "standard",
+    "status": "стандарт",
     "price": 1200,
     "rate": 4,
     "comment": "Cozy apartment in a convenient location"
   },
   {
     "number": 726,
-    "status": "standard",
+    "status": "стандарт",
     "price": 900,
     "rate": 3,
     "comment": "Affordable apartment with basic amenities"
   },
   {
     "number": 822,
-    "status": "lux",
+    "status": "люкс",
     "price": 2800,
     "rate": 4,
     "comment": "Exclusive apartment with top-of-the-line features"
   },
   {
     "number": 927,
-    "status": "standard",
+    "status": "стандарт",
     "price": 1000,
     "rate": 4,
     "comment": "Simple apartment with good value"
   },
   {
     "number": 1031,
-    "status": "lux",
+    "status": "люкс",
     "price": 3500,
     "rate": 5,
-    "comment": "The ultimate luxury apartment with unparalleled views"
+    "comment": "The ultimate люксury apartment with unparalleled views"
   },
   {
     "number": 1124,
-    "status": "standard",
+    "status": "стандарт",
     "price": 1100,
     "rate": 4,
     "comment": "Basic apartment with all the essentials"
   },
   {
     "number": 1229,
-    "status": "lux",
+    "status": "люкс",
     "price": 3200,
     "rate": 4,
     "comment": "Elegant apartment with stylish decor"
   },
   {
     "number": 1332,
-    "status": "standard",
+    "status": "стандарт",
     "price": 950,
     "rate": 3,
     "comment": "Budget-friendly apartment for a short stay"

@@ -10,6 +10,7 @@ import "/src/components/blocks/pagination/_pagination";
 import "/src/components/plugins/selectPlugin/_selectPluginInit";
 import "/src/components/blocks/checkbox-list/_checkbox-list";
 import "/src/components/layout-sets/layout-sets.scss";
+import "/src/components/blocks/card-search/_card-search";
 import "/src/components/blocks/card-price/_card-price";
 
 // ----------CONNECTING SCSS FILES-------------

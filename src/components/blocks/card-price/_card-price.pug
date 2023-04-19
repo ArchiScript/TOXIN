@@ -3,10 +3,20 @@ mixin card-price({aptnumber,price}={})
   .card.card-price
     .card-price__inner 
       |
+      |
+      |
+      |
+      |
+      |
+      |
       .card-price__header
-        .card-price__apt-number= aptnumber
-          span.card-price__apt-status
-        .card-price__price= price
+        .card-price__header-apt
+          .card-price__n №&nbsp
+          .card-price__apt-number
+          .card-price__apt-status 
+        .card-price__header-price
+          .card-price__header-price-num 
+          .card-price__header-price-text &nbspв сутки
       form.card-price__form(
         action="/",
         method="POST",
@@ -15,27 +25,57 @@ mixin card-price({aptnumber,price}={})
       )
         .card-price__date-dropdowns.row 
           |
+          |
+          |
+          |
+          |
+          |
+          |
           +datepicker({label:"прибытие",placehld:"ДД.ММ.ГГГГ", name: "dateFrom"})
           +datepicker({label:"выезд",placehld:"ДД.ММ.ГГГГ",name: "dateTo"})
         .card-price__guests-dropdown 
           |
+          |
+          |
+          |
+          |
+          |
+          |
           +select-plugin({category:"guests",label: "гости",size: "full", name: "guests"})
         .card-price__calculations 
           |
+          |
+          |
+          |
+          |
+          |
+          |
           .card-price__price-main.row
             .card-price__price-desc 
-            .card-price__subtotal
+            .card-price__price-subtotal
           .card-price__service-tax.row 
+            |
+            |
+            |
+            |
+            |
+            |
             |
             .card-price__tax-desc
             .card-price__tax-info 
-            .card-price__subtotal
+            .card-price__tax-subtotal
           .card-price__fee.row
             .card-price__fee-desc 
             .card-price__fee-info
-            .card-price__subtotal
+            .card-price__fee-subtotal
           .card-price__total.row 
             |
+            |
+            |
+            |
+            |
+            |
+            |
             .card-price__total-desc Итого
-            .card-rice__total-price
+            .card-price__total-price
         +button({name: "button",text: "забронировать", style: "filled",size: "full-size", hasarrow: true})

@@ -1,0 +1,55 @@
+@use "/src/assets/common_style/index.common";
+
+.card-price {
+  &__header {
+    @include index.isFlex(row, space-between, flex-end, nowrap);
+  }
+
+  &__header-apt {
+    display: inline-block;
+    @extend %h1title;
+    @include index.isFlex(row, flex-start, flex-end, nowrap);
+  }
+
+  &__n {
+    font-size: 14px;
+    padding-bottom: 3px;
+
+  }
+
+  &__apt-number {
+ 
+  }
+
+  &__apt-status {
+    @extend %h3label;
+    color: index.$purple;
+    padding-bottom: 3px;
+  }
+
+  &__header-price {
+    padding-bottom: 3px;
+    display: flex;
+    align-items: flex-end;
+    color: index.$dark-shade50;
+    &-num{
+      @include index.font(fontBold,14);
+    }
+    &-text{
+      @include index.font(fontRegular,12);
+    }
+    
+  }
+  &__calculations{
+    @include index.font(fontRegular,14);
+    color: index.$dark-shade75;
+    line-height: 24px;
+  }
+  &__calculations>div{
+    margin: 5px 0;
+  }
+  &__price-main{}
+  &__service-tax{}
+  &__fee{}
+  &__total{}
+}
