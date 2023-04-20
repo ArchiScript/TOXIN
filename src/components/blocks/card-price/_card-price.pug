@@ -9,6 +9,11 @@ mixin card-price({aptnumber,price}={})
       |
       |
       |
+      |
+      |
+      |
+      |
+      |
       .card-price__header
         .card-price__header-apt
           .card-price__n №&nbsp
@@ -24,6 +29,11 @@ mixin card-price({aptnumber,price}={})
         name="card-price-form"
       )
         .card-price__date-dropdowns.row 
+          |
+          |
+          |
+          |
+          |
           |
           |
           |
@@ -57,25 +67,22 @@ mixin card-price({aptnumber,price}={})
             |
             |
             |
-            |
-            |
-            |
-            |
             .card-price__tax-desc
-            .card-price__tax-info 
+              .card-price__tax-text Сбор за услуги:
+              .card-price__tax-info
+                .card-price__tax-info-message Ссылка на информацию о тарифах за услуги
             .card-price__tax-subtotal
           .card-price__fee.row
             .card-price__fee-desc 
-            .card-price__fee-info
+              |
+              |
+              |
+              .card-price__fee-text Сбор за дополнительные услуги
+              .card-price__fee-info
+                .card-price__fee-info-message Ссылка на информацию о тарифах за услуги
             .card-price__fee-subtotal
-          .card-price__total.row 
-            |
-            |
-            |
-            |
-            |
-            |
-            |
+          .card-price__total.row
             .card-price__total-desc Итого
+            .card-price__total-underline
             .card-price__total-price
         +button({name: "button",text: "забронировать", style: "filled",size: "full-size", hasarrow: true})

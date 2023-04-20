@@ -17,9 +17,7 @@
 
   }
 
-  &__apt-number {
- 
-  }
+  &__apt-number {}
 
   &__apt-status {
     @extend %h3label;
@@ -32,24 +30,117 @@
     display: flex;
     align-items: flex-end;
     color: index.$dark-shade50;
-    &-num{
-      @include index.font(fontBold,14);
+
+    &-num {
+      @include index.font(fontBold, 14);
     }
-    &-text{
-      @include index.font(fontRegular,12);
+
+    &-text {
+      @include index.font(fontRegular, 12);
     }
-    
+
   }
-  &__calculations{
-    @include index.font(fontRegular,14);
+
+  &__calculations {
+    padding-top: 20px;
+    @include index.font(fontRegular, 14);
     color: index.$dark-shade75;
     line-height: 24px;
   }
-  &__calculations>div{
+
+  &__calculations>div {
+    justify-content: space-between;
     margin: 5px 0;
   }
-  &__price-main{}
-  &__service-tax{}
-  &__fee{}
-  &__total{}
+
+  &__price-main {
+    min-height: 24px;
+  }
+
+  &__tax-desc {
+    width: 80%;
+    @include index.isFlex(row, space-between, center, nowrap);
+  }
+
+  &__tax-info {
+    position: relative;
+    width: 20px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    @extend %info;
+    &:hover {
+      .card-price__tax-info-message {
+        display: block;
+      }
+    }
+  }
+  &__tax-info-message{
+    @extend .card-price__fee-info-message;
+  }
+
+  &__fee-info {
+    position: relative;
+    align-self: flex-start;
+    width: 20px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    @extend %info;
+
+    &:hover {
+      .card-price__fee-info-message {
+        display: block;
+      }
+    }
+  }
+
+  &__fee-info-message {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    right: -100px;
+    min-width: 100px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, .8);
+    z-index: 5;
+    @extend %bodyText;
+    border-radius: 4px;
+    border: 1px solid index.$dark-shade25;
+    font-size: 12px;
+      line-height: 14px;
+  }
+
+  &__fee-desc {
+    @include index.isFlex(row, space-between, center, nowrap);
+    width: 80%;
+  }
+
+  &__fee-subtotal {
+    height: 100%;
+
+  }
+
+  &__total {
+    display: flex;
+    padding-top: 20px;
+    @extend %h2title;
+
+  }
+
+  &__total-underline {
+    height: 24px;
+    flex: 1 1 auto;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: 4px;
+      left: 1%;
+      height: 1px;
+      width: 98%;
+      background-color: index.$dark-shade25;
+    }
+  }
 }

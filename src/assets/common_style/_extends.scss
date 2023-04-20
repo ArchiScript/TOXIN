@@ -228,3 +228,16 @@
     height: 44px;
   }
 
+  %info{
+    &::after{
+      content: 'i';
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      color:$dark-shade25;
+      border: 1px solid $dark-shade25;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      }
+  }
