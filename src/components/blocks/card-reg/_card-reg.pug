@@ -12,7 +12,7 @@ mixin card-reg({title= "Регистрация аккаунта", options}={})
         .card-reg__input-surname
           +input({type:"text",name: "surname",label:"", placehld:"фамилия",size:"full"})
         .card-reg__sex-radio
-          +radiobutton({options:[{value: "Мужчина", id: 1},{value: "Женщина", id: 2}],checkedValue: "Мужчина"})
+          +radiobutton({name: "sex",options:[{value: "Мужчина",id:1},{value: "Женщина",id:2}], checkedValue:"Мужчина"})
         .card-reg__birthdate
           +datepicker({label:"дата рождения",placehld:"ДД.ММ.ГГГГ",size:"--full-size"})
         .card-reg__signin-fields 
@@ -31,4 +31,6 @@ mixin card-reg({title= "Регистрация аккаунта", options}={})
         .card-reg__footer.row
           .card-reg__footer-text Уже есть аккаунт на Toxin
           .card-reg__signin-button 
-          +button({name: "button",text: "войти", style: "bordered"})
+            |
+            |
+            +button({name: "button",text: "войти", style: "bordered"})

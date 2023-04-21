@@ -1,0 +1,17 @@
+mixin card-signin({title = "Войти", options}={})
+  - formCount++;
+  .card.card-signin 
+    .card-signin__inner 
+      .card__title.card-signin__title= title
+      form.card-signin__form(id=`form-${formCount}`)
+        .card-signin__signin-fields 
+          .card-signin__email 
+            +input({type:"Email",name: "email", placehld: "Email", size: "full"})
+          .card-signin__password
+            +input({type:"password",label: "",placehld: "Пароль", name: "pass",size: "full"})
+        .card-signin__button 
+          +button({name: "button",text: "войти", style: "filled",size: "full-size", hasarrow: true})
+        .card-signin__footer.row
+          .card-signin__footer-text Нет аккаунта на Toxin
+          .card-signin__reg-button 
+          +button({name: "button",text: "создать", style: "bordered"})

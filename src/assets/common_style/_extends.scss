@@ -17,6 +17,7 @@
 
 %h2title {
   @include font(fontBold, 19);
+  color: $dark-shade100;
 }
 
 %h3label {
@@ -28,6 +29,10 @@
   padding: 0;
   color: $dark-shade100;
 
+}
+%h3cta-text{
+  @include font(fontBold, 12);
+  text-transform: uppercase;
 }
 
 %bodyText {

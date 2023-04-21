@@ -1,10 +1,6 @@
 @use "/src/assets/common_style/index.common";
-
-.card-reg {
-  form {
-    margin-top: 10px;
-  }
-
+.card-signin{
+  form{margin-top: 10px;}
   &__footer {
     @include index.isFlex(row, center, center, nowrap);
     margin-top: 10px;

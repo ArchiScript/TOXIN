@@ -17,10 +17,12 @@
 
   }
 
-  &__apt-number {}
+  &__apt-number {
+    
+  }
 
   &__apt-status {
-    @extend %h3label;
+    @extend %h3cta-text;
     color: index.$purple;
     padding-bottom: 3px;
   }
@@ -102,7 +104,7 @@
     right: -100px;
     min-width: 100px;
     padding: 15px;
-    background-color: rgba(255, 255, 255, .8);
+    background-color: rgba(255, 255, 255, );
     z-index: 5;
     @extend %bodyText;
     border-radius: 4px;

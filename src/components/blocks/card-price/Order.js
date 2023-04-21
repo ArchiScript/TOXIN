@@ -107,8 +107,6 @@ class Order {
       const dateFrom = this.toDateStr(this.$dateFrom.value);
       const dateTo = this.toDateStr(this.$dateTo.value);
       const guests = this.$selectInput?.dataset.value;
-      console.log(dateFrom);
-      console.log(typeof dateFrom);
       const days = this.dateDiff(dateFrom, dateTo);
 
       const price = this.price;

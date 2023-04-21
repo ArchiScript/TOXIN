@@ -37,60 +37,78 @@ h3 {
   // width: 27,59%;
 
 }
-.column-3{
+
+.column-3 {
   @include m.isFlex(column, flex-start, space-between, nowrap);
   width: $full-input-width;
 }
-.column-double{
+
+.column-double {
   @include m.isFlex(column, flex-start, space-between, nowrap);
   width: $double-input-width;
 }
+
 .column-center {
   @include m.isFlex(column, flex-start, center, nowrap);
 }
 
 .elements-block {
-  @include m.isFlex(column,flex-start,flex-start,nowrap);
+  @include m.isFlex(column, flex-start, flex-start, nowrap);
   padding: 20px 0;
   // width: 100%;
 
 }
-.elements-block-title{
+
+.elements-block-title {
   width: 100%;
   padding-bottom: 1rem;
 }
-.elements-block-row{
-  @include m.isFlex(row,flex-start,flex-start,nowrap);
+
+.elements-block-row {
+  @include m.isFlex(row, flex-start, flex-start, nowrap);
   padding: 0 0 30px 0;
-  &--end{padding: 0 20px 0 0;}
+
+  &--end {
+    padding: 0 20px 0 0;
+  }
 }
-.card{
+
+.card {
   margin: 20px 0;
   width: 380px;
   padding: 40px 30px 30px 30px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  &__inner{
+
+  &__inner {
     width: $full-input-width;
   }
-  &__title{
+
+  &__title {
     @extend %h1title;
   }
-  .input-container.--noLabel{
-   input{margin-top: 10px;}
+
+  .input-container.--noLabel {
+    input {
+      margin-top: 10px;
+    }
   }
- 
-  button{
+
+  button {
     margin: 20px 0 0 0;
   }
-  .radiobuttons{
+
+  .radiobuttons {
     margin-top: 10px;
   }
-  .date-dropdown__input{
+
+  .date-dropdown__input {
     width: 100%;
   }
-  .toggle{
+
+  .toggle {
     margin: 10px 0 0;
   }
+
 }

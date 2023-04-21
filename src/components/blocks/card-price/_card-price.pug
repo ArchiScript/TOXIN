@@ -3,17 +3,6 @@ mixin card-price({aptnumber,price}={})
   .card.card-price
     .card-price__inner 
       |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
       .card-price__header
         .card-price__header-apt
           .card-price__n №&nbsp
@@ -30,42 +19,17 @@ mixin card-price({aptnumber,price}={})
       )
         .card-price__date-dropdowns.row 
           |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
-          |
           +datepicker({label:"прибытие",placehld:"ДД.ММ.ГГГГ", name: "dateFrom"})
           +datepicker({label:"выезд",placehld:"ДД.ММ.ГГГГ",name: "dateTo"})
         .card-price__guests-dropdown 
           |
-          |
-          |
-          |
-          |
-          |
-          |
           +select-plugin({category:"guests",label: "гости",size: "full", name: "guests"})
         .card-price__calculations 
-          |
-          |
-          |
-          |
-          |
-          |
           |
           .card-price__price-main.row
             .card-price__price-desc 
             .card-price__price-subtotal
           .card-price__service-tax.row 
-            |
-            |
             |
             .card-price__tax-desc
               .card-price__tax-text Сбор за услуги:
@@ -74,8 +38,6 @@ mixin card-price({aptnumber,price}={})
             .card-price__tax-subtotal
           .card-price__fee.row
             .card-price__fee-desc 
-              |
-              |
               |
               .card-price__fee-text Сбор за дополнительные услуги
               .card-price__fee-info
