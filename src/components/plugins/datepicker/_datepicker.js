@@ -15,25 +15,28 @@ let dateDropdowns = document.querySelectorAll(".date-dropdown__input");
 let filterDateDropdowns = document.querySelectorAll(
   ".filter-date-dropdown__input"
 );
-dateDropdowns.forEach(
-  (i) =>
-    new AirDatepicker("#" + i.id, {
-      buttons: ["clear", button],
-      autoClose: true,
-      onSelect: () => {
-        OrderInstance.calculatePrice();
-      },
-    })
-);
-filterDateDropdowns.forEach(
-  (i) =>
-    new AirDatepicker("#" + i.id, {
-      buttons: ["clear", button],
-      range: true,
-      dateFormat: "dd MMM",
-      multipleDatesSeparator: " - ",
-      dynamicRange: true,
-      prevHtml: "<div class=arrow-datepicker--prev></div>",
-      nextHtml: "<div class=arrow-datepicker--next></div>",
-    })
-);
+dateDropdowns.forEach((i) => {
+  let inlineState = i.classList.contains("--inline") ? true : false;
+
+  new AirDatepicker("#" + i.id, {
+    buttons: ["clear", button],
+    autoClose: true,
+    inline: inlineState,
+    onSelect: () => {
+      OrderInstance.calculatePrice();
+    },
+  });
+});
+filterDateDropdowns.forEach((i) => {
+  let inlineState = i.classList.contains("--inline") ? true : false;
+  new AirDatepicker("#" + i.id, {
+    buttons: ["clear", button],
+    range: true,
+    dateFormat: "dd MMM",
+    multipleDatesSeparator: " - ",
+    dynamicRange: true,
+    inline: inlineState,
+    prevHtml: "<div class=arrow-datepicker--prev></div>",
+    nextHtml: "<div class=arrow-datepicker--next></div>",
+  });
+});
