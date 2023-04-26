@@ -1,6 +1,8 @@
 @use "/src/assets/common_style/index.common";
 body{min-height: 100%;}
-
+.cards{
+  background-color:#F4F4F6 ;
+}
 .cards__column {
   padding: 80px 0;
 }
@@ -9,6 +11,6 @@ body{min-height: 100%;}
   
 }
 .filter-date-dropdown.--full-size{
-  margin-top: 0;
+  margin: 0 0 20px 0;
   &::after{display: none;}
 }

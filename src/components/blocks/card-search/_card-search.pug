@@ -4,13 +4,15 @@ mixin card-search({title= "Найдём номера под ваши пожел�
     .card-search__inner
       .card__title.card-search__title= title
       .card-search__form
-        form(class="card-search__form", id=`form-${formCount}`)
+        form.card-search__form(id=`form-${formCount}`)
           .card-search__date-dropdowns.row 
+            |
             |
             |
             +datepicker({label:"прибытие",placehld:"ДД.ММ.ГГГГ"})
             +datepicker({label:"выезд",placehld:"ДД.ММ.ГГГГ"})
           .card-search__guests-dropdown 
+            |
             |
             |
             +select-plugin({category:"guests",label: "гости",size: "full"})

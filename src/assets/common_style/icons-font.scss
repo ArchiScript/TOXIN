@@ -26,7 +26,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.icon-arrow_next {
+  &:before {
+    content: $icon-arrow_next; 
+  }
+}
+.icon-arrow_prev {
+  &:before {
+    content: $icon-arrow_prev; 
+  }
+}
 .icon-arrow_forward {
   &:before {
     content: $icon-arrow_forward; 

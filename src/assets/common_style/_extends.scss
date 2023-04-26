@@ -246,3 +246,14 @@
       align-items: center;
       }
   }
+
+%underline{
+  &::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    background-color: $dark-shade10;
+  }
+}

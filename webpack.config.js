@@ -79,9 +79,9 @@ module.exports = {
     index: "./src/pages/index.js",
     "ui-kit": "./src/pages/ui-kit/ui-kit.js",
   },
-  // resolve: {
-  //   extensions: [".js", ".json"],
-  // },
+  resolve: {
+    extensions: [".js", ".json"],
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",

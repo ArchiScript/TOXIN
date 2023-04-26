@@ -1,0 +1,159 @@
+@use "/src/assets/common_style/index.common";
+
+
+.card-apt {
+  width: index.$slider-card-width;
+  min-height: 257px;
+  background-color: #fff;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  border-radius: 4px;
+  margin: 20px 0;
+
+  &__slider {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__image {
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  &__info-container {
+    padding: 20px;
+
+    &>div {
+      height: 35px;
+    }
+
+  }
+
+  &__info-num-price {
+    @include index.isFlex(row, space-between, flex-start, nowrap);
+    position: relative;
+    color: index.$dark-shade50;
+    @extend %underline;
+    @include index.font(fontBold, 14);
+
+    span {
+      @include index.font(fontRegular, 12);
+    }
+  }
+
+  &__info-num {
+    @include index.isFlex(row, flex-start, flex-end, nowrap);
+    @extend %h1title;
+
+    span {
+      @include index.font(fontBold, 14);
+      margin-bottom: 2px;
+    }
+  }
+
+  &__info-number {
+    @include index.font(fontBold, 19);
+  }
+
+  &__info-status {
+    @extend %h3cta-text;
+    color: index.$purple;
+    margin: 0 0 3px 2px;
+  }
+
+  &__info-price{
+    margin-top: 3px;
+  }
+
+  &__info-rate-comments {
+    @include index.isFlex(row, space-between, flex-end, nowrap);
+  }
+
+  &__info-rate .rating {
+    padding: 0;
+
+  }
+
+  &__info-comments {
+    @include index.isFlex(row, space-between, flex-end, nowrap);
+    color: index.$dark-shade50;
+    @include index.font(fontBold, 14);
+    padding-bottom: 2px;
+
+    span {
+      @include index.font(fontRegular, 14);
+    }
+  }
+}
+
+.slick-slider {
+  position: relative;
+  max-width: 270px;
+
+}
+
+.slick-track {
+  display: flex;
+  height: 152px;
+}
+
+.slick-next,
+.slick-prev {
+  position: absolute;
+  z-index: 10;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+.slick-next {
+  right: 10px;
+}
+
+.slick-prev {
+  left: 10px;
+
+}
+
+.icon-arrow_next {
+  font-size: 22px;
+  color: rgb(255, 255, 255);
+}
+
+.icon-arrow_prev {
+  font-size: 22px;
+  color: rgb(255, 255, 255);
+}
+
+.slick-dots {
+  width: 41px;
+  height: 10px;
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+  @include index.isFlex(row, space-between, center, nowrap);
+
+  li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  button {
+    font-size: 0;
+    padding: 0;
+    border: 1px solid rgb(255, 255, 255);
+    height: 7.5px;
+    width: 7.5px;
+    background-color: transparent;
+    border-radius: 50%;
+  }
+
+  .slick-active button {
+    background-color: #fff;
+  }
+
+
+}

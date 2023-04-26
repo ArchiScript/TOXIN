@@ -1,0 +1,33 @@
+mixin card-apt({img=[{}],remoteSource=false,aptNum,price,status, rate,comments}={})
+  - if(remoteSource==true){
+  - const jsonData = require("/src/assets/data/apartments.json");
+  - const targetData = jsonData.filter((item) => item.number == aptNum)[0];
+  - aptNum = targetData.number;
+  - price = targetData.price;
+  - status = targetData.status;
+  - comments = targetData.comments;
+  - rate = targetData.rate;
+  - }
+
+  .card-apt 
+    |
+    .card-apt__inner 
+      |
+      .card-apt__slider
+        each i in img
+          .card-apt__image
+            +image(i.name, i.alt)
+      .card-apt__info-container.column
+        .card-apt__info-num-price
+          .card-apt__info-num
+            span №&nbsp
+            .card-apt__info-number= aptNum
+            .card-apt__info-status= status
+          .card-apt__info-price= `${price.toLocaleString()}\u20BD`
+            span &nbsp в сутки
+
+        .card-apt__info-rate-comments
+          .card-apt__info-rate
+            +rating({value: rate})
+          .card-apt__info-comments= comments
+            span &nbsp Отзывов

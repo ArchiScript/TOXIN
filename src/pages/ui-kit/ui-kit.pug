@@ -21,19 +21,24 @@ block content
     .container.row 
       |
       |
+      |
       +dropdowns
     .container.row 
+      |
       |
       |
       +lists
     .container.row 
       |
       |
+      |
       +comments
   section.cards 
     |
     |
+    |
     .container.row 
+      |
       |
       |
       .cards__column.column
@@ -44,3 +49,5 @@ block content
         +card-signin
       .cards__column.column
         +filter-datepicker({placehld:"ДД.ММ.ГГГГ",size: "--full-size", inline:true})
+        +card-apt({remoteSource: true,img:[{name: "apt1",alt:"1"},{name: "apt2",alt:"2"},{name: "apt3",alt:"3"},{name: "apt4",alt:"4"}], aptNum:"888"})
+        +card-apt({remoteSource: true,img:[{name: "apt2",alt:"2"},{name: "apt1",alt:"1"},{name: "apt3",alt:"3"},{name: "apt4",alt:"4"}], aptNum:"840"})
