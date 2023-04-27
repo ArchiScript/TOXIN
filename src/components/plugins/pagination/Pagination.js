@@ -10,7 +10,7 @@ class Pagination {
       dataSource: function (done) {
         if (dataElement.classList.contains("--disabled")) {
           let result = [];
-          for (var i = 1; i < 176; i++) {
+          for (let i = 1; i < 176; i++) {
             result.push(i);
           }
           done(result);

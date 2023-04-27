@@ -1,4 +1,4 @@
-mixin card-apt({img=[{}],remoteSource=false,aptNum,price,status, rate,comments}={})
+mixin card-apt({img=[{}],arrows=true,remoteSource=false,aptNum,price,status, rate,comments}={})
   - if(remoteSource==true){
   - const jsonData = require("/src/assets/data/apartments.json");
   - const targetData = jsonData.filter((item) => item.number == aptNum)[0];
@@ -8,12 +8,11 @@ mixin card-apt({img=[{}],remoteSource=false,aptNum,price,status, rate,comments}=
   - comments = targetData.comments;
   - rate = targetData.rate;
   - }
-
+  - let hasArrows = arrows == true ? "" : ` --no-arrows`;
   .card-apt 
     |
     .card-apt__inner 
-      |
-      .card-apt__slider
+      div(class=`card-apt__slider${hasArrows}`)
         each i in img
           .card-apt__image
             +image(i.name, i.alt)
