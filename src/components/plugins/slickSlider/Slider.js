@@ -1,7 +1,7 @@
 import "slick-carousel";
 
 class Slider {
-  constructor(el, { options } = {}) {
+  constructor(el, options = {}) {
     this.$el = el;
     this.options = options
       ? this.mergeOptions(options)

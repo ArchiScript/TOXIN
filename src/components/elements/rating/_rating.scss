@@ -4,34 +4,43 @@
   padding: 0 20px 0 0;
   z-index: 0;
 
-  &__input {
+  &.--interactive &__input,
+  &.--noninteractive &__input {
     height: fit-content;
     width: 24px;
     cursor: pointer;
-    // margin: 0 4px 0 0;
     margin: 0;
   }
-
-  &__input::before {
+  &.--noninteractive &__input{
+    cursor:default
+  }
+  
+  &.--interactive &__input::before,
+  &.--noninteractive &__input::before {
     @extend %icon-font-bg-gradient;
     font-size: 20px;
   }
-
+ 
   // All the inputs that are not checked
-  &__input:checked~&__input::before {
+  &.--interactive &__input:checked~&__input::before,
+  &.--noninteractive &__input:checked~&__input::before {
     content: index.$icon-star-o;
     color: index.$purple;
   }
 
-  //on hover at parent block all els are filled
-  &:hover>&__input::before {
-    content: index.$icon-star;
-    @extend %icon-font-bg-gradient;
+   //on hover at parent block all els are filled
+&.--interactive:hover>&__input::before {
+    content: index.$icon-star !important;
+    // @extend %icon-font-bg-gradient;
+    color: transparent !important;
+    background-clip: text !important;
+    background-image: index.$controls-bg-gradient !important;
   }
-//but on hover at the actual el the rest are empty
-  &__input:hover~&__input::before {
-    color: index.$purple;
-    content: index.$icon-star-o;
-  }
+
+&.--interactive &__input:hover~&__input::before {
+  color: index.$purple;
+  content: index.$icon-star-o !important;
+}
+
 
 }

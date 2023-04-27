@@ -12,6 +12,7 @@ mixin card-apt({img=[{}],arrows=true,remoteSource=false,aptNum,price,status, rat
   .card-apt 
     |
     .card-apt__inner 
+      |
       div(class=`card-apt__slider${hasArrows}`)
         each i in img
           .card-apt__image
@@ -27,6 +28,6 @@ mixin card-apt({img=[{}],arrows=true,remoteSource=false,aptNum,price,status, rat
 
         .card-apt__info-rate-comments
           .card-apt__info-rate
-            +rating({value: rate})
+            +rating({value: rate,interactive: false})
           .card-apt__info-comments= comments
             span &nbsp Отзывов
