@@ -1,8 +1,8 @@
 mixin button(options = {})
   - mixinCount++;
-  - let { name = name, text = text, style = "filled", size = small, hasarrow = false, state } = options;
+  - let { name, text, style = "filled", size = small, hasarrow = false, state } = options;
   - let stateVal = state ? `--${state}` : "";
   - let sizeVal = size ? `--${size}` : "";
   - let arrow = hasarrow ? `icon-arrow_forward` : "";
   - const classlist = `button  ${arrow} button-${style}${stateVal} ${sizeVal}`;
-    button(class=classlist, name=name, id=`button-el-${mixinCount}`)= text
+    button(class=classlist, name=name||`button-el-${mixinCount}`, id=`button-el-${mixinCount}`)= text

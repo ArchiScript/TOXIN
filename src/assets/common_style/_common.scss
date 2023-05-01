@@ -14,13 +14,22 @@ html {
   max-width: 1160px;
   // @include m.isFlex(row,space-between,flex-start,nowrap);
   margin: 0 auto;
-  // margin-bottom: 100px;
+  height: 100%;
 
 }
+
 
 label,
 h3 {
   @extend %h3label;
+}
+
+a:link:active{
+  @extend .--active;
+}
+.--active{
+  @extend %fontBold;
+  color: $dark-shade100;
 }
 
 .row {

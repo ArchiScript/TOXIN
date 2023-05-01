@@ -7,3 +7,64 @@ mixin header-ui
     .header-ui__inner
       .header-ui__logo
         +image("logo-grey","Logo")
+
+mixin header(options={})
+  - const defaultOptions = [{id:"1", text: "О нас", active: true }, { id:"2",text: "Услуги", subItems: [{ id:"2.1",text: "Проживание" }, { id:"2.2",text: "Питание" }, {id:"2.3", text: "Химчистка" }, { id:"2.4",text: "Парикмахерская" }, {id:"2.5", text: "Аренда помещений" }, {id:"2.6", text: "Обмен валюты" }, { id:"2.7",text: "Прокат автомобилей" }] }, {id:"3", text: "Вакансии" }, {id:"4", text: "Новости" }, {id:"5", text: "Соглашения", subItems: [{id:"5.1", text: "О сотрудничестве" }, {id:"5.2", text: "О туризме" }] }]
+  - let navItems = options ? Object.assign(defaultOptions, options) : defaultOptions;
+  -
+    let ul = `main`, ulCount=0; 
+    function getTree(items) {
+    let html = `<ul class='header__nav-list-${ul}'>`;
+      for (let item of items) {
+        if (!item.subItems) {
+          let linkActive = item.active?`--active`:""
+          html += `<li><a href='#' class='header__nav-link ${linkActive}'>`;
+          html += item.text;
+          html += "</a></li>";
+        } else {
+          ulCount++;
+          ul = `sub`;
+          html += `<li class='header__nav-li-haslist icon-arrow_down' id='sublist-${ulCount}'><a href='#' class='header__nav-link'>`;
+          html += `${item.text}`;
+          html += `</a>${getTree(item.subItems)}</li>`;
+          }
+      }
+    html += "</ul>";
+    return html;
+    }
+  header.header
+    .container 
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      .header__inner 
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+        |
+        .header__logo
+          .header__logo-cycle
+            a(href="#")
+              +image("logo-colored","logo") 
+          .header__logo-text
+            a(href="#")
+              +image("toxin","logo") 
+        nav.header__nav
+          .header__nav-links
+            != getTree(navItems)
+          .header__buttons
+            +button({text: "войти", style: "bordered",size: "flex-size"})
+            +button({text: "зарегистрироваться", style: "filled",size: "flex-size"})

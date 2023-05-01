@@ -2,19 +2,20 @@
 
 .button {
   position: relative;
-  width: 99px;
+  width: index.$small-button-width;
   height: 44px;
   @extend %h3label;
   @extend %sizes;
   border-radius: 22px;
-  margin-right: 20px;
-  // margin-top: 20px;
+  // margin-right: 20px;
+
   cursor: pointer;
 
   &::before {
     position: absolute;
     right: 15px;
-    top: 11px;
+    top: 50%;
+    transform: translateY(-50%);;
     font-size: 22px;
   }
 
@@ -33,6 +34,7 @@
   }
 
   &-bordered {
+    box-sizing: border-box;
     border: 2px solid transparent;
     border-radius: 22px;
     box-shadow: 2px 1000px 1px white inset;

@@ -14,3 +14,7 @@ body{min-height: 100%;}
   margin: 0 0 20px 0;
   &::after{display: none;}
 }
+.headers-footers{
+  min-height: 100vh;  
+  background-color: #F4F4F6;
+}

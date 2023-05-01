@@ -88,7 +88,7 @@
   }
 }
 
-%sizes{
+%sizes {
   &.--full-size {
     width: $full-input-width;
   }
@@ -100,12 +100,23 @@
   &.--half-size {
     width: $half-input-width;
   }
+
   &.--double-size {
     width: $double-input-width;
-   
+
+  }
+  
+  
+  &.--flex-size {
+    @include isFlex(row, center, center, nowrap);
+    width: min-content;
+    height: min-content;
+    padding: 10px 20px;
+    &.button-bordered{
+      padding: 8px 20px;
+    }
   }
 }
-
 
 %arrow-down {
   content: "";

@@ -1,3 +1,4 @@
+@use "/src/assets/common_style/index.common";
 
 .header-ui {
   width: 100%;
@@ -13,12 +14,16 @@
   }
 
   &__logo {
-      width: 48px;
-      height: inherit;
-      display: flex;
-      align-items:center;
+    width: 48px;
+    height: inherit;
+    display: flex;
+    align-items: center;
+
+    a {
+      height: 100%;
     }
-  
+  }
+
 }
 
 .header-startpage {
@@ -28,4 +33,109 @@
   justify-content: center;
   margin: 50px 0 0 0;
 
+}
+
+.header {
+  width: 100%;
+  height: 77px;
+  background-color: #fff;
+
+  &__inner {
+    width: 100%;
+    height: 100%;
+    @include index.isFlex(row, space-between, center, nowrap);
+  }
+
+  &__logo {
+    @include index.isFlex(row, space-between, center, nowrap);
+
+    &-cycle {
+      padding-right: 12px;
+    }
+  }
+
+  &__nav {
+    @include index.isFlex(row, space-between, center, nowrap);
+  }
+
+  &__nav-list-main {
+    @include index.isFlex(row, space-between, center, nowrap);
+
+    li{
+      position: relative;
+      padding-right: 20px;
+      @extend %bodyText;
+      text-transform: initial;
+
+    }
+    a.--active{
+      color: index.$dark-shade100;
+    }
+   
+    .header__nav-li-haslist {
+      padding-right: 44px;
+    }
+
+    a {
+      color: index.$dark-shade50;
+
+      &:hover:not(.--active) {
+        color: index.$dark-shade25;
+        
+      }
+    }
+  }
+
+  &__nav-list-sub {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: max-content;
+    height: fit-content;
+    @include index.isFlex(column, flex-start, flex-start, nowrap);
+    background-color: #fff;
+    padding: 30px ;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    li{
+      padding: 3px 0;
+    }
+
+  }
+
+  &__buttons {
+    @include index.isFlex(row, space-between, center, nowrap);
+    max-height: 40px;
+
+    button:first-child {
+      margin-right: 20px;
+    }
+  }
+}
+
+.header__nav-list-sub {
+  display: none;
+}
+
+.header__nav-li-haslist {
+  &::before {
+    position: absolute;
+    font-size: 23px;
+    color: index.$dark-shade50;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+  }
+
+  &:hover {
+    .header__nav-list-sub {
+      display: block;
+    }
+    &::before{
+      color: index.$dark-shade25;
+      padding-top: 4px;
+      transition: padding-top 0.2s ease-in ;
+    }
+  }
 }
