@@ -8,23 +8,52 @@ mixin header-ui
       .header-ui__logo
         +image("logo-grey","Logo")
 
-mixin header(options={})
-  - const defaultOptions = [{id:"1", text: "О нас", active: true }, { id:"2",text: "Услуги", subItems: [{ id:"2.1",text: "Проживание" }, { id:"2.2",text: "Питание" }, {id:"2.3", text: "Химчистка" }, { id:"2.4",text: "Парикмахерская" }, {id:"2.5", text: "Аренда помещений" }, {id:"2.6", text: "Обмен валюты" }, { id:"2.7",text: "Прокат автомобилей" }] }, {id:"3", text: "Вакансии" }, {id:"4", text: "Новости" }, {id:"5", text: "Соглашения", subItems: [{id:"5.1", text: "О сотрудничестве" }, {id:"5.2", text: "О туризме" }] }]
-  - let navItems = options ? Object.assign(defaultOptions, options) : defaultOptions;
+mixin header(userOptions={})
+  -
+    const defaultOptions = { navItems: {
+      1: { text: "О нас", active: true },
+      2: {
+       text: "Услуги",
+       subItems: {
+         1: { text: "Проживание" },
+         2: { text: "Питание" },
+         3: { text: "Химчистка" },
+         4: { text: "Парикмахерская" },
+         5: { text: "Аренда помещений" },
+         6: { text: "Обмен валюты" },
+         7: { text: "Прокат автомобилей" },
+         },
+       },
+      3: { text: "Вакансии" },
+      4: { text: "Новости" },
+      5: {
+      text: "Соглашения",
+      subItems: { 1: { text: "О сотрудничестве" }, 2: { text: "О туризме" } },
+      },
+     },
+     buttons: true
+    };
+  -
+    let options = {}
+    options.navItems = userOptions ? Object.assign(defaultOptions.navItems, userOptions.navItems) : defaultOptions.navItems;
+    options.buttons = userOptions.buttons?userOptions.buttons : defaultOptions.buttons;
+
   -
     let ul = `main`, ulCount=0; 
+
     function getTree(items) {
     let html = `<ul class='header__nav-list-${ul}'>`;
-      for (let item of items) {
+        for (let item of Object.values(items)) {
+          let href = item.href?item.href:'#';
         if (!item.subItems) {
           let linkActive = item.active?`--active`:""
-          html += `<li><a href='#' class='header__nav-link ${linkActive}'>`;
+          html += `<li><a href='${href}' class='header__nav-link ${linkActive}'>`;
           html += item.text;
           html += "</a></li>";
         } else {
           ulCount++;
           ul = `sub`;
-          html += `<li class='header__nav-li-haslist icon-arrow_down' id='sublist-${ulCount}'><a href='#' class='header__nav-link'>`;
+          html += `<li class='header__nav-li-haslist icon-arrow_down' id='sublist-${ulCount}'><a href='${href}' class='header__nav-link'>`;
           html += `${item.text}`;
           html += `</a>${getTree(item.subItems)}</li>`;
           }
@@ -41,13 +70,7 @@ mixin header(options={})
       |
       |
       |
-      |
-      |
-      |
       .header__inner 
-        |
-        |
-        |
         |
         |
         |
@@ -64,7 +87,8 @@ mixin header(options={})
               +image("toxin","logo") 
         nav.header__nav
           .header__nav-links
-            != getTree(navItems)
-          .header__buttons
-            +button({text: "войти", style: "bordered",size: "flex-size"})
-            +button({text: "зарегистрироваться", style: "filled",size: "flex-size"})
+            != getTree(options.navItems)
+          if (options.buttons==true)
+            .header__buttons
+              +button({text: "войти", style: "bordered",size: "flex-size"})
+              +button({text: "зарегистрироваться", style: "filled",size: "flex-size"})
