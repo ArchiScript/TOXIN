@@ -39,6 +39,7 @@
   width: 100%;
   height: 77px;
   background-color: #fff;
+  @extend %bodyText;
 
   &__inner {
     width: 100%;
@@ -58,16 +59,18 @@
     @include index.isFlex(row, space-between, center, nowrap);
   }
 
-  &__nav-list-main {
+  &__nav-list-main,
+  &__nav-section {
     @include index.isFlex(row, space-between, center, nowrap);
 
     li{
       position: relative;
       padding-right: 20px;
-      @extend %bodyText;
+     
       text-transform: initial;
 
     }
+
     a.--active{
       color: index.$dark-shade100;
     }
@@ -78,7 +81,7 @@
 
     a {
       color: index.$dark-shade50;
-
+      
       &:hover:not(.--active) {
         color: index.$dark-shade25;
         
@@ -110,6 +113,22 @@
 
     button:first-child {
       margin-right: 20px;
+    }
+  }
+  &__nav-section{
+    @include index.isFlex(row, space-between, center, nowrap);
+    height: 100%;
+    width: max-content;
+    padding-left: 20px;
+    position: relative;
+    ::before{
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 1px;
+    background-color: index.$dark-shade10;
+    top: 0;
+    left: 0;
     }
   }
 }

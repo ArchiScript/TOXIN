@@ -28,16 +28,30 @@ mixin header(userOptions={})
       4: { text: "Новости" },
       5: {
       text: "Соглашения",
-      subItems: { 1: { text: "О сотрудничестве" }, 2: { text: "О туризме" } },
+      subItems: { 
+        1: { text: "О сотрудничестве" }, 
+        2: { text: "О туризме" } 
+        },
       },
-     },
-     buttons: true
+      },
+      buttons: true,
+      navSection: {text: "Юлий Цезарь", href: '#'}
     };
   -
-    let options = {}
-    options.navItems = userOptions ? Object.assign(defaultOptions.navItems, userOptions.navItems) : defaultOptions.navItems;
-    options.buttons = userOptions.buttons?userOptions.buttons : defaultOptions.buttons;
+    let options = {};
+    if(userOptions){
 
+      let tempItems = Object.assign({},defaultOptions.navItems, userOptions.navItems);
+
+      options.navItems = tempItems;
+      options.buttons = userOptions.buttons;
+
+    }else{
+      options = defaultOptions; 
+      options.buttons = defaultOptions.buttons; 
+      //- options.navSection = Object.assign({},defaultOptions.navSection); 
+      }
+      options.navSection = userOptions.navSection?Object.assign({},userOptions.navSection):null; 
   -
     let ul = `main`, ulCount=0; 
 
@@ -66,15 +80,7 @@ mixin header(userOptions={})
       |
       |
       |
-      |
-      |
-      |
-      |
       .header__inner 
-        |
-        |
-        |
-        |
         |
         |
         |
@@ -88,7 +94,12 @@ mixin header(userOptions={})
         nav.header__nav
           .header__nav-links
             != getTree(options.navItems)
-          if (options.buttons==true)
+          if options.buttons == true
             .header__buttons
               +button({text: "войти", style: "bordered",size: "flex-size"})
               +button({text: "зарегистрироваться", style: "filled",size: "flex-size"})
+          if options.navSection
+            .header__nav-section
+              a.header__nav-section-link.header__nav-link(
+                href=`${options.navSection.href}`
+              )= options.navSection.text

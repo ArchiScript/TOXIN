@@ -23,7 +23,7 @@ label,
 h3 {
   @extend %h3label;
 }
-
+a:hover{cursor: pointer;}
 a:link:active{
   @extend .--active;
 }
