@@ -105,7 +105,9 @@
     width: $double-input-width;
 
   }
-  
+  &.--container-size{
+    width: 100%;
+  }
   
   &.--flex-size {
     @include isFlex(row, center, center, nowrap);

@@ -1,0 +1,100 @@
+@use "/src/assets/common_style/index.common";
+
+.footer {
+  width: 100%;
+  @extend %bodyText;
+  background-color: #fff;
+
+
+  &__inner {
+    width: 100%;
+    @include index.isFlex(column, flex-start, flex-start, nowrap);
+  }
+
+  &__top,
+  &__bottom {
+    width: 100%;
+    @include index.isFlex(row, space-between, flex-start, nowrap);
+  }
+
+  &__top {
+    padding: 100px 0 90px 0;
+  }
+
+  &__logo {
+    max-width: 260px;
+    p{
+      padding-top: 15px;
+    }
+  }
+
+  &__logo-img {
+    padding-top: 10px;
+    @include index.isFlex(row, flex-start, center, nowrap);
+  }
+  &__logo-img1{
+    padding-right: 12px;
+  }
+
+  &__navigation {
+    padding: 0 20px;
+
+    li {
+      line-height: 38px;
+
+      a {
+        color: index.$dark-shade50;
+      }
+
+      &:first-child {
+        a {
+          color: index.$dark-shade100;
+          @extend %h3label;
+        }
+      }
+    }
+
+  }
+
+  &__signup {
+    li:first-child {
+      line-height: 38px;
+
+      // padding: 10px 0;
+      a {
+        color: index.$dark-shade100;
+        @extend %h3label;
+      }
+    }
+
+    p {
+      padding: 7px 0 20px 0;
+    }
+
+    max-width: 260px;
+  }
+
+
+  &__bottom{
+    height: 70px;
+    width: 100%;
+    border-top: 1px solid index.$dark-shade10;
+    @include index.isFlex(row,space-between,center,nowrap);
+    
+    &-inner{
+      max-width: 1160px;
+      margin: 0 auto;
+      height: 100%;
+      width: 100%;
+      @include index.isFlex(row,space-between,center,nowrap);
+    }
+
+    
+  }
+  &__bottom-socials{
+    @include index.isFlex(row,space-between,center,nowrap);
+    &>div:not(div:last-child){
+      padding-right: 20px;
+    }
+  }
+}

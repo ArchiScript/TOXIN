@@ -45,13 +45,13 @@ mixin header(userOptions={})
 
       options.navItems = tempItems;
       options.buttons = userOptions.buttons;
+      options.navSection = userOptions.navSection?Object.assign({},userOptions.navSection):null; 
 
     }else{
       options = defaultOptions; 
       options.buttons = defaultOptions.buttons; 
-      //- options.navSection = Object.assign({},defaultOptions.navSection); 
       }
-      options.navSection = userOptions.navSection?Object.assign({},userOptions.navSection):null; 
+
   -
     let ul = `main`, ulCount=0; 
 
@@ -78,11 +78,7 @@ mixin header(userOptions={})
   header.header
     .container 
       |
-      |
-      |
       .header__inner 
-        |
-        |
         |
         .header__logo
           .header__logo-cycle
