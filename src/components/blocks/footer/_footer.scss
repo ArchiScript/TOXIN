@@ -5,7 +5,21 @@
   @extend %bodyText;
   background-color: #fff;
 
+  &-mobile{
+    margin: 0 auto;
+    max-width: 768px;
+    background-color: #fff;
+    @extend %bodyText;
+  }
 
+  &-mobile__inner{
+    padding: 120px 0;
+    width: 100%;
+    @include index.isFlex(column, center, center, nowrap);
+    &>div{
+      padding-bottom: 20px;
+    }
+  }
   &__inner {
     width: 100%;
     @include index.isFlex(column, flex-start, flex-start, nowrap);
@@ -23,19 +37,13 @@
 
   &__logo {
     max-width: 260px;
+    padding-top: 10px;
     p{
       padding-top: 15px;
     }
   }
 
-  &__logo-img {
-    padding-top: 10px;
-    @include index.isFlex(row, flex-start, center, nowrap);
-  }
-  &__logo-img1{
-    padding-right: 12px;
-  }
-
+  
   &__navigation {
     padding: 0 20px;
 
@@ -91,10 +99,11 @@
 
     
   }
-  &__bottom-socials{
+  &__bottom-socials,&-mobile__socials{
     @include index.isFlex(row,space-between,center,nowrap);
     &>div:not(div:last-child){
       padding-right: 20px;
     }
   }
+ 
 }

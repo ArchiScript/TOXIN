@@ -15,9 +15,9 @@ body{min-height: 100%;}
   &::after{display: none;}
 }
 .headers-footers{
-  min-height: 100vh;  
+  height: 150vh;
   background-color: #F4F4F6;
 }
-.header{
+.header,.footer{
   margin-bottom: 40px;
 }

@@ -1,0 +1,6 @@
+mixin socials(options={images:[{name:"tweeter", href:"#"},{ name:"facebook", href:"#"},{ name:"instagram", href:"#"}]})
+  .socials
+    each img in options.images
+      div(class=`socials__${img.name}`)
+        a(href=`${img.href}`)
+          +image(img.name,img.name)

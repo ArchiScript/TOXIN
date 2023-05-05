@@ -1,0 +1,14 @@
+@use "/src/assets/common_style/index.common";
+
+.logo {
+  @include index.isFlex(row, flex-start, center, nowrap);
+
+  img {
+    display: block;
+  }
+
+  &__circle {
+    padding-right: 12px;
+
+  }
+}

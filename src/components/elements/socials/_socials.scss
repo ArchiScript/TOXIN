@@ -1,0 +1,14 @@
+@use "/src/assets/common_style/index.common";
+
+.socials {
+  max-width: 108px;
+  @include index.isFlex(row, space-between, center, nowrap);
+
+  img {
+    display: block;
+  }
+
+  &>div:not(div:last-child) {
+    padding-right: 20px;
+  }
+}

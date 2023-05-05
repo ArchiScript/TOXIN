@@ -81,12 +81,7 @@ mixin header(userOptions={})
       .header__inner 
         |
         .header__logo
-          .header__logo-cycle
-            a(href="#")
-              +image("logo-colored","logo") 
-          .header__logo-text
-            a(href="#")
-              +image("toxin","logo") 
+          +logo
         nav.header__nav
           .header__nav-links
             != getTree(options.navItems)

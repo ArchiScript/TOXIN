@@ -1,6 +1,7 @@
 mixin footer(userOptions ={})
   -
     let defaultOptions = {
+      style: "standard",
       items: {
         1:{
           1: {text: "навигация"},
@@ -27,69 +28,50 @@ mixin footer(userOptions ={})
 
   -
     let options = {};
+    options.style = userOptions.style?userOptions.style:defaultOptions.style;
     options.items = userOptions.items ? Object.assign({}, defaultOptions.items, userOptions.items) : defaultOptions.items;
+  if options.style == "standard"
+    footer.footer
+      .container
+        .footer__inner
+          .footer__top 
+            |
+            .footer__logo 
+              |
+              +logo
+              .footer__logo-description
+                p Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+            each item in options.items
+              .footer__navigation 
+                |
+                ul.footer__navigation-list
+                  each subitem in item
+                    li
+                      a(href=`${subitem.href}`)= subitem.text
 
-  footer.footer
-    .container
-      .footer__inner
-        .footer__top 
-          |
-          |
-          |
-          |
-          |
-          |
-          .footer__logo
-            .footer__logo-img
-              .footer__logo-img1
-                a(href="#")
-                  +image("logo-colored","logo") 
-              .footer__logo-img2
-                a(href="#")
-                  +image("toxin","logo") 
-            .footer__logo-description
-              p Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
-          each item in options.items
-            .footer__navigation 
+            .footer__signup 
               |
-              |
-              |
-              |
-              |
-              |
-              ul.footer__navigation-list
-                each subitem in item
-                  li
-                    a(href=`${subitem.href}`)= subitem.text
+              ul.footer__signup-list
+                li
+                  a(href="#") Подписка
+                li
+                  p Получайте специальные предложения и новости сервиса
+                +input({type:"Email", placehld:"Email", size:"container"})
 
-          .footer__signup 
+      .footer__bottom
+        .footer__bottom-inner
+          .footer__bottom-copyright Copyright © 2018 Toxin отель. Все права защищены.
+          .footer__bottom-socials 
             |
             |
-            |
-            |
-            |
-            |
-            ul.footer__signup-list
-              li
-                a(href="#") Подписка
-              li
-                p Получайте специальные предложения и новости сервиса
-              +input({type:"Email", placehld:"Email", size:"container"})
-
-    .footer__bottom
-      .footer__bottom-inner
-        .footer__bottom-copyright Copyright © 2018 Toxin отель. Все права защищены.
-        .footer__bottom-socials 
-          |
-          |
-          |
-          .footer__bottom-tweeter
-            a(href="#")
-              +image("tweeter","tweeter")
-          .footer__bottom-facebook
-            a(href="#") 
-              |
-              +image("facebook","facebook")
-          .footer__bottom-instagram
-            a(href="#")
-              +image("instagram","instagram")
+            +socials 
+  else
+    footer.footer-mobile 
+      |
+      |
+      .container
+        .footer-mobile__inner
+          +logo 
+          .footer-mobile__copyright Copyright © 2018 Toxin отель. Все права защищены.
+          .footer-mobile__socials
+            +socials

@@ -1,0 +1,20 @@
+mixin logo(options ={style:"colored-full", href:"#"})
+  -
+    let image = "logo-colored";
+    if(options.style == "grey-small"){
+      image = "logo-grey";
+     }
+  div(class=`logo --${options.style}`)
+    if options.style == "colored-full"
+      .logo__circle 
+        |
+        a(href=options.href)
+          +image(`${image}`,"logo") 
+      .logo__text
+        a(href=options.href)
+          +image("toxin","logo")
+    else if options.style =="colored-small"
+      .logo__circle 
+        |
+        a(href=options.href)
+          +image(`${image}`,"logo") 
