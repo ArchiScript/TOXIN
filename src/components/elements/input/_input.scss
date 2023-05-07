@@ -2,7 +2,7 @@
 
 .input-container {
   @extend %sizes;
-  
+  position: relative;
   &:not(.input-container.--noLabel){margin-top: 20px;}
   input {
     box-sizing:border-box;
@@ -21,12 +21,17 @@
       color: index.$dark-shade75;
     }
   }
+  &::before{
+    z-index: 1;
+    font-size: 24px;
+    @extend %icon-font-bg-gradient;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
 }
 
 ::-webkit-calendar-picker-indicator {
   opacity: 0;
-}
-.input-container-subscription{
-  @extend %arrow-next2;
 }
 

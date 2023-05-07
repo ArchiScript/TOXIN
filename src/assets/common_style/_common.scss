@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-html {
+html,body {
   font-family: MontserratRegular;
   height: 100%;
   user-select: none;
@@ -17,7 +17,6 @@ html {
   height: 100%;
 
 }
-
 
 label,
 h3 {
@@ -107,7 +106,7 @@ a:link:active{
   }
 
   button {
-    margin: 20px 0 0 0;
+    margin-top: 30px;
   }
 
   .radiobuttons {

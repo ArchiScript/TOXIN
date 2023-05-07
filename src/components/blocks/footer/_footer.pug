@@ -36,13 +36,16 @@ mixin footer(userOptions ={})
         .footer__inner
           .footer__top 
             |
+            |
             .footer__logo 
+              |
               |
               +logo
               .footer__logo-description
                 p Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
             each item in options.items
               .footer__navigation 
+                |
                 |
                 ul.footer__navigation-list
                   each subitem in item
@@ -51,12 +54,13 @@ mixin footer(userOptions ={})
 
             .footer__signup 
               |
+              |
               ul.footer__signup-list
                 li
                   a(href="#") Подписка
                 li
                   p Получайте специальные предложения и новости сервиса
-                +input({type:"Email", placehld:"Email", size:"container"})
+                +input({type:"Email", placehld:"Email", size:"container",beforeClass:"icon-arrow_forward"})
 
       .footer__bottom
         .footer__bottom-inner
@@ -64,9 +68,11 @@ mixin footer(userOptions ={})
           .footer__bottom-socials 
             |
             |
+            |
             +socials 
   else
     footer.footer-mobile 
+      |
       |
       |
       .container

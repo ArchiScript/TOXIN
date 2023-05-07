@@ -1,7 +1,11 @@
 @use "/src/assets/common_style/index.common";
 
 .logo {
-  @include index.isFlex(row, flex-start, center, nowrap);
+  display: flex;
+  flex-direction: row;
+  &.--colored-full,&.--colored-small{ 
+    @include index.isFlex(row, flex-start, center, nowrap);
+  }
 
   img {
     display: block;

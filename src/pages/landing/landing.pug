@@ -1,0 +1,18 @@
+extends ../../templates/base
+include ../../components/blocks/blocks.pug
+include ../../components/elements/elements.pug
+include ../../components/plugins/plugins.pug
+include ../../components/layout-sets/layout-sets.pug
+
+block title
+  title TOXIN LANDING
+block content
+  - var mixinCount = 0,formCount = 0;
+  .landing-wrapper
+    +header({buttons: true})
+    main.main
+      .container
+        .main__inner
+          .main__side-slogan Лучшие номера для вашей работы, отдыха и просто вдохновения
+          +card-search
+    +footer

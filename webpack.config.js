@@ -75,9 +75,9 @@ const paths = globule.find(["src/pages/**/*.pug"]);
 module.exports = {
   mode: mode,
   entry: {
-    // scripts: "./src/pages/index.js",
     index: "./src/pages/index.js",
     "ui-kit": "./src/pages/ui-kit/ui-kit.js",
+    landing: "./src/pages/landing/landing.js",
   },
   resolve: {
     extensions: [".js", ".json"],
@@ -89,11 +89,11 @@ module.exports = {
     // clean: true,
   },
   devtool: "source-map",
-  optimization: {
-    splitChunks: {
-      chunks: "all",
-    },
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: "all",
+  //   },
+  // },
   devServer: {
     open: true,
     hot: true,
@@ -170,6 +170,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.optimize.SplitChunksPlugin({
+      chunks: "all",
+      name: "vendor",
+    }),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",

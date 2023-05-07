@@ -1,5 +1,8 @@
 class Order {
   constructor(options = {}) {
+    if (!document.querySelector(".card-price")) {
+      return;
+    }
     this.options = options;
     const { aptNumber, price, status, comment } = this.options;
     this.number = aptNumber;
@@ -10,22 +13,27 @@ class Order {
     this.calculatePrice() ? this.calculatePrice() : 0;
     this.print();
   }
-
+  checkIfOrder() {
+    if (document.querySelector(".card-price")) {
+      return true;
+    }
+  }
   setup() {
-    const $el = document.querySelector(".card-price");
-    this.$number = $el.querySelector(".card-price__apt-number");
-    this.$status = $el.querySelector(".card-price__apt-status");
-    this.$price = $el.querySelector(".card-price__header-price-num");
-    this.$dateFrom = $el.querySelector("input[name='dateFrom']");
-    this.$dateTo = $el.querySelector("input[name='dateTo']");
-    this.$priceDesc = $el.querySelector(".card-price__price-desc");
-    this.$priceSubtotal = $el.querySelector(".card-price__price-subtotal");
-    this.$taxDesc = $el.querySelector(".card-price__tax-text");
-    this.$taxSubtotal = $el.querySelector(".card-price__tax-subtotal");
-    this.$feeDesc = $el.querySelector(".card-price__fee-text");
-    this.$feeSubtotal = $el.querySelector(".card-price__fee-subtotal");
-    this.$totalDesc = $el.querySelector(".card-price__total-desc");
-    this.$totalPrice = $el.querySelector(".card-price__total-price");
+    this.$el = document.querySelector(".card-price");
+    if (!this.$el) return;
+    this.$number = this.$el.querySelector(".card-price__apt-number");
+    this.$status = this.$el.querySelector(".card-price__apt-status");
+    this.$price = this.$el.querySelector(".card-price__header-price-num");
+    this.$dateFrom = this.$el.querySelector("input[name='dateFrom']") ?? 0;
+    this.$dateTo = this.$el.querySelector("input[name='dateTo']") ?? 0;
+    this.$priceDesc = this.$el.querySelector(".card-price__price-desc");
+    this.$priceSubtotal = this.$el.querySelector(".card-price__price-subtotal");
+    this.$taxDesc = this.$el.querySelector(".card-price__tax-text");
+    this.$taxSubtotal = this.$el.querySelector(".card-price__tax-subtotal");
+    this.$feeDesc = this.$el.querySelector(".card-price__fee-text");
+    this.$feeSubtotal = this.$el.querySelector(".card-price__fee-subtotal");
+    this.$totalDesc = this.$el.querySelector(".card-price__total-desc");
+    this.$totalPrice = this.$el.querySelector(".card-price__total-price");
 
     this.$status.innerHTML = this.status;
     this.$price.innerHTML = `${this.price.toLocaleString()}\u20BD `;

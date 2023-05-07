@@ -1,0 +1,44 @@
+@use "/src/assets/common_style/index.common";
+
+
+.landing-wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+
+  .header,
+  .footer {
+    margin: 0;
+  }
+  .card, .card-search{
+    margin: 0;
+  }
+  .main {
+    background-image: url("../../assets/images/bg-main.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    flex: 1 1 auto;
+    padding: 0;
+
+    &__inner {
+      margin-top: 0;
+      padding-top: 70px;
+      height: 100%;
+      width: 100%;
+      position: relative;
+    }
+
+   
+    &__side-slogan {
+      width: 300px;
+      position: absolute;
+      right: 0;
+      bottom: 50px;
+      @extend %bodyText;
+      text-align: right;
+    }
+  }
+
+}

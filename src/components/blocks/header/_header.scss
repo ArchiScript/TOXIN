@@ -49,14 +49,14 @@
 
   &__logo {
     @include index.isFlex(row, center, center, nowrap);
-    height: 100%;
-    &-cycle {
-      @include index.isFlex(row, center, center, nowrap);
-      height: 100%;
-      padding-right: 12px;
-    }
-    &-text{
-      @include index.isFlex(row, space-between, center, nowrap);height: 100%;}
+    // height: 100%;
+    // &-cycle {
+    //   @include index.isFlex(row, center, center, nowrap);
+    //   height: 100%;
+    //   padding-right: 12px;
+    // }
+    // &-text{
+    //   @include index.isFlex(row, space-between, center, nowrap);height: 100%;}
   }
 
   &__nav {

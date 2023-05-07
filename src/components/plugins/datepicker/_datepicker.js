@@ -23,7 +23,9 @@ dateDropdowns.forEach((i) => {
     autoClose: true,
     inline: inlineState,
     onSelect: () => {
-      OrderInstance.calculatePrice();
+      if (OrderInstance.checkIfOrder()) {
+        OrderInstance.calculatePrice();
+      }
     },
   });
 });

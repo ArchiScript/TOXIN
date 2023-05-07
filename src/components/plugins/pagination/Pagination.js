@@ -2,6 +2,9 @@ import "paginationjs";
 
 class Pagination {
   constructor(element, dataElement) {
+    if (!element) {
+      return;
+    }
     this.element = element;
     this.dataElement = dataElement;
     let self = this;

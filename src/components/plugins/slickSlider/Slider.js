@@ -3,10 +3,14 @@ import "slick-carousel";
 class Slider {
   constructor(el, options = {}) {
     this.$el = el;
-    this.options = options
-      ? this.mergeOptions(options)
-      : this.getDefaultOptions();
-    this.init(this.$el);
+    if (!el) {
+      return;
+    } else {
+      this.options = options
+        ? this.mergeOptions(options)
+        : this.getDefaultOptions();
+      this.init(this.$el);
+    }
   }
   init(el) {
     $(el).slick(this.options);

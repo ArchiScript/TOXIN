@@ -113,7 +113,7 @@ export class Select {
         this.$selectText.innerHTML = this.chosenUpdate();
         this.buttonRegulator();
         this.setInputValue();
-        this.onChange();
+        // this.onChange();
       });
     }
   }
@@ -135,7 +135,7 @@ export class Select {
         this.$selectText.innerHTML = this.chosenUpdate();
         this.buttonRegulator();
         this.setInputValue();
-        this.onChange();
+        // this.onChange();
       });
     }
   }
@@ -219,9 +219,9 @@ export class Select {
     ];
   }
 
-  onChange() {
-    OrderInstance.calculatePrice();
-  }
+  // onChange() {
+  //   OrderInstance.calculatePrice();
+  // }
   getDefaultAccomodations() {
     const accoms = [
       ["спальня", "спальни", "спален"],
@@ -295,7 +295,7 @@ export class Select {
       data: defaultData,
       buttons: defaultButtons,
       countItems: defaultCountItems,
-      onChange: this.onChange(),
+      // onChange: this.onChange(),
     };
   }
 

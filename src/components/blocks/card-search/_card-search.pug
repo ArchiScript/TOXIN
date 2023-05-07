@@ -7,13 +7,9 @@ mixin card-search({title= "Найдём номера под ваши пожел�
         form.card-search__form(id=`form-${formCount}`)
           .card-search__date-dropdowns.row 
             |
-            |
-            |
             +datepicker({label:"прибытие",placehld:"ДД.ММ.ГГГГ"})
             +datepicker({label:"выезд",placehld:"ДД.ММ.ГГГГ"})
           .card-search__guests-dropdown 
-            |
-            |
             |
             +select-plugin({category:"guests",label: "гости",size: "full"})
             +button({name: "button",text: "подобрать номера", style: "filled",size: "full-size", hasarrow: true})

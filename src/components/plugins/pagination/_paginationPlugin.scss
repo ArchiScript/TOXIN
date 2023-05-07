@@ -9,9 +9,10 @@
 }
 
 .pagination {
-  min-width: 241px;
+  width: 241px;
   @extend %pagination-text;
-  width: 100%;
+  // width: 100%;
+  
 
 
   &__list {
