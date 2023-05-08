@@ -24,7 +24,7 @@
 
     &__inner {
       margin-top: 0;
-      padding-top: 70px;
+      padding-top: 140px;
       height: 100%;
       width: 100%;
       position: relative;
@@ -41,4 +41,9 @@
     }
   }
 
+  @media (max-width: 767px) {
+    .card.card-search{
+      margin-left: 20px;
+    }
+  }
 }

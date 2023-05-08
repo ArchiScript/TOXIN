@@ -78,10 +78,110 @@ mixin header(userOptions={})
   header.header
     .container 
       |
+      |
+      |
+      |
+      |
+      |
+      .header__inner 
+        |
+        |
+        |
+        |
+        |
+        |
+        .header__logo
+          +logo
+        nav.header__nav
+          .header__nav-links
+            != getTree(options.navItems)
+          if options.buttons == true
+            .header__buttons
+              +button({text: "войти", style: "bordered",size: "flex-size"})
+              +button({text: "зарегистрироваться", style: "filled",size: "flex-size"})
+          if options.navSection
+            .header__nav-section
+              a.header__nav-section-link.header__nav-link(
+                href=`${options.navSection.href}`
+              )= options.navSection.text
+
+mixin header-burger(userOptions={})
+  -
+    const defaultOptions = { navItems: {
+      1: { text: "О нас", active: true },
+      2: {
+       text: "Услуги",
+       subItems: {
+         1: { text: "Проживание" },
+         2: { text: "Питание" },
+         3: { text: "Химчистка" },
+         4: { text: "Парикмахерская" },
+         5: { text: "Аренда помещений" },
+         6: { text: "Обмен валюты" },
+         7: { text: "Прокат автомобилей" },
+         },
+       },
+      3: { text: "Вакансии" },
+      4: { text: "Новости" },
+      5: {
+      text: "Соглашения",
+      subItems: { 
+        1: { text: "О сотрудничестве" }, 
+        2: { text: "О туризме" } 
+        },
+      },
+      },
+      buttons: true,
+      navSection: {text: "Юлий Цезарь", href: '#'}
+    };
+  -
+    let options = {};
+    if(userOptions){
+
+      let tempItems = Object.assign({},defaultOptions.navItems, userOptions.navItems);
+
+      options.navItems = tempItems;
+      options.buttons = userOptions.buttons;
+      options.navSection = userOptions.navSection?Object.assign({},userOptions.navSection):null; 
+
+    }else{
+      options = defaultOptions; 
+      options.buttons = defaultOptions.buttons; 
+      }
+
+  -
+    let ul = `main`, ulCount=0; 
+
+    function getTree(items) {
+    let html = `<ul class='header__nav-list-${ul}'>`;
+        for (let item of Object.values(items)) {
+          let href = item.href?item.href:'#';
+        if (!item.subItems) {
+          let linkActive = item.active?`--active`:""
+          html += `<li><a href='${href}' class='header__nav-link ${linkActive}'>`;
+          html += item.text;
+          html += "</a></li>";
+        } else {
+          ulCount++;
+          ul = `sub`;
+          html += `<li class='header__nav-li-haslist icon-arrow_down' id='sublist-${ulCount}'><a href='${href}' class='header__nav-link'>`;
+          html += `${item.text}`;
+          html += `</a>${getTree(item.subItems)}</li>`;
+          }
+      }
+    html += "</ul>";
+    return html;
+    }
+  header.header
+    .container 
+      |
       .header__inner 
         |
         .header__logo
           +logo
+        .header__burger 
+          |
+          span 
         nav.header__nav
           .header__nav-links
             != getTree(options.navItems)

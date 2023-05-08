@@ -35,13 +35,31 @@
 
 }
 
+
 .header {
-  max-width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
   height: 77px;
   background-color: #fff;
   @extend %bodyText;
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    z-index: 2;
+  }
+
+
   &__inner {
+    position: relative;
     width: 100%;
     height: 100%;
     @include index.isFlex(row, space-between, center, nowrap);
@@ -49,14 +67,12 @@
 
   &__logo {
     @include index.isFlex(row, center, center, nowrap);
-    // height: 100%;
-    // &-cycle {
-    //   @include index.isFlex(row, center, center, nowrap);
-    //   height: 100%;
-    //   padding-right: 12px;
-    // }
-    // &-text{
-    //   @include index.isFlex(row, space-between, center, nowrap);height: 100%;}
+    z-index: 3;
+  }
+
+  &__burger {
+    position: relative;
+    display: block;
   }
 
   &__nav {
@@ -65,28 +81,31 @@
 
   &__nav-list-main,
   &__nav-section {
+    position: relative;
+    z-index: 2;
     @include index.isFlex(row, space-between, center, nowrap);
 
-    li{
+    li {
       position: relative;
       padding-right: 20px;
       text-transform: initial;
     }
 
-    a.--active{
+    a.--active {
       color: index.$dark-shade100;
     }
-   
+
     .header__nav-li-haslist {
       padding-right: 44px;
+     
     }
 
     a {
       color: index.$dark-shade50;
-      
+
       &:hover:not(.--active) {
         color: index.$dark-shade25;
-        
+
       }
     }
   }
@@ -100,10 +119,12 @@
     height: fit-content;
     @include index.isFlex(column, flex-start, flex-start, nowrap);
     background-color: #fff;
-    padding: 30px ;
+    padding: 30px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
-    li{
+    
+
+    li {
       padding: 3px 0;
     }
 
@@ -112,31 +133,164 @@
   &__buttons {
     @include index.isFlex(row, space-between, center, nowrap);
     max-height: 40px;
+    z-index: 3;
 
     button:first-child {
       margin-right: 20px;
     }
   }
-  &__nav-section{
+
+  &__nav-section {
     @include index.isFlex(row, space-between, center, nowrap);
     height: 100%;
     width: max-content;
     padding-left: 20px;
     position: relative;
-    ::before{
-    position: absolute;
-    content: "";
-    height: 30px;
-    width: 1px;
-    background-color: index.$dark-shade10;
-    top: 0;
-    left: 0;
+
+    ::before {
+      position: absolute;
+      content: "";
+      height: 30px;
+      width: 1px;
+      background-color: index.$dark-shade10;
+      top: 0;
+      left: 0;
     }
   }
+
+  @media (max-width: 1400px) {
+    body.lock{overflow: hidden;}
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      height: 1px;
+      background-color: index.$dark-shade10;
+      z-index: 2;
+    }
+
+    
+
+    &__burger {
+      position: relative;
+      display: block;
+      width: 30px;
+      height: 20px;
+      margin-right: 20px;
+      z-index: 3;
+    }
+
+    &__burger span {
+      position: absolute;
+      background-color: index.$purple;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: index.$purple;
+      transition: all .2s;
+    }
+
+    &__burger::before,
+    &__burger::after {
+      position: absolute;
+      content: "";
+      background-color: index.$purple;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      transition: all .3s;
+    }
+
+    &__burger::before {
+      top: 0;
+    }
+
+    &__burger::after {
+      bottom: 0;
+    }
+    &__burger.burger-active::before{
+      transform: rotate(45deg);
+      top: 50%;
+    }
+
+    &__burger.burger-active::after{
+      transform: rotate(-45deg);
+      top: 50%;
+    }
+    &__burger.burger-active span{
+      transform: scale(0);
+    }
+    &__nav {
+      position: fixed;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(255, 255, 255);
+      display: block;
+      transition: all .3s;
+      overflow: auto;
+    }
+    &__nav.burger-active{
+      top: 0;
+    }
+    &__nav-list-main {
+      padding-top: 120px;
+      flex-direction: column;
+      width: max-content;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        padding-right: 0;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+    }
+
+    .header__nav-li-haslist {
+      padding: 0;
+
+
+      &::before {
+        content:index.$icon-arrow_next;
+        top:12px;
+        right: -30px;
+      }
+      &:hover::before {
+        content: index.$icon-arrow_down;
+      }
+    }
+
+
+    &__nav-list-sub{
+      position: relative;
+      padding: 0;
+
+    }
+
+    &__buttons {
+      flex-direction: column;
+      align-items: center;
+      
+
+      button:first-child {
+        margin: 20px 0;
+      }
+    }
+  }
+
+
 }
 
 .header__nav-list-sub {
   display: none;
+
+  
 }
 
 .header__nav-li-haslist {
@@ -152,11 +306,34 @@
   &:hover {
     .header__nav-list-sub {
       display: block;
+
+
+
     }
-    &::before{
+
+    &::before {
       color: index.$dark-shade25;
       padding-top: 4px;
-      transition: padding-top 0.2s ease-in ;
+      transition: padding-top 0.2s ease-in;
     }
+  }
+
+}
+@media (max-width: 767px) {
+  body.lock{overflow: hidden;}
+  .header__nav.burger-active{
+    padding-bottom: 20px;
+  }
+}
+@media (max-width: 1160px){
+  .card.card-search{
+    margin-left: 20px;
+  }
+
+  .header__logo{
+    margin-left: 20px;
+  }
+  .header__burger{
+    margin-right: 20px;
   }
 }

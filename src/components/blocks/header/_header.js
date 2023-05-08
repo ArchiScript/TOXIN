@@ -1,0 +1,11 @@
+window.onload = () => {
+  const burger = document.querySelector(".header__burger");
+  const menu = document.querySelector(".header__nav");
+  const els = document.querySelectorAll(".header__burger, .header__nav");
+  burger.addEventListener("click", () => {
+    els.forEach((el) => {
+      el.classList.toggle("burger-active");
+    });
+    document.querySelector("body").classList.toggle("lock");
+  });
+};

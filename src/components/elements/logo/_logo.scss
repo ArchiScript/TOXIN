@@ -6,7 +6,7 @@
   &.--colored-full,&.--colored-small{ 
     @include index.isFlex(row, flex-start, center, nowrap);
   }
-
+  
   img {
     display: block;
   }

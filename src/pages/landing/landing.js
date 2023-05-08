@@ -1,6 +1,6 @@
 // ---------CONNECTING JS FILES-------------
 // import "/src/components/plugins/selectPlugin/_selectPluginInit";
-
+import "/src/components/blocks/header/_header";
 // ----------CONNECTING SCSS FILES-------------
 import "/src/pages/landing/landing.scss";
 import "/src/assets/common_style/_index.common.scss";
