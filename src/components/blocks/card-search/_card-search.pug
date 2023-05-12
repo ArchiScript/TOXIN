@@ -3,12 +3,12 @@ mixin card-search({title= "Найдём номера под ваши пожел�
   .card.card-search
     .card-search__inner
       .card__title.card-search__title= title
-      .card-search__form
+      .card-search__form-container
         form.card-search__form(id=`form-${formCount}`)
           .card-search__date-dropdowns.row 
             |
-            +datepicker({label:"прибытие",placehld:"ДД.ММ.ГГГГ"})
-            +datepicker({label:"выезд",placehld:"ДД.ММ.ГГГГ"})
+            +datepicker({label:"прибытие",placehld:"ДД.ММ.ГГГГ", name: "dateFrom"})
+            +datepicker({label:"выезд",placehld:"ДД.ММ.ГГГГ",name: "dateTo"})
           .card-search__guests-dropdown 
             |
             +select-plugin({category:"guests",label: "гости",size: "full"})

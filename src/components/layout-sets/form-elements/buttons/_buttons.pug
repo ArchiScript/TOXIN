@@ -2,9 +2,10 @@ mixin buttons
   .form-elements__buttons.column-3
     .form-elements__range-slider
       .form-elements__elements-block.elements-block
-        h3.form-elements__title.elements-block-title range slider
+        //- h3.form-elements__title.elements-block-title range slider
         +range-slider({label: "rangeslider", min: "0", max: "15000", value: ["5000","10000"], step: "100"})
     .form-elements__buttons 
+      |
       |
       .form-elements__elements-block.elements-block.column-3
         h3.form-elements__title.elements-block-title buttons
@@ -14,9 +15,11 @@ mixin buttons
         .elements-block-row 
           |
           |
+          |
           +button({name: "button3",text: "click me", style: "bordered"})
           +button({name: "button4",text: "click me", style: "bordered", state: "focused"})
         .elements-block-row 
+          |
           |
           +button({name: "button5",text: "click me", style: "noborder"})
           +button({name: "button6",text: "click me", style: "noborder",state: "focused"})

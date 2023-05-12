@@ -69,14 +69,13 @@ mixin footer(userOptions ={})
           .footer__bottom-copyright Copyright © 2018 Toxin отель. Все права защищены.
           .footer__bottom-socials 
             |
-            |
             +socials 
-  //- else
-  //-   footer.footer-mobile 
-  //-     |
-  //-     .container
-  //-       .footer-mobile__inner
-  //-         +logo 
-  //-         .footer-mobile__copyright Copyright © 2018 Toxin отель. Все права защищены.
-  //-         .footer-mobile__socials
-  //-           +socials
+  else if options.style == "mobile"
+    footer.footer-mobile 
+      |
+      .container
+        .footer-mobile__inner
+          +logo 
+          .footer-mobile__copyright Copyright © 2018 Toxin отель. Все права защищены.
+          .footer-mobile__socials
+            +socials

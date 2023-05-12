@@ -18,7 +18,6 @@
   .checkbox__label-text {
     @include index.font(fontBold, 14);
     color: index.$dark-shade75;
-
   }
 
   .checkbox__label-subtitle {

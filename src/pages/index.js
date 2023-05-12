@@ -11,6 +11,7 @@ import "/src/components/blocks/checkbox-list/_checkbox-list";
 import "/src/components/blocks/card-search/_card-search";
 import "/src/components/blocks/card-price/_card-price";
 import "/src/components/blocks/card-apt/_card-apt";
+import "/src/components/blocks/header/_header";
 // ----------CONNECTING SCSS FILES-------------
 
 import "../assets/common_style/_index.common.scss";

@@ -1,5 +1,7 @@
-mixin logo(options ={style:"colored-full", href:"#"})
+mixin logo(userOptions ={})
   -
+    let defaultOptions = {style:"colored-full", href:"#"};
+    let options=userOptions?Object.assign({}, defaultOptions,userOptions):defaultOptions;
     let image = "logo-colored";
     if(options.style == "grey-small"){
       image = "logo-grey";
@@ -14,7 +16,6 @@ mixin logo(options ={style:"colored-full", href:"#"})
         a(href=options.href)
           +image("toxin","logo")
     else if options.style =="colored-small"
-      .logo__circle 
-        |
+      .logo__circle
         a(href=options.href)
           +image(`${image}`,"logo") 

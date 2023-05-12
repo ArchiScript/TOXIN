@@ -1,17 +1,120 @@
 @use "/src/assets/common_style/index.common";
 
+// .range-slider {
+//   padding-top: 5px;
+//   position: relative;
+//   min-width: 266px;
+//   // min-height: 76px;
+
+//   &__value-text {
+//     height: fit-content;
+//     position: absolute;
+//     right: 0;
+//     bottom: 20px;
+//     @extend %pagination-text;
+//     padding: 0;
+//   }
+
+//   input[type=range] {
+//     position: absolute;
+//     z-index: 2;
+//     width: calc(100% + 16px);
+//     margin: 0;
+//     height: 6px;
+//     appearance: none;
+//     opacity: 0;
+//     pointer-events: none;
+//     left: -3px;
+//     border: 1px solid grey;
+//     border-radius: 3px;
+
+//     &::-webkit-slider-thumb {
+//         position: relative;
+//         appearance: none;
+//         pointer-events: all;
+//         width: 12px;
+//         height: 12px;
+//         border-radius: 50%;
+//         background: index.$controls-bg-gradient-green;
+//         opacity: 0;
+//         cursor: pointer;
+//         z-index: 2;
+//         left: -4px;
+//       }
+    
+    
+//     }
+
+    
+//     &__slider {
+//       position: absolute;
+//       z-index: 1;
+//       height: 6px;
+//       // margin: 0 8px;
+//       width: 100%;
+    
+//     }
+//   &__track {
+//     position: absolute;
+//     z-index: 1;
+//     left: 0;
+//     top: 0;
+//     height: 100%;
+//     width: 100%;
+//     border-radius: 3px;
+//     border: 1px solid index.$dark-shade25;
+//   }
+
+//   &__range {
+//     position: absolute;
+//     z-index: 2;
+//     right: 25%;
+//     left: 25%;
+//     top: 0;
+//     bottom: 0;
+//     border-radius: 3px;
+//     background: index.$controls-bg-gradient-green;
+//   }
+
+//   &__thumb {
+//     position: absolute;
+//     width: 12px;
+//     height: 12px;
+//     border-radius: 50%;
+//     background: index.$controls-bg-gradient-green;
+//     border: 2px solid white;
+//     box-sizing: content-box;
+//     cursor: pointer;
+//     z-index: 3;
+
+//     &.thumb-left {
+//       transform: translate(-8px, -5px);
+
+//     }
+
+//     &.thumb-right {
+//       transform: translate(8px, -5px);
+
+//     }
+//   }
+
+// }
+
+
 .range-slider {
-  padding-top: 5px;
+  margin-top: 20px;
   position: relative;
   min-width: 266px;
-
+  &__text{
+    @include index.isFlex(row,space-between,flex-start,nowrap);
+    padding-bottom: 20px;
+  }
+  &__label{
+    @extend %h3label;
+  }
   &__value-text {
     height: fit-content;
-    position: absolute;
-    right: 0;
-    bottom: 20px;
     @extend %pagination-text;
-    padding: 0;
   }
 
   input[type=range] {
@@ -96,10 +199,12 @@
 
     }
   }
+  &__undertext{
+    padding-top: 20px;
+    @extend %pagination-text;
+  }
 
 }
-
-
 
 
 

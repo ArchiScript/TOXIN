@@ -1,14 +1,18 @@
-mixin card-apt({img=[{}],arrows=true,remoteSource=false,aptNum,price,status, rate,comments}={})
-  - if(remoteSource==true){
-  - const jsonData = require("/src/assets/data/apartments.json");
-  - const targetData = jsonData.filter((item) => item.number == aptNum)[0];
-  - aptNum = targetData.number;
-  - price = targetData.price;
-  - status = targetData.status == "люкс" ? "люкс" : "";
-  - comments = targetData.comments;
-  - rate = targetData.rate;
-  - }
-  - let hasArrows = arrows == true ? "" : ` --no-arrows`;
+mixin card-apt({img=[{}],arrows=true,remoteSource=false,aptNum,price,status, rate,comments,imgName}={})
+  -
+    if(remoteSource==true){
+    const jsonData = require("/src/assets/data/apartments.json");
+  
+        const targetData = jsonData.filter((item) => item.number == aptNum)[0];
+        aptNum = targetData.number;
+        price = targetData.price;
+        status = targetData.status == "люкс" ? "люкс" : "";
+        comments = targetData.comments;
+        rate = targetData.rate;
+
+  
+    }
+    let hasArrows = arrows == true ? "" : ` --no-arrows`;
   .card-apt 
     |
     |

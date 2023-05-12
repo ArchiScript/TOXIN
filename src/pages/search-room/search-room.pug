@@ -1,0 +1,34 @@
+extends ../../templates/base
+include ../../components/blocks/blocks.pug
+include ../../components/elements/elements.pug
+include ../../components/plugins/plugins.pug
+include ../../components/layout-sets/layout-sets.pug
+
+block title
+  title TOXIN SEARCH-ROOM
+block content
+  - var mixinCount = 0,formCount = 0;
+
+  .search-room
+    +header({buttons: true})
+    .container
+      .search-room__inner
+        aside.search-room__filter
+          +filter-datepicker({label:"даты пребывания в отеле",placehld:"ДД.ММ.ГГГГ"})
+          +select-plugin({category:"guests", label:"гости", size:"full"})
+          +range-slider({label: "диапазон цены", min: "0", max: "15000", value: ["5000","10000"], step: "100", undertext: "Cтоимость за сутки пребывания в номере"})
+          +checkbox-block({title: "правила дома", style:"regular",options:[{label:"Можно курить"},{label:"Можно с питомцами", checked: true},{label: "Можно пригласить гостей (до 10 человек)", checked: true}]})
+          +checkbox-block({title: "доступность",options:[{label:"Широкий коридор",subtitle:"Ширина коридоров в номере не менее 91 см."},{label:"Помощник для инвалидов",subtitle:"На 1 этаже вас встретит специалист и проводит до номера."}]})
+          +select-plugin({category:"accomodations",label:"удобства номера", size:"middle"})
+          +checkbox-list({title: "дополнительные удобства",options:[ {label:"Завтрак"}, {label:"Письменный стол", checked:true}, {label:"Стул для кормления", checked:true},{label:"Кроватка", checked:true}, {label:"Шампунь"}]})
+        main.search-room__cards
+          .search-room__title Номера которые мы для вас подобрали
+          .search-room__results
+            - let data = require("/src/assets/data/apartments");
+            each item in data
+              - let statuslux = item.status == "стандарт" ? "" : "люкс";
+              +card-apt({remoteSource: false,img:[{name: item.imgName, alt:"1"},{name: "apt2",alt:"2"},{name: "apt3",alt:"3"},{name: "apt4",alt:"4"}], aptNum: item.number,price: item.price,status: statuslux,rate: item.rate,comments: item.comments})
+
+          .search-room__pagination
+            +pagination 
+    +footer

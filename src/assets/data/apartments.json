@@ -5,7 +5,8 @@
     "price": 9990,
     "rate": 5,
     "comment": "Beautiful apartment with great views",
-    "comments" : 145
+    "comments" : 145,
+    "imgName": "apt1"
     
   },
   {
@@ -14,7 +15,8 @@
     "price": 9990,
     "rate": 4,
     "comment": "Beautiful apartment with great views",
-    "comments" : 65
+    "comments" : 65,
+    "imgName": "apt2"
     
   },
   {
@@ -23,7 +25,8 @@
     "price": 1500,
     "rate": 4,
     "comment": "Beautiful apartment with great views",
-    "comments" : 134
+    "comments" : 134,
+    "imgName": "apt3"
   },
   {
     "number": 204,
@@ -31,7 +34,8 @@
     "price": 1800,
     "rate": 4,
     "comment": "Spacious apartment with modern amenities",
-    "comments" : 125
+    "comments" : 125,
+    "imgName": "apt4"
   },
   {
     "number": 310,
@@ -39,7 +43,8 @@
     "price": 2000,
     "rate": 4,
     "comment": "Amazing penthouse with private terrace",
-    "comments" : 167
+    "comments" : 167,
+    "imgName": "apt5"
   },
   {
     "number": 407,
@@ -47,7 +52,8 @@
     "price": 2200,
     "rate": 4,
     "comment": "Stunning apartment with ocean views",
-    "comments" : 75
+    "comments" : 75,
+    "imgName": "apt6"
   },
   {
     "number": 512,
@@ -55,7 +61,8 @@
     "price": 2500,
     "rate": 4,
     "comment": "Spacious apartment with private balcony",
-    "comments" : 65
+    "comments" : 65,
+    "imgName": "apt7"
   },
   {
     "number": 623,
@@ -63,7 +70,8 @@
     "price": 1200,
     "rate": 4,
     "comment": "Cozy apartment in a convenient location",
-    "comments" : 37
+    "comments" : 37,
+    "imgName": "apt8"
   },
   {
     "number": 726,
@@ -71,7 +79,8 @@
     "price": 900,
     "rate": 3,
     "comment": "Affordable apartment with basic amenities",
-    "comments" : 46
+    "comments" : 46,
+    "imgName": "apt9"
   },
   {
     "number": 822,
@@ -79,7 +88,8 @@
     "price": 2800,
     "rate": 4,
     "comment": "Exclusive apartment with top-of-the-line features",
-    "comments" : 43
+    "comments" : 43,
+    "imgName": "apt10"
   },
   {
     "number": 927,
@@ -87,7 +97,8 @@
     "price": 1000,
     "rate": 4,
     "comment": "Simple apartment with good value",
-    "comments" :12
+    "comments" :12,
+    "imgName": "apt11"
   },
   {
     "number": 1031,
@@ -95,7 +106,8 @@
     "price": 3500,
     "rate": 5,
     "comment": "The ultimate люксury apartment with unparalleled views",
-    "comments" :15
+    "comments" :15,
+    "imgName": "apt12"
   },
   {
     "number": 1124,
@@ -103,7 +115,8 @@
     "price": 1100,
     "rate": 4,
     "comment": "Basic apartment with all the essentials",
-    "comments" :46
+    "comments" :46,
+    "imgName": "apt1"
   },
   {
     "number": 1229,
@@ -111,7 +124,8 @@
     "price": 3200,
     "rate": 4,
     "comment": "Elegant apartment with stylish decor",
-    "comments" :156
+    "comments" :156,
+    "imgName": "apt2"
   },
   {
     "number": 1332,
@@ -119,7 +133,8 @@
     "price": 950,
     "rate": 3,
     "comment": "Budget-friendly apartment for a short stay",
-    "comments" :67
+    "comments" :67,
+    "imgName": "apt3"
   },
   {
     "number": 101,
@@ -127,7 +142,8 @@
     "price": 1500,
     "rate": 4,
     "comment": "Beautiful apartment with great views",
-    "comments" :24
+    "comments" :24,
+    "imgName": "apt4"
   },
   {
     "number": 204,
@@ -135,7 +151,8 @@
     "price": 1800,
     "rate": 4,
     "comment": "Spacious apartment with modern amenities",
-    "comments" :74
+    "comments" :74,
+    "imgName": "apt5"
   },
   {
     "number": 310,
@@ -143,7 +160,8 @@
     "price": 2000,
     "rate": 4,
     "comment": "Amazing penthouse with private terrace",
-    "comments" :66
+    "comments" :66,
+    "imgName": "apt6"
   },
   {
     "number": 407,
@@ -151,7 +169,8 @@
     "price": 2200,
     "rate": 4,
     "comment": "Stunning apartment with ocean views",
-    "comments" :23
+    "comments" :23,
+    "imgName": "apt7"
   },
   {
     "number": 512,
@@ -159,7 +178,8 @@
     "price": 2500,
     "rate": 4,
     "comment": "Spacious apartment with private balcony",
-    "comments" :65
+    "comments" :65,
+    "imgName": "apt8"
   },
   {
     "number": 623,
@@ -167,7 +187,8 @@
     "price": 1200,
     "rate": 4,
     "comment": "Cozy apartment in a convenient location",
-    "comments" :15
+    "comments" :15,
+    "imgName": "apt9"
   },
   {
     "number": 726,
@@ -175,7 +196,8 @@
     "price": 900,
     "rate": 3,
     "comment": "Affordable apartment with basic amenities",
-    "comments" :17
+    "comments" :17,
+    "imgName": "apt10"
   },
   {
     "number": 822,
@@ -183,7 +205,8 @@
     "price": 2800,
     "rate": 4,
     "comment": "Exclusive apartment with top-of-the-line features",
-    "comments" :126
+    "comments" :126,
+    "imgName": "apt11"
   },
   {
     "number": 927,
@@ -191,7 +214,8 @@
     "price": 1000,
     "rate": 4,
     "comment": "Simple apartment with good value",
-    "comments" :113
+    "comments" :113,
+    "imgName": "apt12"
   },
   {
     "number": 1031,
@@ -199,7 +223,8 @@
     "price": 3500,
     "rate": 5,
     "comment": "The ultimate люксury apartment with unparalleled views",
-    "comments" :41
+    "comments" :41,
+    "imgName": "apt1"
   },
   {
     "number": 1124,
@@ -207,7 +232,8 @@
     "price": 1100,
     "rate": 4,
     "comment": "Basic apartment with all the essentials",
-    "comments" :12
+    "comments" :12,
+    "imgName": "apt2"
   },
   {
     "number": 1229,
@@ -215,7 +241,8 @@
     "price": 3200,
     "rate": 4,
     "comment": "Elegant apartment with stylish decor",
-    "comments" :123
+    "comments" :123,
+    "imgName": "apt3"
   },
   {
     "number": 1332,
@@ -223,6 +250,7 @@
     "price": 950,
     "rate": 3,
     "comment": "Budget-friendly apartment for a short stay",
-    "comments" :14
+    "comments" :14,
+    "imgName": "apt4"
   }
 ]

@@ -25,6 +25,7 @@
   }
 
 }
+// =============================================
 
 .header-startpage {
   width: 100%;
@@ -34,7 +35,7 @@
   margin: 50px 0 0 0;
 
 }
-
+// ==============================================
 
 .header {
   position: fixed;
@@ -45,6 +46,11 @@
   height: 77px;
   background-color: #fff;
   @extend %bodyText;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+
+&.--demo{
+  position: relative;
+}
 
   &::before {
     content: "";
@@ -158,7 +164,7 @@
     }
   }
 
-  @media (max-width: 1400px) {
+  @media (max-width: 960px) {
     body.lock{overflow: hidden;}
     &::after {
       content: "";
@@ -170,7 +176,9 @@
       z-index: 2;
     }
 
-    
+    .header__burger{
+      margin-right: 20px;
+    }
 
     &__burger {
       position: relative;
@@ -324,8 +332,11 @@
   .header__nav.burger-active{
     padding-bottom: 20px;
   }
+  
 }
-@media (max-width: 1160px){
+@media (max-width: 1180px){
+  .header__nav{
+     margin-right: 20px;}
   .card.card-search{
     margin-left: 20px;
   }
@@ -333,7 +344,5 @@
   .header__logo{
     margin-left: 20px;
   }
-  .header__burger{
-    margin-right: 20px;
-  }
+  
 }

@@ -78,6 +78,7 @@ module.exports = {
     index: "./src/pages/index.js",
     "ui-kit": "./src/pages/ui-kit/ui-kit.js",
     landing: "./src/pages/landing/landing.js",
+    "search-room": "./src/pages/search-room/search-room.js",
   },
   resolve: {
     extensions: [".js", ".json"],

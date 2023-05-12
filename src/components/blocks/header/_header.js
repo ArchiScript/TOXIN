@@ -1,4 +1,4 @@
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
   const burger = document.querySelector(".header__burger");
   const menu = document.querySelector(".header__nav");
   const els = document.querySelectorAll(".header__burger, .header__nav");
@@ -8,4 +8,4 @@ window.onload = () => {
     });
     document.querySelector("body").classList.toggle("lock");
   });
-};
+});
