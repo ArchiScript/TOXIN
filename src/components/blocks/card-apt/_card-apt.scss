@@ -9,12 +9,14 @@
   border-radius: 4px;
   margin: 20px 0;
 
-  &__slider {
+ &__slider {
     width: 100%;
     overflow: hidden;
+    
   }
 
   &__image {
+    width: 100%;
     overflow: hidden;
     border-radius: 4px;
   }
@@ -83,7 +85,12 @@
       @include index.font(fontRegular, 14);
     }
   }
+  &.inactive{
+    display:none;
+  }
+  
 }
+
 
 .slick-slider {
   position: relative;
@@ -94,6 +101,7 @@
 .slick-track {
   display: flex;
   height: 152px;
+
 }
 
 .slick-next,
@@ -157,3 +165,5 @@
 
 
 }
+
+

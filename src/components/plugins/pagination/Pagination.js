@@ -1,22 +1,33 @@
 import "paginationjs";
+// import pug from "pug";
+import "slick-carousel";
+import { Slider } from "/src/components/plugins/slickSlider/Slider";
 
+// const cardApt = require("../../blocks/card-apt/_card-apt.pug");
+// import { compile } from "pug";
 class Pagination {
-  constructor(element, dataElement) {
+  constructor({ element, dataElement, mode = "test" }) {
+    // defaultOptions ={ }
+    // this.options = userOptions?Object.assign({},defaultOptions,userOptions) :defaultOptions;
+
     if (!element) {
       return;
     }
+
     this.element = element;
     this.dataElement = dataElement;
-    let self = this;
+    this.mode = mode;
 
+    let self = this;
+    this.setup();
     this.options = {
       dataSource: function (done) {
-        if (dataElement.classList.contains("--disabled")) {
-          let result = [];
+        if (self.mode == "test") {
+          let data = [];
           for (let i = 1; i < 176; i++) {
-            result.push(i);
+            data.push(i);
           }
-          done(result);
+          done(data);
         } else {
           $.ajax({
             type: "GET",
@@ -34,6 +45,7 @@ class Pagination {
         }
       },
 
+      pageSize: 12,
       activeClassName: "pagination__link--active",
       disableClassName: "disabled",
       ulClassName: "pagination__list",
@@ -43,24 +55,59 @@ class Pagination {
       autoHideNext: true,
       autoHidePrevious: true,
       showNavigator: true,
-      pageSize: 12,
       formatNavigator:
         "<%= rangeStart %> – <%= rangeEnd %> из <%= totalNumber %> вариантов аренды",
 
       callback: function (data, pagination) {
         let html = self.template(data);
-        $(dataElement).html(html);
+        $(self.dataElement).html(html);
       },
     };
+    this.init();
   }
 
-  template(data) {
-    let html = "<ul>";
-    $.each(data, function (index, item) {
-      html += "<li>" + item.number + "</li>";
+  setup() {
+    this.cards = document.querySelectorAll(".search-room__results .card-apt");
+    this.cardSliders = document.querySelectorAll(".card-apt__slider");
+  }
+
+  disactivateCards() {
+    let cards = this.cards;
+    cards.forEach((card) => {
+      card.classList.remove("active");
+      card.classList.add("inactive");
     });
-    html += "</ul>";
-    return html;
+  }
+  addSlider() {
+    const $elements = this.cardSliders;
+    $elements.forEach((el) => {
+      new Slider(el);
+    });
+  }
+  removeSlider() {
+    const $elements = this.cardSliders;
+    $elements.forEach((el) => {
+      $(el).slick("unslick");
+    });
+  }
+  template(data) {
+    let visible = this.mode == "test" ? ` --disabled` : "";
+    let cards = this.cards;
+
+    // const perPage = this.options.pageSize;
+    // let pages = data.length / perPage;
+    // let page;
+    this.disactivateCards();
+    if (data[0] instanceof Object) {
+      for (let item of data) {
+        // page = Math.ceil(item.id + 1 / perPage);
+        // item.page = page;
+        cards[item.id - 1].classList.remove("inactive");
+        cards[item.id - 1].classList.add("active");
+      }
+      this.removeSlider();
+      this.addSlider();
+    }
   }
 
   init() {

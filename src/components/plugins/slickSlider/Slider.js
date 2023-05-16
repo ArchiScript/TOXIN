@@ -24,6 +24,7 @@ class Slider {
       hasArrows = false;
     }
     let defaultOptions = {
+      lazyLoad: "progressive",
       infinite: true,
       dots: true,
       // autoplay: true,

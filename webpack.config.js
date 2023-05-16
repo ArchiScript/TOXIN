@@ -74,15 +74,14 @@ const paths = globule.find(["src/pages/**/*.pug"]);
 
 module.exports = {
   mode: mode,
+  // target: "node",
   entry: {
     index: "./src/pages/index.js",
     "ui-kit": "./src/pages/ui-kit/ui-kit.js",
     landing: "./src/pages/landing/landing.js",
     "search-room": "./src/pages/search-room/search-room.js",
   },
-  resolve: {
-    extensions: [".js", ".json"],
-  },
+
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
@@ -90,11 +89,11 @@ module.exports = {
     // clean: true,
   },
   devtool: "source-map",
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: "all",
-  //   },
-  // },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+  },
   devServer: {
     open: true,
     hot: true,
@@ -105,8 +104,21 @@ module.exports = {
     },
   },
   resolve: {
+    extensions: [".js", ".json"],
     alias: {
       jquery: "jquery/src/jquery",
+      pug: "pug-runtime",
+    },
+
+    fallback: {
+      assert: require.resolve("assert/"),
+      path: require.resolve("path-browserify"),
+      os: require.resolve("os-browserify/browser"),
+      url: require.resolve("url/"),
+      http: require.resolve("stream-http"),
+      https: require.resolve("https-browserify"),
+      fs: require.resolve("browserify-fs"),
+      stream: require.resolve("stream-browserify"),
     },
   },
 
@@ -171,9 +183,15 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.optimize.SplitChunksPlugin({
-      chunks: "all",
-      name: "vendor",
+    // new webpack.optimize.SplitChunksPlugin({
+    //   chunks: "all",
+    //   name: "vendor",
+    // }),
+    new webpack.IgnorePlugin({
+      resourceRegExp: /pug-filters\/lib\/run-filter\.js/,
+    }),
+    new webpack.IgnorePlugin({
+      resourceRegExp: /uglify-js\/tools\/node\.js/,
     }),
     new webpack.ProvidePlugin({
       $: "jquery",

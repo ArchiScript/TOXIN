@@ -1,8 +1,8 @@
-mixin card-apt({img=[{}],arrows=true,remoteSource=false,aptNum,price,status, rate,comments,imgName}={})
+mixin card-apt({index,img=[{}],arrows=true,remoteSource=false,aptNum,price,status, rate,comments,imgName, perpage}={})
   -
     if(remoteSource==true){
     const jsonData = require("/src/assets/data/apartments.json");
-  
+
         const targetData = jsonData.filter((item) => item.number == aptNum)[0];
         aptNum = targetData.number;
         price = targetData.price;
@@ -10,13 +10,36 @@ mixin card-apt({img=[{}],arrows=true,remoteSource=false,aptNum,price,status, rat
         comments = targetData.comments;
         rate = targetData.rate;
 
-  
     }
     let hasArrows = arrows == true ? "" : ` --no-arrows`;
-  .card-apt 
+  .card-apt(
+    data-index=index,
+    data-page=Math.ceil((index + 1) / perpage),
+    data-per-page=perpage
+  ) 
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
     |
     |
     .card-apt__inner 
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
       |
       |
       div(class=`card-apt__slider${hasArrows}`)
@@ -37,3 +60,49 @@ mixin card-apt({img=[{}],arrows=true,remoteSource=false,aptNum,price,status, rat
             +rating({value: rate,interactive: false})
           .card-apt__info-comments= comments
             span &nbsp Отзывов
+
+mixin cards-apt({index=0,img,arrows=true,remoteSource=true,aptNum,price,status, rate,comments, perpage}={})
+  -
+    let data;
+    if(remoteSource==true){
+
+     data = require("/src/assets/data/apartments.json");
+
+    }
+    let hasArrows = arrows == true ? "" : ` --no-arrows`;
+
+  each item in data
+    -
+      index++;
+      aptNum = item.number;
+      price = item.price;
+      status = item.status == "люкс" ? "люкс" : "";
+      comments = item.comments;
+      rate = item.rate;
+
+      img[0]= {name: item.imgName, alt: "1"} ;
+
+    .card-apt(
+      data-index=index,
+      data-page=Math.ceil((index + 1) / perpage),
+      data-per-page=perpage
+    ) 
+      .card-apt__inner 
+        div(class=`card-apt__slider${hasArrows}`)
+          each i in img
+            .card-apt__image
+              +image(i.name, i.alt)
+        .card-apt__info-container.column
+          .card-apt__info-num-price
+            .card-apt__info-num
+              span №&nbsp
+              .card-apt__info-number= aptNum
+              .card-apt__info-status= status
+            .card-apt__info-price= `${price.toLocaleString()}\u20BD`
+              span &nbsp в сутки
+
+          .card-apt__info-rate-comments
+            .card-apt__info-rate
+              +rating({value: rate,interactive: false})
+            .card-apt__info-comments= comments
+              span &nbsp Отзывов

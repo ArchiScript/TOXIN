@@ -24,10 +24,14 @@ block content
         main.search-room__cards
           .search-room__title Номера которые мы для вас подобрали
           .search-room__results
-            - let data = require("/src/assets/data/apartments");
-            each item in data
-              - let statuslux = item.status == "стандарт" ? "" : "люкс";
-              +card-apt({remoteSource: false,img:[{name: item.imgName, alt:"1"},{name: "apt2",alt:"2"},{name: "apt3",alt:"3"},{name: "apt4",alt:"4"}], aptNum: item.number,price: item.price,status: statuslux,rate: item.rate,comments: item.comments})
+            //- - let data = require("/src/assets/data/apartments");
+            //- - let totalPage = Math.ceil(data.lenth / 12);
+            //- - let itemIndex = 0;
+            //- each item in data
+            //-   - itemIndex++;
+            //-   - let statuslux = item.status == "стандарт" ? "" : "люкс";
+            //-   +card-apt({index: itemIndex, perpage:12, remoteSource: false,img:[{name: item.imgName, alt:"1"},{name: "apt2",alt:"2"},{name: "apt3",alt:"3"},{name: "apt4",alt:"4"}], aptNum: item.number,price: item.price,status: statuslux,rate: item.rate,comments: item.comments})
+            +cards-apt({perpage:12, remoteSource: true,img:[{},{name: "apt2",alt:"2"},{name: "apt3",alt:"3"},{name: "apt4",alt:"4"}] })
 
           .search-room__pagination
             +pagination 
