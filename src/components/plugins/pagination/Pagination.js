@@ -1,12 +1,13 @@
 import "paginationjs";
-// import pug from "pug";
 import "slick-carousel";
 import { Slider } from "/src/components/plugins/slickSlider/Slider";
+import { DataFetcher } from "/src/components/plugins/DataFetcher";
 
-// const cardApt = require("../../blocks/card-apt/_card-apt.pug");
-// import { compile } from "pug";
+const paginationDataFetcher = new DataFetcher("use");
+const testDataFetcher = new DataFetcher("test");
+// import { fetcher } from "/src/pages/search-room/search-room";
 class Pagination {
-  constructor({ element, dataElement, mode = "test" }) {
+  constructor({ element, dataElement, mode }) {
     // defaultOptions ={ }
     // this.options = userOptions?Object.assign({},defaultOptions,userOptions) :defaultOptions;
 
@@ -20,30 +21,9 @@ class Pagination {
 
     let self = this;
     this.setup();
+    // this.showTest();
     this.options = {
-      dataSource: function (done) {
-        if (self.mode == "test") {
-          let data = [];
-          for (let i = 1; i < 176; i++) {
-            data.push(i);
-          }
-          done(data);
-        } else {
-          $.ajax({
-            type: "GET",
-            url: "../../../assets/data/apartments.json",
-            dataType: "json",
-            success: function (data) {
-              done(data);
-            },
-            error: function (xhr, textStatus, error) {
-              console.log(xhr.statusText);
-              console.log(textStatus);
-              console.log(error);
-            },
-          });
-        }
-      },
+      dataSource: this.setupDataSource(),
 
       pageSize: 12,
       activeClassName: "pagination__link--active",
@@ -65,48 +45,86 @@ class Pagination {
     };
     this.init();
   }
+  // showTest() {
+  //   // console.log(JSON.parse(localStorage.getItem("filterData")));
+  //   console.log(new DataFetcher("use").getDataOnMode());
+  // }
 
+  setupDataSource() {
+    let options = {};
+    if (this.isTest) {
+      options.dataSource = function (done) {
+        const testData = testDataFetcher.getTestData();
+        done(testData);
+      };
+    } else {
+      options.dataSource = function (done) {
+        const useData = paginationDataFetcher.getData();
+        useData.then((data) => {
+          done(data);
+        });
+      };
+    }
+    return options.dataSource;
+  }
+
+  get isTest() {
+    return this.mode === "test";
+  }
   setup() {
-    this.cards = document.querySelectorAll(".search-room__results .card-apt");
-    this.cardSliders = document.querySelectorAll(".card-apt__slider");
+    if (!this.isTest) {
+      this.cards = document.querySelectorAll(".search-room__results .card-apt");
+      this.cardSliders = document.querySelectorAll(".card-apt__slider");
+    }
   }
 
   disactivateCards() {
-    let cards = this.cards;
-    cards.forEach((card) => {
-      card.classList.remove("active");
-      card.classList.add("inactive");
-    });
+    if (!this.isTest) {
+      let cards = this.cards;
+      cards.forEach((card) => {
+        card.classList.remove("active");
+        card.classList.add("inactive");
+      });
+    }
   }
   addSlider() {
-    const $elements = this.cardSliders;
-    $elements.forEach((el) => {
-      new Slider(el);
-    });
+    if (!this.isTest) {
+      const $elements = this.cardSliders;
+      $elements.forEach((el) => {
+        new Slider(el);
+      });
+    }
   }
   removeSlider() {
-    const $elements = this.cardSliders;
-    $elements.forEach((el) => {
-      $(el).slick("unslick");
-    });
+    if (!this.isTest) {
+      const $elements = this.cardSliders;
+      $elements.forEach((el) => {
+        $(el).slick("unslick");
+      });
+    }
   }
   template(data) {
-    let visible = this.mode == "test" ? ` --disabled` : "";
     let cards = this.cards;
-
     // const perPage = this.options.pageSize;
     // let pages = data.length / perPage;
     // let page;
     this.disactivateCards();
-    if (data[0] instanceof Object) {
+    if (!this.isTest) {
       for (let item of data) {
         // page = Math.ceil(item.id + 1 / perPage);
         // item.page = page;
+
         cards[item.id - 1].classList.remove("inactive");
         cards[item.id - 1].classList.add("active");
       }
       this.removeSlider();
       this.addSlider();
+    } else {
+      let html = "";
+      for (let item in data) {
+        html += `<li className="testDataLine">${item}</li>`;
+      }
+      return html;
     }
   }
 
@@ -115,3 +133,4 @@ class Pagination {
   }
 }
 export { Pagination };
+export default paginationDataFetcher;

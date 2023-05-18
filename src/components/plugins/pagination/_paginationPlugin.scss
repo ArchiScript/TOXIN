@@ -3,7 +3,7 @@
 
 .data {
   &.--disabled{
-    // display: none;
+    display: none;
   }
   
 }
@@ -72,11 +72,13 @@
     height: 40px;
     border-radius: 50%;
 
-    &:not(.paginationjs-ellipsis) {
-      cursor: pointer;
-    }
+    // &:not(.paginationjs-ellipsis) {
+    //   cursor: pointer;
+    // }
   }
-
+// &-ellipsis{
+//   display: block;
+// }
 }
 
 

@@ -17,31 +17,7 @@ mixin card-apt({index,img=[{}],arrows=true,remoteSource=false,aptNum,price,statu
     data-page=Math.ceil((index + 1) / perpage),
     data-per-page=perpage
   ) 
-    |
-    |
-    |
-    |
-    |
-    |
-    |
-    |
-    |
-    |
-    |
-    |
     .card-apt__inner 
-      |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
-      |
       div(class=`card-apt__slider${hasArrows}`)
         each i in img
           .card-apt__image
@@ -70,7 +46,7 @@ mixin cards-apt({index=0,img,arrows=true,remoteSource=true,aptNum,price,status, 
 
     }
     let hasArrows = arrows == true ? "" : ` --no-arrows`;
-
+  
   each item in data
     -
       index++;

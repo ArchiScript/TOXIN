@@ -20,3 +20,15 @@ import "/src/components/blocks/blocks.scss";
 import "/src/components/elements/elements.scss";
 import "/src/components/plugins/plugins.scss";
 import "/src/components/layout-sets/layout-sets.scss";
+
+import { Pagination } from "/src/components/plugins/pagination/Pagination";
+
+const $pagingEl = document.querySelector(
+  "#form-elements__pagination .pagination"
+);
+const $dataEl = document.querySelector("#form-elements__pagination .data ");
+const paginationUi = new Pagination({
+  element: $pagingEl,
+  dataElement: $dataEl,
+  mode: "test",
+});

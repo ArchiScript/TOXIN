@@ -1,5 +1,5 @@
 mixin pagination({dataSource= "test"}= {})
   - let modifier = dataSource == "test" ? "--disabled" : "--active";
     .pagination-container
-      //- .div(class=`data ${modifier}`)
+      .div(class=`data ${modifier}`)
       .pagination
