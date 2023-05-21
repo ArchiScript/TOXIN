@@ -80,6 +80,7 @@ module.exports = {
     "ui-kit": "./src/pages/ui-kit/ui-kit.js",
     landing: "./src/pages/landing/landing.js",
     "search-room": "./src/pages/search-room/search-room.js",
+    "room-details": "./src/pages/room-details/room-details.js",
   },
 
   output: {
@@ -108,6 +109,7 @@ module.exports = {
     alias: {
       jquery: "jquery/src/jquery",
       pug: "pug-runtime",
+      // "chart.js": "chart.js",
     },
 
     fallback: {

@@ -1,0 +1,118 @@
+@use "/src/assets/common_style/index.common";
+
+.room-details {
+
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .header,
+  .footer {
+    margin: 0;
+  }
+
+  .footer {
+    border-top: 1px solid index.$dark-shade10;
+  }
+
+  &__inner {
+    height: 100%;
+    width: 100%;
+    flex: 1 1 auto;
+    padding-top: 70px;
+
+  }
+
+  &__images {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(33.333%, 1fr));
+    grid-auto-rows: 242px;
+
+  }
+
+  #room-details__img-big {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+
+  &__image {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+
+    }
+
+  }
+
+  &__info {
+    padding: 70px 0 50px 0;
+  }
+
+  .block-title {
+    @extend %h2title;
+    padding-bottom: 20px;
+  }
+
+
+  &__info-inner {
+
+    display: grid;
+    grid-template-columns: 350px repeat(auto-fit, minmax(33.333%, 1fr));
+    gap: 20px 0;
+  }
+
+  &__info-comforts{
+   .block-title{
+    padding: 0;
+   }
+  }
+  &__info-comments {
+    grid-column: span 2;
+    grid-auto-flow: dense;
+    .block-title{
+      padding-bottom: 10px;
+     }
+  }
+&__info-rules{
+  .bullet-list{
+    padding-top: 0;
+  }
+}
+  .card.card-price {
+    margin: 0;
+
+  }
+
+  &__card-price {
+    grid-row: span 2;
+    justify-self: right;
+  }
+
+  &__info-cancel-text {
+    @extend %bodyText;
+    padding-right: 20px;
+  }
+
+
+  @media(max-width: 650px) {
+
+    &__images {
+
+      grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+    }
+
+  }
+
+
+}

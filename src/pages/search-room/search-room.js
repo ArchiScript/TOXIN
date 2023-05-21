@@ -28,22 +28,26 @@ const rangeSliderValueMin = document.querySelector(".range-slider__input-left");
 const rangeSliderValueMax = document.querySelector(
   ".range-slider__input-right"
 );
+if (rangeSliderValueMin) {
+  rangeSliderValueMin.addEventListener("change", () => {
+    let newFilterData = setFilter();
+    paginationDataFetcher.updateFilters(newFilterData);
+    show();
+    changePaginationData();
+    searchPagination.init();
+  });
+}
 
-rangeSliderValueMin.addEventListener("change", () => {
-  let newFilterData = setFilter();
-  paginationDataFetcher.updateFilters(newFilterData);
-  show();
-  changePaginationData();
-  searchPagination.init();
-});
+if (rangeSliderValueMax) {
+  rangeSliderValueMax.addEventListener("change", () => {
+    let newFilterData = setFilter();
+    paginationDataFetcher.updateFilters(newFilterData);
+    show();
+    changePaginationData();
+    searchPagination.init();
+  });
+}
 
-rangeSliderValueMax.addEventListener("change", () => {
-  let newFilterData = setFilter();
-  paginationDataFetcher.updateFilters(newFilterData);
-  show();
-  changePaginationData();
-  searchPagination.init();
-});
 function setLocalStorageData() {
   let rangeMin = rangeSliderValueMin?.value;
   let rangeMax = rangeSliderValueMax?.value;

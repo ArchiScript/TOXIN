@@ -27,7 +27,7 @@ class Pagination {
 
       pageSize: 12,
       activeClassName: "pagination__link--active",
-      disableClassName: "disabled",
+      disableClassName: "pagination__link--disabled",
       ulClassName: "pagination__list",
       prevText: '<i class="paginationjs__icon icon-arrow_back"></i>',
       nextText: '<i class="paginationjs__icon icon-arrow_forward"></i>',
