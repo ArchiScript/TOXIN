@@ -16,25 +16,31 @@ if (form) {
 function printEntries(event) {
   event.preventDefault();
   const form = document.querySelector(".card-search__form");
-  // console.log(form);
   const formData = new FormData(form);
 
-  for (let i of formData) {
-    // console.log(i);
-  }
   const sel = form.querySelector(".select__input");
   const guests = sel.dataset.value;
 
-  // console.log(guests);
-  // console.log(`dateFrom: ${formData.get("dateFrom")}`);
-  localStorage.setItem(
-    "formData",
-    JSON.stringify(Array.from(formData.entries()))
-  );
+  // localStorage.setItem(
+  //   "formData",
+  //   JSON.stringify(Array.from(formData.entries()))
+  // );
+  const formObject = {
+    dateFrom: formData.get("dateFrom"),
+    dateTo: formData.get("dateTo"),
+    guests: guests,
+  };
+  localStorage.setItem("landingSeachFormData", JSON.stringify(formObject));
   // console.log(JSON.parse(localStorage.getItem("formData")));
   window.open("search-room.html", "_blank");
 }
 
+function setCardData() {
+  const dateFrom = document.querySelector(".landing .card-search");
+  if (dateFrom.value != "") {
+    console.log(dateFrom.value);
+  }
+}
 function redirect() {
   const form = document.querySelector("#form-1");
   const formData = new FormData(form);

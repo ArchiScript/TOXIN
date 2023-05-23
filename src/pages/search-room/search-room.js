@@ -6,9 +6,37 @@ import "/src/components/elements/elements.scss";
 import "/src/components/plugins/plugins.scss";
 
 import { Pagination } from "/src/components/plugins/pagination/Pagination";
-// import searchPagination from "/src/components/blocks/pagination/_pagination";
-
 import paginationDataFetcher from "../../components/plugins/pagination/Pagination";
+import AirDatepicker from "air-datepicker";
+import "air-datepicker/air-datepicker.css";
+import { toDateStr } from "../../components/blocks/card-price/Order";
+import { observeCardSelect } from "../../components/blocks/card-price/Order";
+// ============= save data to local storage ==============
+
+import { DataFetcher } from "../../components/plugins/DataFetcher";
+const $cards = document.querySelectorAll(".card-apt");
+if ($cards.length > 0) {
+  for (let card of $cards) {
+    card.addEventListener("click", async function (event) {
+      if (
+        event.target.classList.contains("slick-next") ||
+        event.target.classList.contains("slick-prev")
+      ) {
+        return;
+      }
+      let thisCard = event.target.closest(".card-apt");
+      let index = Number(thisCard.dataset.index);
+      const filter = {
+        id: index,
+      };
+      const orderDataFetcher = new DataFetcher("work", filter);
+      let testData = await orderDataFetcher.getData();
+      localStorage.setItem("chosenCard", JSON.stringify(testData));
+      console.log(JSON.parse(localStorage.getItem("chosenCard")));
+      window.open("room-details.html", "_blank");
+    });
+  }
+}
 
 // ============= searchPagination ================
 
@@ -20,7 +48,7 @@ const $roomSearchDataEl = document.querySelector(".search-room__results");
 const searchPagination = new Pagination({
   element: $roomSearchEl,
   dataElement: $roomSearchDataEl,
-  mode: "use",
+  mode: "notTest",
 });
 
 // document.addEventListener("DOMContentLoaded", function () {
@@ -76,4 +104,50 @@ async function changePaginationData() {
 }
 async function show() {
   await paginationDataFetcher.logData();
+}
+function getLocalData() {
+  if (JSON.parse(localStorage.getItem("landingSeachFormData"))) {
+    let searchRoomData = JSON.parse(
+      localStorage.getItem("landingSeachFormData")
+    );
+    console.log(JSON.parse(localStorage.getItem("landingSeachFormData")));
+    return searchRoomData;
+  }
+}
+
+const searchRoomFilterDate = document.querySelector(
+  ".search-room .filter-date-dropdown__input"
+);
+const searchRoomSelect = document.querySelector(".search-room .select__input");
+if (searchRoomFilterDate) {
+  // searchRoomFilterDate.textContent = getLocalData();
+  let button = {
+    content: "Применить",
+    className: "datepicker-custom-button",
+    onClick: (dp) => {
+      dp.hide();
+    },
+  };
+  new AirDatepicker(searchRoomFilterDate, {
+    buttons: ["clear", button],
+    range: true,
+    dateFormat: "dd MMM",
+    multipleDatesSeparator: " - ",
+    dynamicRange: true,
+    prevHtml: "<div class=arrow-datepicker--prev></div>",
+    nextHtml: "<div class=arrow-datepicker--next></div>",
+  }).selectDate([
+    toDateStr(getLocalData().dateFrom),
+    toDateStr(getLocalData().dateTo),
+  ]);
+}
+// async function observe(){
+//   const selectObserved = new observeCardSelect("select-el-4", "select__input");
+
+// }
+
+// selectObserved.selectInput
+if (searchRoomSelect) {
+  console.log(searchRoomSelect);
+  searchRoomSelect.innerHTML = getLocalData().guests;
 }

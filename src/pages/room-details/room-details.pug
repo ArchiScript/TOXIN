@@ -16,6 +16,7 @@ block content
         |
         |
         |
+        |
         #room-details__img-big.room-details__image
           +image("room-details-big", "apt1") 
         .room-details__image
@@ -23,6 +24,7 @@ block content
         .room-details__image
           +image("room-details-small2", "apt3")
       section.room-details__info 
+        |
         .container
           .room-details__info-wrapper
             .room-details__info-inner
@@ -32,18 +34,20 @@ block content
                 +media-block({media:{imgName: "location_city", alt: "Удобство"}, title: "Удобство",description: "Окно в каждой из спален"})
                 +media-block({media:{imgName: "whatshot", alt: "Уют"}, title: "Уют",description: "Номер оснащён камином"})
               .room-details__info-votes 
+                |
                 .room-details__info-title.block-title Впечатления от номера
                 +feedback-circle
               //- .room-details__card-price
               //-   +card-price
               .room-details__info-comments 
+                |
                 .room-details__info-title.block-title Отзывы посетителей номера
                   span.room-details__info-comments-number
                 +comment({avatarImage: {imgName: "avatar-comment", alt: "avatar image"}, title: "Мурад Сарафанов", published: "5 дней назад", likes: {count:"12", checked: true},message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.", size: "flex"})
                 +comment({avatarImage: {imgName: "avatar-comment2", alt: "avatar image"}, title: "Патрисия Стёклышкова", published: "Неделю назад", likes: {count:"2", checked: false},message: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент", size: "flex"})
 
               .room-details__info-rules
-                .room-details__info-title.block-title правила
+                .room-details__info-title.block-title Правила
                 +bullet-list({title: false,options:["Нельзя с питомцами", "Без вечеринок и мероприятий","Время прибытия — после 13:00, а выезд до 12:00"]})
               .room-details__info-cancel
                 .room-details__info-title.block-title Отмена

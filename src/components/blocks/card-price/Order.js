@@ -1,15 +1,24 @@
 class Order {
-  constructor(options = {}) {
-    if (!document.querySelector(".card-price")) {
+  constructor(scope, mode, options = {}) {
+    console.log(mode);
+    this.scope = scope ? `${scope}` : "";
+    this.mode = mode;
+    console.log(this.scope);
+    this.$page = document.querySelector(`${scope}`);
+    if (!this.$page) {
       return;
     }
     this.options = options;
-    const { aptNumber, price, status, comment } = this.options;
-    this.number = aptNumber;
+
+    const { number, price, status } = this.options;
+    this.number = number;
     this.status = status;
     this.price = price;
+
+    console.log(this.options.number + "это опции ----");
+
     this.setup();
-    this.setAptNumber(aptNumber);
+    this.setAptNumber(number);
     this.calculatePrice() ? this.calculatePrice() : 0;
     this.print();
   }
@@ -18,9 +27,14 @@ class Order {
       return true;
     }
   }
+  get isTest() {
+    return this.mode === "test";
+  }
   setup() {
-    this.$el = document.querySelector(".card-price");
-    if (!this.$el) return;
+    // this.$el = document.querySelector(".card-price");
+    this.$el = this.$page.querySelector(`.card-price`);
+    // if (!this.$el) return;
+    console.log(this.$el);
     this.$number = this.$el.querySelector(".card-price__apt-number");
     this.$status = this.$el.querySelector(".card-price__apt-status");
     this.$price = this.$el.querySelector(".card-price__header-price-num");
@@ -39,7 +53,7 @@ class Order {
     this.$price.innerHTML = `${this.price.toLocaleString()}\u20BD `;
   }
 
-  observeCardElements(targetId, selector) {
+  observeCardSelect(targetId, selector) {
     // create a new MutationObserver instance
     const observer = new MutationObserver((mutations) => {
       let targetFound = false;
@@ -108,8 +122,9 @@ class Order {
     const mSecsInDay = 1000 * 60 * 60 * 24;
     return Math.round((to - from) / mSecsInDay);
   }
+
   calculatePrice() {
-    this.observeCardElements("select-el-59", "select__input");
+    this.observeCardSelect("select-el-59", "select__input");
 
     if (this.$dateFrom.value !== "" && this.$dateTo.value !== "") {
       const dateFrom = this.toDateStr(this.$dateFrom.value);
@@ -134,7 +149,7 @@ class Order {
         tax = 0;
       }
 
-      const totalPrice = Math.floor(priceMainTotal - discount + fee);
+      const totalPrice = Math.floor(priceMainTotal - discount + tax + fee);
 
       this.$priceDesc.innerHTML = `${pricePerDay.toLocaleString()}\u20BD x ${days} суток `;
       this.$priceSubtotal.innerHTML = `${priceMainTotal.toLocaleString()}\u20BD`;
@@ -151,4 +166,57 @@ class Order {
   }
 }
 
+export function toDateStr(str) {
+  let dateArr = str.split(/[\.\,\-\/]/);
+  const dayMatch = new RegExp(/^0?[1-9]{1}$||^[1-2]{1}[0-9]{1}$||^3[01]$/g);
+  const monthMatch = new RegExp(/^0?[1-9]{1}$||^[1-2]{1}[0-2]{1}$/g);
+  const yearMatch = new RegExp(/^(19[0-9]{2}|20[0-9]{2})$/g);
+
+  if (dateArr[0].match(yearMatch)) {
+    return new Date(dateArr[0], dateArr[1] - 1, dateArr[2]);
+  } else {
+    return new Date(dateArr[2], dateArr[1] - 1, dateArr[0]);
+  }
+}
+
 export { Order };
+
+export class observeCardSelect {
+  constructor(targetId, selector) {
+    this.targetId = targetId;
+    this.selector = selector;
+    // create a new MutationObserver instance
+
+    this.watchMutation();
+
+    // configure and start the observer
+    this.initObserver();
+  }
+  watchMutation() {
+    this.observer = new MutationObserver((mutations) => {
+      let targetFound = false;
+      // iterate through each mutation record
+      mutations.forEach((mutation) => {
+        // check if the target element has been added to the DOM
+        if (
+          mutation.addedNodes &&
+          mutation.addedNodes.length > 0 &&
+          mutation.target.id == this.targetId
+        ) {
+          if (!targetFound) {
+            targetFound = true;
+            return (this.selectInput = document.querySelector(
+              `#${this.targetId} .${this.selector}`
+            ));
+            this.observer.disconnect();
+            return;
+          }
+        }
+      });
+    });
+  }
+  initObserver() {
+    this.observerConfig = { childList: true, subtree: true };
+    this.observer.observe(document.body, this.observerConfig);
+  }
+}

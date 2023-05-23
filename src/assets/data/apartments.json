@@ -7,8 +7,9 @@
     "rate": 5,
     "comment": "Beautiful apartment with great views",
     "comments" : 145,
-    "imgName": "apt1"
-    
+    "imgName": "apt1",
+    "votes": 260
+  
   },
   {
     "id": 2,
@@ -18,7 +19,8 @@
     "rate": 4,
     "comment": "Beautiful apartment with great views",
     "comments" : 65,
-    "imgName": "apt2"
+    "imgName": "apt2",
+    "votes": 257
     
   },
   {
@@ -29,7 +31,8 @@
     "rate": 4,
     "comment": "Beautiful apartment with great views",
     "comments" : 134,
-    "imgName": "apt3"
+    "imgName": "apt3",
+    "votes": 145
   },
   {
     "id": 4,
@@ -39,7 +42,8 @@
     "rate": 4,
     "comment": "Spacious apartment with modern amenities",
     "comments" : 125,
-    "imgName": "apt4"
+    "imgName": "apt4",
+    "votes": 159
   },
   {
     "id": 5,
@@ -49,7 +53,8 @@
     "rate": 4,
     "comment": "Amazing penthouse with private terrace",
     "comments" : 167,
-    "imgName": "apt5"
+    "imgName": "apt5",
+    "votes": 76
   },
   {
     "id": 6,
@@ -59,7 +64,8 @@
     "rate": 4,
     "comment": "Stunning apartment with ocean views",
     "comments" : 75,
-    "imgName": "apt6"
+    "imgName": "apt6",
+    "votes": 78
   },
   {
     "id": 7,
@@ -69,7 +75,8 @@
     "rate": 4,
     "comment": "Spacious apartment with private balcony",
     "comments" : 65,
-    "imgName": "apt7"
+    "imgName": "apt7",
+    "votes": 26
   },
   {
     "id": 8,
@@ -79,7 +86,8 @@
     "rate": 4,
     "comment": "Cozy apartment in a convenient location",
     "comments" : 37,
-    "imgName": "apt8"
+    "imgName": "apt8",
+    "votes": 42
   },
   {
     "id": 9,
@@ -89,7 +97,8 @@
     "rate": 3,
     "comment": "Affordable apartment with basic amenities",
     "comments" : 46,
-    "imgName": "apt9"
+    "imgName": "apt9",
+    "votes": 261
   },
   {
     "id": 10,
@@ -99,7 +108,8 @@
     "rate": 4,
     "comment": "Exclusive apartment with top-of-the-line features",
     "comments" : 43,
-    "imgName": "apt10"
+    "imgName": "apt10",
+    "votes": 326
   },
   {
     "id": 11,
@@ -109,7 +119,8 @@
     "rate": 4,
     "comment": "Simple apartment with good value",
     "comments" :12,
-    "imgName": "apt11"
+    "imgName": "apt11",
+    "votes": 28
   },
   {
     "id": 12,
@@ -119,7 +130,8 @@
     "rate": 5,
     "comment": "The ultimate люксury apartment with unparalleled views",
     "comments" :15,
-    "imgName": "apt12"
+    "imgName": "apt12",
+    "votes": 350
   },
   {
     "id": 13,
@@ -129,7 +141,8 @@
     "rate": 4,
     "comment": "Basic apartment with all the essentials",
     "comments" :46,
-    "imgName": "apt2"
+    "imgName": "apt2",
+    "votes": 670
   },
   {
     "id": 14,
@@ -139,7 +152,8 @@
     "rate": 4,
     "comment": "Elegant apartment with stylish decor",
     "comments" :156,
-    "imgName": "apt1"
+    "imgName": "apt1",
+    "votes": 251
   },
   {
     "id": 15,
@@ -149,7 +163,8 @@
     "rate": 3,
     "comment": "Budget-friendly apartment for a short stay",
     "comments" :67,
-    "imgName": "apt3"
+    "imgName": "apt3",
+    "votes": 143
   },
   {
     "id": 16,
@@ -159,7 +174,8 @@
     "rate": 4,
     "comment": "Beautiful apartment with great views",
     "comments" :24,
-    "imgName": "apt5"
+    "imgName": "apt5",
+    "votes": 95
   },
   {
     "id": 17,
@@ -169,7 +185,8 @@
     "rate": 4,
     "comment": "Spacious apartment with modern amenities",
     "comments" :74,
-    "imgName": "apt6"
+    "imgName": "apt6",
+    "votes": 223
   },
   {
     "id": 18,
@@ -179,7 +196,8 @@
     "rate": 4,
     "comment": "Amazing penthouse with private terrace",
     "comments" :66,
-    "imgName": "apt8"
+    "imgName": "apt8",
+    "votes": 402
   },
   {
     "id": 19,
@@ -189,7 +207,8 @@
     "rate": 4,
     "comment": "Stunning apartment with ocean views",
     "comments" :23,
-    "imgName": "apt7"
+    "imgName": "apt7",
+    "votes": 336
   },
   {
     "id": 20,
@@ -199,7 +218,8 @@
     "rate": 4,
     "comment": "Spacious apartment with private balcony",
     "comments" :65,
-    "imgName": "apt10"
+    "imgName": "apt10",
+    "votes": 74
   },
   {
     "id": 21,
@@ -209,7 +229,8 @@
     "rate": 4,
     "comment": "Cozy apartment in a convenient location",
     "comments" :15,
-    "imgName": "apt4"
+    "imgName": "apt4",
+    "votes": 168
   },
   {
     "id": 22,
@@ -219,7 +240,8 @@
     "rate": 3,
     "comment": "Affordable apartment with basic amenities",
     "comments" :17,
-    "imgName": "apt11"
+    "imgName": "apt11",
+    "votes":28
   },
   {
     "id": 23,
@@ -229,7 +251,8 @@
     "rate": 4,
     "comment": "Exclusive apartment with top-of-the-line features",
     "comments" :126,
-    "imgName": "apt12"
+    "imgName": "apt12",
+    "votes": 530
   },
   {
     "id": 24,
@@ -239,7 +262,8 @@
     "rate": 4,
     "comment": "Simple apartment with good value",
     "comments" :113,
-    "imgName": "apt9"
+    "imgName": "apt9",
+    "votes": 398
   },
   {
     "id": 25,
@@ -249,7 +273,8 @@
     "rate": 5,
     "comment": "The ultimate люксury apartment with unparalleled views",
     "comments" :41,
-    "imgName": "apt1"
+    "imgName": "apt1",
+    "votes": 2604
   },
   {
     "id": 26,
@@ -259,7 +284,8 @@
     "rate": 4,
     "comment": "Basic apartment with all the essentials",
     "comments" :12,
-    "imgName": "apt2"
+    "imgName": "apt2",
+    "votes": 879
   },
   {
     "id": 27,
@@ -269,7 +295,8 @@
     "rate": 4,
     "comment": "Elegant apartment with stylish decor",
     "comments" :123,
-    "imgName": "apt3"
+    "imgName": "apt3",
+    "votes": 247
   },
   {
     "id": 28,
@@ -279,6 +306,7 @@
     "rate": 3,
     "comment": "Budget-friendly apartment for a short stay",
     "comments" :14,
-    "imgName": "apt4"
+    "imgName": "apt4",
+    "votes": 288
   }
 ]

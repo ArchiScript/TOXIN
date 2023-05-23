@@ -17,7 +17,9 @@ mixin card-apt({index,img=[{}],arrows=true,remoteSource=false,aptNum,price,statu
     data-page=Math.ceil((index + 1) / perpage),
     data-per-page=perpage
   ) 
+    |
     .card-apt__inner 
+      |
       div(class=`card-apt__slider${hasArrows}`)
         each i in img
           .card-apt__image
@@ -25,17 +27,17 @@ mixin card-apt({index,img=[{}],arrows=true,remoteSource=false,aptNum,price,statu
       .card-apt__info-container.column
         .card-apt__info-num-price
           .card-apt__info-num
-            span №&nbsp
+            span №&nbsp;
             .card-apt__info-number= aptNum
             .card-apt__info-status= status
           .card-apt__info-price= `${price.toLocaleString()}\u20BD`
-            span &nbsp в сутки
+            span &nbsp; в сутки
 
         .card-apt__info-rate-comments
           .card-apt__info-rate
             +rating({value: rate,interactive: false})
           .card-apt__info-comments= comments
-            span &nbsp Отзывов
+            span &nbsp; Отзывов
 
 mixin cards-apt({index=0,img,arrows=true,remoteSource=true,aptNum,price,status, rate,comments, perpage}={})
   -
@@ -46,7 +48,7 @@ mixin cards-apt({index=0,img,arrows=true,remoteSource=true,aptNum,price,status, 
 
     }
     let hasArrows = arrows == true ? "" : ` --no-arrows`;
-  
+
   each item in data
     -
       index++;
@@ -63,7 +65,9 @@ mixin cards-apt({index=0,img,arrows=true,remoteSource=true,aptNum,price,status, 
       data-page=Math.ceil((index + 1) / perpage),
       data-per-page=perpage
     ) 
+      |
       .card-apt__inner 
+        |
         div(class=`card-apt__slider${hasArrows}`)
           each i in img
             .card-apt__image
@@ -71,14 +75,14 @@ mixin cards-apt({index=0,img,arrows=true,remoteSource=true,aptNum,price,status, 
         .card-apt__info-container.column
           .card-apt__info-num-price
             .card-apt__info-num
-              span №&nbsp
+              span №&nbsp;
               .card-apt__info-number= aptNum
               .card-apt__info-status= status
             .card-apt__info-price= `${price.toLocaleString()}\u20BD`
-              span &nbsp в сутки
+              span &nbsp; в сутки
 
           .card-apt__info-rate-comments
             .card-apt__info-rate
               +rating({value: rate,interactive: false})
             .card-apt__info-comments= comments
-              span &nbsp Отзывов
+              span &nbsp; Отзывов
