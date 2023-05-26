@@ -20,6 +20,9 @@ export class Select {
     this.minus();
 
     this.print();
+    // this.checkLocalStorage();
+    // this.getDataObject();
+    // this.setDataObject();
   }
 
   #render() {
@@ -46,7 +49,6 @@ export class Select {
     const { countItems } = this.options;
     this.countItems = countItems;
     this.buttonsClickHandler();
-    // this.total = this.countTotal();
   }
 
   clickHandler(event) {
@@ -113,7 +115,6 @@ export class Select {
         this.$selectText.innerHTML = this.chosenUpdate();
         this.buttonRegulator();
         this.setInputValue();
-        // this.onChange();
       });
     }
   }
@@ -135,13 +136,14 @@ export class Select {
         this.$selectText.innerHTML = this.chosenUpdate();
         this.buttonRegulator();
         this.setInputValue();
+
         // this.onChange();
       });
     }
   }
 
   setInputValue() {
-    this.$input.dataset.value = this.countTotal();
+    this.$input.dataset.value = this.countTotal().total;
   }
 
   buttonRegulator() {
@@ -178,18 +180,39 @@ export class Select {
   }
 
   countTotal() {
-    let total = 0;
+    this.total = 0;
+    let exceptions = 0;
     for (let item of this.data) {
-      total += item.counter;
+      if (item.value === this.countException) {
+        exceptions += item.counter;
+      }
+      this.total += item.counter;
     }
-    return total;
+    return { total: this.total - exceptions, exc: exceptions };
   }
+
   showByTotal() {
-    let num = this.countTotal();
+    let num = this.countTotal().total;
+    let exc = this.countTotal().exc;
     if (!this.#isZero(num)) {
-      return this.declinedText(num, ["гость", "гостя", "гостей"]);
+      let selectText = `${this.declinedText(num, [
+        "гость",
+        "гостя",
+        "гостей",
+      ])}`;
+
+      if (this.countTotal().exc) {
+        const textException = `, ${this.declinedText(exc, [
+          "младенец",
+          "младенца",
+          "младенцев",
+        ])}`;
+        selectText += textException;
+      }
+      return selectText;
     }
   }
+
   showByTitles() {
     let chosenArr = [];
     for (let item of this.data) {
@@ -206,7 +229,9 @@ export class Select {
       return this.showByTotal() || this.options.placeholder;
     }
   }
-
+  setValue(val) {
+    this.$input.dataset.value = val;
+  }
   #isZero(num) {
     return num == 0;
   }
@@ -218,16 +243,97 @@ export class Select {
         : cases[number % 10 < 5 ? number % 10 : 5]
     ];
   }
+  checkLocalStorage() {
+    if (JSON.parse(localStorage.getItem("chosenData"))) {
+      console.log(JSON.parse(localStorage.getItem("chosenData")).guests);
+    }
+  }
+  setDataObject(dataObject) {
+    let guests;
+    if (dataObject) {
+      guests = dataObject;
+    } else {
+      return;
+    }
+    for (let i of Object.values(guests.chosenItems)) {
+      // console.log(i.textValue);
+      this.data[i.id - 1].counter = i.counter;
+      const $selectItem = this.$el.querySelector(`.select__item-${i.id}`);
+      const itemValue = $selectItem.querySelector(".select__item-number");
+      itemValue.innerHTML = i.counter;
+    }
 
-  // onChange() {
-  //   OrderInstance.calculatePrice();
-  // }
-  getDefaultAccomodations() {
-    const accoms = [
+    this.buttonRegulator();
+
+    this.$selectText.innerHTML = guests.selectText;
+    this.$input.dataset.value = guests.total.total;
+
+    console.log(guests.selectText);
+  }
+  getDataObject() {
+    // let items = [];
+    let items = {};
+    let guests = {};
+    let exceptions = {};
+    let exception = "младенцы";
+
+    let guestCount = 0;
+    let exceptionCount = 0;
+
+    for (let i of this.data) {
+      let tempObj = {};
+
+      if (i.counter > 0) {
+        tempObj.id = i.id;
+        tempObj.textValue = this.declinedText(i.counter, i.cases);
+        tempObj.counter = i.counter;
+        if (i.value !== exception) {
+          guestCount += i.counter;
+          tempObj.cases = this.guestsCases;
+        } else {
+          exceptionCount += i.counter;
+          tempObj.cases = i.cases;
+        }
+        items[`${i.id}`] = tempObj;
+      }
+    }
+
+    guests.counter = guestCount;
+    // guests.cases = ["гость", "гостя", "гостей"];
+    guests.cases = this.guestsCases;
+    exceptions.counter = exceptionCount;
+    exceptions.cases = this.guestsCatCases[2];
+
+    let guestsText =
+      guests.counter > 0
+        ? `${this.declinedText(guests.counter, guests.cases)}, `
+        : "";
+    let exceptionsText =
+      exceptions.counter > 0
+        ? `${this.declinedText(exceptions.counter, exceptions.cases)}`
+        : "";
+
+    let countGuestsText = guestsText + exceptionsText;
+
+    let obj = {
+      total: this.countTotal(),
+      chosenItems: items,
+      guests: guests,
+      exceptions: exceptions,
+      selectText: countGuestsText,
+    };
+
+    return obj;
+  }
+
+  getDefaultAccomodationsObj() {
+    this.accomodationsCases = [
       ["спальня", "спальни", "спален"],
       ["кровать", "кровати", "кроватей"],
       ["ванная комната", "ванные комнаты", "ванных комнат"],
     ];
+
+    const accoms = this.accomodationsCases;
 
     let dataArr = [];
     for (let i = 0; i <= accoms.length - 1; i++) {
@@ -240,24 +346,27 @@ export class Select {
     }
     return dataArr;
   }
+
   print() {
     // console.log(this.getDefaultAccomodations());
-    // console.log(this.getDefaultGuests());
-    // console.log(this.getDefaultOptions());
+    // console.log(this.data);
   }
-  getDefaultGuests() {
-    const guestsStart = ["взрослые", "дети", "младенцы"];
-    const guests = [
+  getDefaultGuestsObj() {
+    this.guestsCategories = ["взрослые", "дети", "младенцы"];
+    this.guestsCatCases = [
       ["взрослый", "взрослых", "взрослых"],
       ["ребёнок", "ребёнка", "детей"],
       ["младенец", "младенца", "младенцев"],
     ];
+    this.countException = "младенцы";
+    this.guestsCases = ["гость", "гостя", "гостей"];
+    const guests = this.guestsCatCases;
 
     let dataArr = [];
     for (let i = 0; i <= guests.length - 1; i++) {
       let data = {};
       (data.id = i + 1),
-        (data.value = guestsStart[i]),
+        (data.value = this.guestsCategories[i]),
         (data.counter = 0),
         (data.cases = guests[i]),
         dataArr.push(data);
@@ -280,12 +389,12 @@ export class Select {
     let defaultCountItems = "byTitles";
     if (category == "accomodations") {
       defaultPlaceholder = "Выберите удобства";
-      defaultData = this.getDefaultAccomodations();
+      defaultData = this.getDefaultAccomodationsObj();
       defaultButtons;
       defaultCountItems;
     } else {
       defaultPlaceholder = "Сколько гостей";
-      defaultData = this.getDefaultGuests();
+      defaultData = this.getDefaultGuestsObj();
       defaultButtons = buttonsVar;
       defaultCountItems = "byTotalNumber";
     }

@@ -1,11 +1,10 @@
 import { Chart } from "chart.js/auto";
 import { DoughnutController, ArcElement } from "chart.js";
-const chosenCardData =
-  JSON.parse(localStorage.getItem("chosenCard"))[0] || null;
-let chosenCardVotes;
-if (chosenCardData) {
-  chosenCardVotes = chosenCardData.votes || 0;
-}
+
+let chosenCardVotes = localStorage.getItem("chosenCard")
+  ? JSON.parse(localStorage.getItem("chosenCard"))[0].votes
+  : 0;
+
 Chart.register(DoughnutController, ArcElement);
 
 export class ChartCircle {
@@ -28,7 +27,7 @@ export class ChartCircle {
         },
       },
       responsive: true,
-      // maintainAspectRatio: true,
+      maintainAspectRatio: true,
       aspectRatio: 2.6,
       layout: {
         autoPadding: true,

@@ -10,10 +10,13 @@ import paginationDataFetcher from "../../components/plugins/pagination/Paginatio
 import AirDatepicker from "air-datepicker";
 import "air-datepicker/air-datepicker.css";
 import { toDateStr } from "../../components/blocks/card-price/Order";
-import { observeCardSelect } from "../../components/blocks/card-price/Order";
-// ============= save data to local storage ==============
+import { Select } from "/src/components/plugins/selectPlugin/_Select";
+import { SelectObserver } from "/src/components/plugins/selectPlugin/SelectObserver";
+
+// ============= save Carddata to local storage ==============
 
 import { DataFetcher } from "../../components/plugins/DataFetcher";
+
 const $cards = document.querySelectorAll(".card-apt");
 if ($cards.length > 0) {
   for (let card of $cards) {
@@ -96,7 +99,6 @@ let testfilter = {
   },
 };
 const filter = setFilter();
-// console.log(setFilter());
 
 async function changePaginationData() {
   const newData = await paginationDataFetcher.getData();
@@ -105,49 +107,56 @@ async function changePaginationData() {
 async function show() {
   await paginationDataFetcher.logData();
 }
-function getLocalData() {
-  if (JSON.parse(localStorage.getItem("landingSeachFormData"))) {
-    let searchRoomData = JSON.parse(
-      localStorage.getItem("landingSeachFormData")
+
+// ========= get dates and select data from localStorage===
+
+document.addEventListener("DOMContentLoaded", function () {
+  let searchRoomSelectGuests, searchRoomSelectInstance;
+  if (document.querySelector(".search-room")) {
+    searchRoomSelectGuests = document.querySelector(
+      ".search-room .select-guests"
     );
-    console.log(JSON.parse(localStorage.getItem("landingSeachFormData")));
-    return searchRoomData;
+
+    const dataObject = JSON.parse(localStorage.getItem("chosenData"))
+      ? JSON.parse(localStorage.getItem("chosenData"))
+      : null;
+    searchRoomSelectInstance = new Select(
+      `#${searchRoomSelectGuests.id}`
+    ).setDataObject(dataObject.guests);
+
+    const searchRoomFilterDate = document.querySelector(
+      ".search-room .filter-date-dropdown__input"
+    );
+
+    if (searchRoomFilterDate) {
+      // searchRoomFilterDate.textContent = getLocalData();
+      let button = {
+        content: "Применить",
+        className: "datepicker-custom-button",
+        onClick: (dp) => {
+          dp.hide();
+        },
+      };
+
+      new AirDatepicker(searchRoomFilterDate, {
+        buttons: ["clear", button],
+        range: true,
+        dateFormat: "dd MMM",
+        multipleDatesSeparator: " - ",
+        dynamicRange: true,
+        prevHtml: "<div class=arrow-datepicker--prev></div>",
+        nextHtml: "<div class=arrow-datepicker--next></div>",
+      }).selectDate([
+        toDateStr(dataObject?.dateFrom),
+        toDateStr(dataObject?.dateTo),
+      ]);
+    }
+
+    let searchRoomSelectAccomodations = document.querySelector(
+      ".search-room .select-accomodations"
+    );
+    let SelectAccomodationsInstance = new Select(
+      `#${searchRoomSelectAccomodations.id}`
+    );
   }
-}
-
-const searchRoomFilterDate = document.querySelector(
-  ".search-room .filter-date-dropdown__input"
-);
-const searchRoomSelect = document.querySelector(".search-room .select__input");
-if (searchRoomFilterDate) {
-  // searchRoomFilterDate.textContent = getLocalData();
-  let button = {
-    content: "Применить",
-    className: "datepicker-custom-button",
-    onClick: (dp) => {
-      dp.hide();
-    },
-  };
-  new AirDatepicker(searchRoomFilterDate, {
-    buttons: ["clear", button],
-    range: true,
-    dateFormat: "dd MMM",
-    multipleDatesSeparator: " - ",
-    dynamicRange: true,
-    prevHtml: "<div class=arrow-datepicker--prev></div>",
-    nextHtml: "<div class=arrow-datepicker--next></div>",
-  }).selectDate([
-    toDateStr(getLocalData().dateFrom),
-    toDateStr(getLocalData().dateTo),
-  ]);
-}
-// async function observe(){
-//   const selectObserved = new observeCardSelect("select-el-4", "select__input");
-
-// }
-
-// selectObserved.selectInput
-if (searchRoomSelect) {
-  console.log(searchRoomSelect);
-  searchRoomSelect.innerHTML = getLocalData().guests;
-}
+});

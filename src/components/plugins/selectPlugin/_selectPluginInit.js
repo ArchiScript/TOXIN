@@ -1,9 +1,26 @@
 import { Select } from "./_Select";
 import "./_selectPlugin.scss";
-// import { OrderInstance } from "../../blocks/card-price/_card-price";
-window.onload = function () {
-  const selects = document.querySelectorAll(".select-plugin__select");
-  selects.forEach((select) => {
+
+document.addEventListener("DOMContentLoaded", function () {
+  const uiSelects = document.querySelectorAll(".ui-kit .select-plugin__select");
+
+  uiSelects.forEach((select) => {
     new Select("#" + select.id);
   });
-};
+
+  let roomDetailsSelectGuests, roomDetailsSelectGuestsInstance;
+  if (document.querySelector(".room-details .select-guests")) {
+    roomDetailsSelectGuests = document.querySelector(
+      ".room-details .select-guests"
+    );
+
+    const dataObject = JSON.parse(localStorage.getItem("chosenData"))
+      ? JSON.parse(localStorage.getItem("chosenData"))
+      : null;
+
+    roomDetailsSelectGuestsInstance = new Select(
+      `#${roomDetailsSelectGuests.id}`
+    ).setDataObject(dataObject.guests);
+    // .setDataObject(dataObject.guests)
+  }
+});

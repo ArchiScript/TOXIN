@@ -1,9 +1,7 @@
 class Order {
   constructor(scope, mode, options = {}) {
-    console.log(mode);
     this.scope = scope ? `${scope}` : "";
     this.mode = mode;
-    console.log(this.scope);
     this.$page = document.querySelector(`${scope}`);
     if (!this.$page) {
       return;
@@ -14,8 +12,6 @@ class Order {
     this.number = number;
     this.status = status;
     this.price = price;
-
-    console.log(this.options.number + "это опции ----");
 
     this.setup();
     this.setAptNumber(number);
@@ -34,7 +30,7 @@ class Order {
     // this.$el = document.querySelector(".card-price");
     this.$el = this.$page.querySelector(`.card-price`);
     // if (!this.$el) return;
-    console.log(this.$el);
+
     this.$number = this.$el.querySelector(".card-price__apt-number");
     this.$status = this.$el.querySelector(".card-price__apt-status");
     this.$price = this.$el.querySelector(".card-price__header-price-num");
@@ -87,16 +83,18 @@ class Order {
     // console.log(this.dateDiff(f, to));
   }
   toDateStr(str) {
-    let dateArr = str.split(/[\.\,\-\/]/);
-    const dayMatch = new RegExp(/^0?[1-9]{1}$||^[1-2]{1}[0-9]{1}$||^3[01]$/g);
-    const monthMatch = new RegExp(/^0?[1-9]{1}$||^[1-2]{1}[0-2]{1}$/g);
-    const yearMatch = new RegExp(/^(19[0-9]{2}|20[0-9]{2})$/g);
+    if (str) {
+      let dateArr = str.split(/[\.\,\-\/]/);
+      const dayMatch = new RegExp(/^0?[1-9]{1}$||^[1-2]{1}[0-9]{1}$||^3[01]$/g);
+      const monthMatch = new RegExp(/^0?[1-9]{1}$||^[1-2]{1}[0-2]{1}$/g);
+      const yearMatch = new RegExp(/^(19[0-9]{2}|20[0-9]{2})$/g);
 
-    if (dateArr[0].match(yearMatch)) {
-      return new Date(dateArr[0], dateArr[1] - 1, dateArr[2]);
-    } else {
-      return new Date(dateArr[2], dateArr[1] - 1, dateArr[0]);
-    }
+      if (dateArr[0].match(yearMatch)) {
+        return new Date(dateArr[0], dateArr[1] - 1, dateArr[2]);
+      } else {
+        return new Date(dateArr[2], dateArr[1] - 1, dateArr[0]);
+      }
+    } else return;
   }
 
   toStrDate({ date, optsArr, delim, lang } = {}) {
@@ -167,56 +165,20 @@ class Order {
 }
 
 export function toDateStr(str) {
-  let dateArr = str.split(/[\.\,\-\/]/);
-  const dayMatch = new RegExp(/^0?[1-9]{1}$||^[1-2]{1}[0-9]{1}$||^3[01]$/g);
-  const monthMatch = new RegExp(/^0?[1-9]{1}$||^[1-2]{1}[0-2]{1}$/g);
-  const yearMatch = new RegExp(/^(19[0-9]{2}|20[0-9]{2})$/g);
+  if (str) {
+    let dateArr = str.split(/[\.\,\-\/]/);
+    const dayMatch = new RegExp(/^0?[1-9]{1}$||^[1-2]{1}[0-9]{1}$||^3[01]$/g);
+    const monthMatch = new RegExp(/^0?[1-9]{1}$||^[1-2]{1}[0-2]{1}$/g);
+    const yearMatch = new RegExp(/^(19[0-9]{2}|20[0-9]{2})$/g);
 
-  if (dateArr[0].match(yearMatch)) {
-    return new Date(dateArr[0], dateArr[1] - 1, dateArr[2]);
+    if (dateArr[0].match(yearMatch)) {
+      return new Date(dateArr[0], dateArr[1] - 1, dateArr[2]);
+    } else {
+      return new Date(dateArr[2], dateArr[1] - 1, dateArr[0]);
+    }
   } else {
-    return new Date(dateArr[2], dateArr[1] - 1, dateArr[0]);
+    return;
   }
 }
 
 export { Order };
-
-export class observeCardSelect {
-  constructor(targetId, selector) {
-    this.targetId = targetId;
-    this.selector = selector;
-    // create a new MutationObserver instance
-
-    this.watchMutation();
-
-    // configure and start the observer
-    this.initObserver();
-  }
-  watchMutation() {
-    this.observer = new MutationObserver((mutations) => {
-      let targetFound = false;
-      // iterate through each mutation record
-      mutations.forEach((mutation) => {
-        // check if the target element has been added to the DOM
-        if (
-          mutation.addedNodes &&
-          mutation.addedNodes.length > 0 &&
-          mutation.target.id == this.targetId
-        ) {
-          if (!targetFound) {
-            targetFound = true;
-            return (this.selectInput = document.querySelector(
-              `#${this.targetId} .${this.selector}`
-            ));
-            this.observer.disconnect();
-            return;
-          }
-        }
-      });
-    });
-  }
-  initObserver() {
-    this.observerConfig = { childList: true, subtree: true };
-    this.observer.observe(document.body, this.observerConfig);
-  }
-}
