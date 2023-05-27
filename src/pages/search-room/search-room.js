@@ -9,6 +9,7 @@ import { Pagination } from "/src/components/plugins/pagination/Pagination";
 import paginationDataFetcher from "../../components/plugins/pagination/Pagination";
 import AirDatepicker from "air-datepicker";
 import "air-datepicker/air-datepicker.css";
+// import localeru from "air-datepicker/locale/ru";
 import { toDateStr } from "../../components/blocks/card-price/Order";
 import { Select } from "/src/components/plugins/selectPlugin/_Select";
 import { SelectObserver } from "/src/components/plugins/selectPlugin/SelectObserver";
@@ -140,9 +141,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
       new AirDatepicker(searchRoomFilterDate, {
         buttons: ["clear", button],
+        dateFormat(date) {
+          return `${customDateFormat(date[0])} \u0096 ${customDateFormat(
+            date[1]
+          )}`;
+        },
         range: true,
-        dateFormat: "dd MMM",
-        multipleDatesSeparator: " - ",
+        // multipleDatesSeparator: " - ",
+        multipleDates: true,
         dynamicRange: true,
         prevHtml: "<div class=arrow-datepicker--prev></div>",
         nextHtml: "<div class=arrow-datepicker--next></div>",
@@ -160,3 +166,21 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 });
+
+function customDateFormat(date) {
+  const myFormat = new Intl.DateTimeFormat("ru-RU", {
+    day: "2-digit",
+    month: "short",
+  });
+
+  const parts = myFormat.formatToParts(date);
+  let formattedDate = "";
+  for (const part of parts) {
+    if (part.type === "month") {
+      formattedDate += part.value.replace(".", "");
+    } else {
+      formattedDate += part.value;
+    }
+  }
+  return formattedDate;
+}

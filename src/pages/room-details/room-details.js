@@ -27,48 +27,50 @@ if (chosenCardData) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  let button = {
-    content: "Применить",
-    className: "datepicker-custom-button",
-    onClick: (dp) => {
-      dp.hide();
-    },
-  };
+  if (document.querySelector(".room-details")) {
+    let button = {
+      content: "Применить",
+      className: "datepicker-custom-button",
+      onClick: (dp) => {
+        dp.hide();
+      },
+    };
 
-  let roomDetailsDateFrom = document.querySelector(
-    ".room-details input[name='dateFrom']"
-  );
-  let roomDetailsDateTo = document.querySelector(
-    ".room-details input[name='dateTo']"
-  );
+    let roomDetailsDateFrom = document.querySelector(
+      ".room-details input[name='dateFrom']"
+    );
+    let roomDetailsDateTo = document.querySelector(
+      ".room-details input[name='dateTo']"
+    );
 
-  let inlineState = (el) => {
-    return el.classList.contains("--inline");
-  };
-  let dateFromInstance, dateToInstance;
+    let inlineState = (el) => {
+      return el.classList.contains("--inline");
+    };
+    let dateFromInstance, dateToInstance;
 
-  dateFromInstance = new AirDatepicker("#" + roomDetailsDateFrom.id, {
-    buttons: ["clear", button],
-    autoClose: true,
-    inline: inlineState(roomDetailsDateFrom),
-    onSelect: function () {
-      if (chosenCardInstance.checkIfOrder()) {
-        chosenCardInstance.calculatePrice();
-      }
-    },
-  });
+    dateFromInstance = new AirDatepicker("#" + roomDetailsDateFrom.id, {
+      buttons: ["clear", button],
+      autoClose: true,
+      inline: inlineState(roomDetailsDateFrom),
+      onSelect: function () {
+        if (chosenCardInstance.checkIfOrder()) {
+          chosenCardInstance.calculatePrice();
+        }
+      },
+    });
 
-  dateToInstance = new AirDatepicker("#" + roomDetailsDateTo.id, {
-    buttons: ["clear", button],
-    autoClose: true,
-    inline: inlineState(roomDetailsDateTo),
-    onSelect: function () {
-      if (chosenCardInstance.checkIfOrder()) {
-        chosenCardInstance.calculatePrice();
-      }
-    },
-  });
+    dateToInstance = new AirDatepicker("#" + roomDetailsDateTo.id, {
+      buttons: ["clear", button],
+      autoClose: true,
+      inline: inlineState(roomDetailsDateTo),
+      onSelect: function () {
+        if (chosenCardInstance.checkIfOrder()) {
+          chosenCardInstance.calculatePrice();
+        }
+      },
+    });
 
-  dateFromInstance.selectDate([toDateStr(dataObject?.dateFrom)]);
-  dateToInstance.selectDate([toDateStr(dataObject?.dateTo)]);
+    dateFromInstance.selectDate([toDateStr(dataObject?.dateFrom)]);
+    dateToInstance.selectDate([toDateStr(dataObject?.dateTo)]);
+  }
 });
