@@ -16,7 +16,7 @@ export class DataFetcher {
   }
   async #getDataPromise() {
     try {
-      const response = await fetch("../../assets/data/apartments.json");
+      const response = await fetch("assets/data/apartments.json");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
