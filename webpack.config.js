@@ -81,13 +81,15 @@ module.exports = {
     landing: "./src/pages/landing/landing.js",
     "search-room": "./src/pages/search-room/search-room.js",
     "room-details": "./src/pages/room-details/room-details.js",
+    registration: "./src/pages/registration/registration.js",
+    "sign-in": "./src/pages/sign-in/sign-in.js",
   },
 
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
     assetModuleFilename: "assets/[hash][ext][query]",
-    // clean: true,
+    clean: true,
   },
   devtool: "source-map",
   optimization: {
@@ -200,9 +202,9 @@ module.exports = {
       jQuery: "jquery",
       "window.jQuery": "jquery",
     }),
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [path.join(__dirname, "dist/**/*")],
-    }),
+    // new CleanWebpackPlugin({
+    //   cleanOnceBeforeBuildPatterns: [path.join(__dirname, "dist/**/*")],
+    // }),
 
     // new htmlWebpackPlugin({
     //   template: "./src/views/pages/index.pug",
@@ -233,12 +235,10 @@ module.exports = {
             .resolve(__dirname, "dist/assets/favicons")
             .replace(/\\/g, "/"),
         },
-        // {
-        //   from: path
-        //     .resolve(__dirname, "src/assets/images")
-        //     .replace(/\\/g, "/"),
-        //   to: path.resolve(__dirname, "dist/assets/images").replace(/\\/g, "/"),
-        // },
+        {
+          from: path.resolve(__dirname, "src/assets/data").replace(/\\/g, "/"),
+          to: path.resolve(__dirname, "dist/assets/data").replace(/\\/g, "/"),
+        },
       ],
     }),
   ],

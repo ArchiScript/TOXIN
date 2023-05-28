@@ -1,10 +1,6 @@
 import { Chart } from "chart.js/auto";
 import { DoughnutController, ArcElement } from "chart.js";
 
-let chosenCardVotes = localStorage.getItem("chosenCard")
-  ? JSON.parse(localStorage.getItem("chosenCard"))[0].votes
-  : 0;
-
 Chart.register(DoughnutController, ArcElement);
 
 export class ChartCircle {
@@ -14,7 +10,13 @@ export class ChartCircle {
     if (!this.roomDetailsChart) {
       return;
     }
+
+    this.voteSplit = localStorage.getItem("chosenCard")
+      ? JSON.parse(localStorage.getItem("chosenCard"))[0].voteSplit
+      : 0;
+
     this.createGradients();
+
     this.setup();
     this.init();
   }
@@ -64,6 +66,9 @@ export class ChartCircle {
     const centerText = {
       id: "centerText",
       beforeDraw(chart, args, options) {
+        const votes = localStorage.getItem("chosenCard")
+          ? JSON.parse(localStorage.getItem("chosenCard"))[0].votes
+          : 0;
         const {
           ctx,
           chartArea: { top, right, bottom, left, width, height },
@@ -72,7 +77,7 @@ export class ChartCircle {
         ctx.fillStyle = "#BC9CFF";
         ctx.textAlign = "center";
         ctx.font = "24px MontserratBold";
-        ctx.fillText(`${chosenCardVotes}`, width / 2, height / 2);
+        ctx.fillText(`${votes}`, width / 2, height / 2);
         ctx.font = "12px MontserratBold";
         ctx.fillText("ГОЛОСОВ", width / 2, height / 2 + 20);
       },
@@ -90,7 +95,7 @@ export class ChartCircle {
         ],
         datasets: [
           {
-            data: [50, 26, 22, 2],
+            data: this.voteSplit,
             backgroundColor: [
               this.gradient1,
               this.gradient2,

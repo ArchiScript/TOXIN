@@ -1,0 +1,16 @@
+extends ../../templates/base
+include ../../components/blocks/blocks.pug
+include ../../components/elements/elements.pug
+include ../../components/plugins/plugins.pug
+
+block title
+  title TOXIN SIGN-IN
+block content
+  - var mixinCount = 0,formCount = 0;
+  .sign-in
+    +header({buttons: true})
+    main.main
+      .container
+        .main__inner
+          +card-signin
+    +footer

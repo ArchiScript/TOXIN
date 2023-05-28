@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "TOXIN Hotel education project",
   "main": "index.js",
+  "hovepage": "https://archiscript.github.io/TOXIN",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack  serve --open",
     "dev": "cross-env NODE_ENV=development webpack ",
-    "build": "cross-env NODE_ENV=production webpack "
+    "build": "cross-env NODE_ENV=production webpack ",
+    "deploy": "gh-pages -d dist"
   },
   "browserslist": [
     "last 2 versions",
@@ -27,6 +29,7 @@
     "css-loader": "^6.7.2",
     "cz-conventional-changelog": "^3.3.0",
     "file-loader": "^6.2.0",
+    "gh-pages": "^5.0.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.0",
