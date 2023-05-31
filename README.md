@@ -14,8 +14,7 @@
 &nbsp;The functionality implemented in the project scope includes:
 - Static index page with references to the main project pages
 - UI-kit page with every element and block of the project displayed as a test case
-- Landing page with ability to set dates and choose guests number. User 
-- defined data sets the localStorage object that is used throughout each page. Submit button is enabled.
+- Landing page with ability to set dates and choose guests number. User defined data sets the localStorage object that is used throughout each page. Submit button is enabled.
 - Search-room page is displayed on  landing page form submit and uses the chosen data. Range slider is used to filter the available search results by price. Pagination uses the local json database to fetch results via ajax based class DataFetcher. Other filtering fields and checkboxes are not fetching results and are the part of display layout. The search results are displayed as a room card with fetched data and a slider instance.A chosen room card click on a place other than slider arrows will reference to next page with the detailed room information.
 - Room-details page displays the chosen card room information, triggered Order class initializes a card calculation. Fetched data is used to diplay a Chart.js plugin radial chart with room information attached. The submit button is idle and is a part of display layout.
 - The header is an adjustable component with signup and signin cross reference buttons, each open a new page accordingly.Signup and signin forms are idle and are the part of display layout.
@@ -316,7 +315,7 @@ To make an instance of the Pagination class it has to be imported
 import { Pagination } from "/src/components/plugins/pagination/Pagination";
 import paginationDataFetcher from "../../components/plugins/pagination/Pagination";
 ```
-To make a pagination instance the pagination and data containers classes has to be selected and passed as arguments alone with the mode (wich can any other than "test" in case of real data fetching) to the constructor:
+To make a pagination instance the pagination and data containers classes has to be selected and passed as arguments alone with the mode (wich can be any other than "test" in case of real data fetching) to the constructor:
 
 ```JS
 const $roomSearchEl = document.querySelector(
