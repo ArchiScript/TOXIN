@@ -9,6 +9,7 @@ import { Pagination } from "/src/components/plugins/pagination/Pagination";
 import paginationDataFetcher from "../../components/plugins/pagination/Pagination";
 import AirDatepicker from "air-datepicker";
 import "air-datepicker/air-datepicker.css";
+import "/src/components/plugins/datepicker/_datepicker.scss";
 import { toDateStr } from "../../components/blocks/card-price/Order";
 import { Select } from "/src/components/plugins/selectPlugin/_Select";
 import { SelectObserver } from "/src/components/plugins/selectPlugin/SelectObserver";
