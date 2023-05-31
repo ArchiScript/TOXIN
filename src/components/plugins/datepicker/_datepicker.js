@@ -16,9 +16,7 @@ let landingDropdowns = document.querySelectorAll(
 );
 
 let UIDateDropdowns = document.querySelectorAll(".cards .date-dropdown__input");
-// let roomDetailsDropdowns = document.querySelectorAll(
-//   ".room-details .date-dropdown__input"
-// );
+
 let filterDateDropdowns = document.querySelectorAll(
   ".filter-date-dropdown__input"
 );
@@ -29,9 +27,6 @@ landingDropdowns.forEach((i) => {
     buttons: ["clear", button],
     autoClose: true,
     inline: inlineState,
-    // onSelect: function () {
-
-    // },
   });
 });
 UIDateDropdowns.forEach((i) => {
@@ -47,20 +42,6 @@ UIDateDropdowns.forEach((i) => {
     },
   });
 });
-
-// roomDetailsDropdowns.forEach((i) => {
-//   let inlineState = i.classList.contains("--inline") ? true : false;
-//   new AirDatepicker("#" + i.id, {
-//     buttons: ["clear", button],
-//     autoClose: true,
-//     inline: inlineState,
-//     onSelect: function () {
-//       if (chosenCardInstance.checkIfOrder()) {
-//         chosenCardInstance.calculatePrice();
-//       }
-//     },
-//   });
-// });
 
 filterDateDropdowns.forEach((i) => {
   let inlineState = i.classList.contains("--inline") ? true : false;

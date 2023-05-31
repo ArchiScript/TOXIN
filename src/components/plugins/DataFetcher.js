@@ -16,7 +16,7 @@ export class DataFetcher {
   }
   async #getDataPromise() {
     try {
-      const response = await fetch("assets/data/apartments.json");
+      const response = await fetch("../../assets/data/apartments.json");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -34,7 +34,7 @@ export class DataFetcher {
       for (let key in this.filters) {
         const filterValue = this.filters[key];
         const itemValue = item[key];
-        // Check if the filter value is an object representing a range
+
         if (
           typeof filterValue === "object" &&
           filterValue.hasOwnProperty("min") &&
@@ -43,7 +43,6 @@ export class DataFetcher {
           const min = filterValue.min;
           const max = filterValue.max;
 
-          // Check if the item value falls within the range
           if (itemValue < min || itemValue > max) {
             return false;
           }
@@ -73,7 +72,7 @@ export class DataFetcher {
       return filteredData;
     } catch (error) {
       console.error("Error fetching and filtering data:", error);
-      throw error; // Re-throw the error to propagate it to the caller
+      throw error;
     }
   }
 }

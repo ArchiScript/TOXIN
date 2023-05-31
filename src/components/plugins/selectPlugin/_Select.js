@@ -1,5 +1,3 @@
-import { OrderInstance } from "/src/components/blocks/card-price/_card-price";
-
 export class Select {
   constructor(selector, options) {
     this.$el = document.querySelector(selector);
@@ -18,11 +16,6 @@ export class Select {
     this.#setup();
     this.plus();
     this.minus();
-
-    this.print();
-    // this.checkLocalStorage();
-    // this.getDataObject();
-    // this.setDataObject();
   }
 
   #render() {
@@ -136,8 +129,6 @@ export class Select {
         this.$selectText.innerHTML = this.chosenUpdate();
         this.buttonRegulator();
         this.setInputValue();
-
-        // this.onChange();
       });
     }
   }
@@ -256,7 +247,6 @@ export class Select {
       return;
     }
     for (let i of Object.values(guests.chosenItems)) {
-      // console.log(i.textValue);
       this.data[i.id - 1].counter = i.counter;
       const $selectItem = this.$el.querySelector(`.select__item-${i.id}`);
       const itemValue = $selectItem.querySelector(".select__item-number");
@@ -271,7 +261,6 @@ export class Select {
     console.log(guests.selectText);
   }
   getDataObject() {
-    // let items = [];
     let items = {};
     let guests = {};
     let exceptions = {};
@@ -299,7 +288,7 @@ export class Select {
     }
 
     guests.counter = guestCount;
-    // guests.cases = ["гость", "гостя", "гостей"];
+
     guests.cases = this.guestsCases;
     exceptions.counter = exceptionCount;
     exceptions.cases = this.guestsCatCases[2];
@@ -347,10 +336,6 @@ export class Select {
     return dataArr;
   }
 
-  print() {
-    // console.log(this.getDefaultAccomodations());
-    // console.log(this.data);
-  }
   getDefaultGuestsObj() {
     this.guestsCategories = ["взрослые", "дети", "младенцы"];
     this.guestsCatCases = [
@@ -404,7 +389,6 @@ export class Select {
       data: defaultData,
       buttons: defaultButtons,
       countItems: defaultCountItems,
-      // onChange: this.onChange(),
     };
   }
 

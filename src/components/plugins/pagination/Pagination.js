@@ -5,11 +5,8 @@ import { DataFetcher } from "/src/components/plugins/DataFetcher";
 
 const paginationDataFetcher = new DataFetcher("use");
 const testDataFetcher = new DataFetcher("test");
-// import { fetcher } from "/src/pages/search-room/search-room";
 class Pagination {
   constructor({ element, dataElement, mode }) {
-    // defaultOptions ={ }
-    // this.options = userOptions?Object.assign({},defaultOptions,userOptions) :defaultOptions;
 
     if (!element) {
       return;
@@ -45,10 +42,6 @@ class Pagination {
     };
     this.init();
   }
-  // showTest() {
-  //   // console.log(JSON.parse(localStorage.getItem("filterData")));
-  //   console.log(new DataFetcher("use").getDataOnMode());
-  // }
 
   setupDataSource() {
     let options = {};
@@ -105,15 +98,10 @@ class Pagination {
   }
   template(data) {
     let cards = this.cards;
-    // const perPage = this.options.pageSize;
-    // let pages = data.length / perPage;
-    // let page;
+
     this.disactivateCards();
     if (!this.isTest) {
       for (let item of data) {
-        // page = Math.ceil(item.id + 1 / perPage);
-        // item.page = page;
-
         cards[item.id - 1].classList.remove("inactive");
         cards[item.id - 1].classList.add("active");
       }

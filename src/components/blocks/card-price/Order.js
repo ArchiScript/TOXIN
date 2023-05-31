@@ -16,7 +16,6 @@ class Order {
     this.setup();
     this.setAptNumber(number);
     this.calculatePrice() ? this.calculatePrice() : 0;
-    this.print();
   }
   checkIfOrder() {
     if (document.querySelector(".card-price")) {
@@ -27,7 +26,6 @@ class Order {
     return this.mode === "test";
   }
   setup() {
-    // this.$el = document.querySelector(".card-price");
     this.$el = this.$page.querySelector(`.card-price`);
     // if (!this.$el) return;
 
@@ -78,10 +76,6 @@ class Order {
     observer.observe(document.body, observerConfig);
   }
 
-  print() {
-    // console.log(this.toStrDate({ date: new Date(), lang: "ru" }));
-    // console.log(this.dateDiff(f, to));
-  }
   toDateStr(str) {
     if (str) {
       let dateArr = str.split(/[\.\,\-\/]/);

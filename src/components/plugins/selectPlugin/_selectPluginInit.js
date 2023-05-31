@@ -21,6 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     roomDetailsSelectGuestsInstance = new Select(
       `#${roomDetailsSelectGuests.id}`
     ).setDataObject(dataObject.guests);
-    // .setDataObject(dataObject.guests)
   }
 });
+
