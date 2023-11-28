@@ -1,23 +1,25 @@
 
 
+
 # [![TOXIN][logo-circle]](https://github.com/ArchiScript/TOXIN) &nbsp;'TOXIN'  
 
 #### Hotel website project
 ![GitHub repo size](https://img.shields.io/github/repo-size/ArchiScript/TOXIN?logo=GitHub)&nbsp;![GitHub language count](https://img.shields.io/github/languages/count/ArchiScript/TOXIN?logo=GitHub)&nbsp;![GitHub last commit](https://img.shields.io/github/last-commit/ArchiScript/TOXIN?logo=git)
 
+
  ---
 
 
-&nbsp;The project is created under the surveillance of the METALAMP(former FSD) junior frontend developer improvement program, and is a hotel appartment search service.
-&nbsp; Project's component architecture based on Pug, SCSS and Javascript is suitable for reuse, adjust and improvement.
+&nbsp;The project is created under the METALAMP(former FSD) junior frontend developer improvement program, and is a hotel apartment search service.
+&nbsp; Project's component architecture, based on Pug, SCSS and Javascript, is suitable for reuse, adjustment, and improvement.
 
 &nbsp;The functionality implemented in the project scope includes:
 - Static index page with references to the main project pages
 - UI-kit page with every element and block of the project displayed as a test case
-- Landing page with ability to set dates and choose guests number. User defined data sets the localStorage object that is used throughout each page. Submit button is enabled.
-- Search-room page is displayed on  landing page form submit and uses the chosen data. Range slider is used to filter the available search results by price. Pagination uses the local json database to fetch results via ajax based class DataFetcher. Other filtering fields and checkboxes are not fetching results and are the part of display layout. The search results are displayed as a room card with fetched data and a slider instance.A chosen room card click on a place other than slider arrows will reference to next page with the detailed room information.
-- Room-details page displays the chosen card room information, triggered Order class initializes a card calculation. Fetched data is used to diplay a Chart.js plugin radial chart with room information attached. The submit button is idle and is a part of display layout.
-- The header is an adjustable component with signup and signin cross reference buttons, each open a new page accordingly.Signup and signin forms are idle and are the part of display layout.
+- Landing page with the ability to set dates and choose guests number. User-defined data sets the localStorage object that is used throughout each page. The submit button is enabled.
+- Search-room page is displayed on the landing page form submit and uses the chosen data. A range slider is used to filter the available search results by price. Pagination uses the local json database to fetch results via the Ajax-based class DataFetcher. Other filtering fields and checkboxes are not fetching results and are part of the display layout. The search results are displayed as a room card with fetched data and a slider instance.A chosen room card clicked on a place other than slider arrows will refer to the next page with detailed room information.
+- Room-details page displays the chosen card room information, triggered Order class initializes a card calculation. Fetched data is used to display a Chart.js plugin radial chart with room information attached. The submit button is idle and is part of the display layout.
+- The header is an adjustable component with signup and signin cross-reference buttons, each open a new page accordingly. Signup and signin forms are idle and are part of the display layout.
 
   &#10;
   &#10;
@@ -61,7 +63,7 @@ npm run deploy
   "paginationjs": "^2.6.0",
   "slick-carousel": "^1.8.1",
 ```
-**Other webpack-dependant packages:**
+**Other webpack-dependent packages:**
 
 ```
 "assert": "^2.0.0",
@@ -184,34 +186,34 @@ npm run deploy
 
 &#13;
 **Select:**
-To use select plugin an import of Select class and styles is needed
+To use the select plugin, an import of Select class and styles is needed.
 
 ```JS
 import { Select } from "/src/components/plugins/selectPlugin/_Select";
 import "/src/components/plugins/selectPlugin/_selectPlugin.scss";
 
 ```
-Class initiation is provided with selector and options arguments
-The container selector is rendered with Pug and depending on select category can be as follows:
+Class initiation is provided with selector and option arguments.
+The container selector is rendered with Pug, and depending on the select category can be as follows:
 
 
 noncategorized: `  .select-plugin__select`
 category guests: `.select-guests`
-category accomodations: `.select-accomodations`
+category accommodations: `.select-accomodations`
 
-Options are not required and already included in default settings.
-In case of special demand opitons passed are as follows:
+Options are not required and are already included in default settings.
+In cases of special demand, options passed are as follows:
 ```JS
     {
       placeholder: string,
       isInline: boolean, //(default: false)
-      data: [{id: number, value: string, counter: number, cases: [string,string,string]}],     
+      data: [{id: number, value: string, counter: number, cases: [string,string,string]}],    
       //  (default: [
       //        {id: 1, value: "взрослые", counter: 0, cases:["взрослый", "взрослых", "взрослых"]}
       //        {id: 2, value: "дети", counter: 0, cases:["ребёнок", "ребёнка", "детей"]}
       //        {id: 3, value: "младенцы", counter: 0, cases:["младенец", "младенца", "младенцев"]}
-      //                             ],)                               
-      
+      //                             ],)                              
+     
       buttons: [{}]
       //   default([
       //   { name: "buttonClear", value: "очистить" },
@@ -303,8 +305,8 @@ Object's format:
 &#13;
 **Pagination:**
 
-The Pagination class is based on [pagination.js](https://pagination.js.org/) and developed with additional built in functionality of datafetching and filtering.
-To make an instance of the Pagination class it has to be imported
+The Pagination class is based on [pagination.js](https://pagination.js.org/) and developed with additional built-in functionality for datafetching and filtering.
+To make an instance of the Pagination class, it has to be imported.
 
 
 
@@ -315,7 +317,7 @@ To make an instance of the Pagination class it has to be imported
 import { Pagination } from "/src/components/plugins/pagination/Pagination";
 import paginationDataFetcher from "../../components/plugins/pagination/Pagination";
 ```
-To make a pagination instance the pagination and data containers classes has to be selected and passed as arguments alone with the mode (wich can be any other than "test" in case of real data fetching) to the constructor:
+To make a pagination instance, the pagination and data container classes have to be selected and passed as arguments alone with the mode (which can be any other than "test" in the case of real data fetching) to the constructor:
 
 ```JS
 const $roomSearchEl = document.querySelector(
@@ -330,24 +332,24 @@ const searchPagination = new Pagination({
 });
 ```
 
-In case of "test" mode the data is mocked from a test cycle with some \<li> elements and numbers.
-In case of any other mode the data is fetched from the DataFetcher class.
+In case of "test" mode, the data is mocked from a test cycle with some \<li> elements and numbers.
+In case of any other mode, the data is fetched from the DataFetcher class.
 
 **DataFetcher:**
 
-To get a special set of data while using pagination filter a DataFetcher class needs to be imported and instantiated:
+To get a special set of data while using the pagination filter, a DataFetcher class needs to be imported and instantiated:
 
 
 ```JS
 import { DataFetcher } from "/src/components/plugins/DataFetcher";
 
 ```
-Thee DataFetcher class has a default dataSource to local `appartments.json`, therefore only mode or mode and desired filters should be provided as arguments:
+The DataFetcher class has a default dataSource to local `appartments.json`, therefore only mode or mode and desired filters should be provided as arguments:
 
 ```JS
 const paginationDataFetcher = new DataFetcher("use");
 ```
-There's a possibility to set filters of a nearby format:
+There's a possibility to set filters for a nearby format:
 
 ```JS
 let testfilter = {
@@ -375,7 +377,7 @@ Here is the list of an appartments.json object properties:
     "voteSplit": [130, 68, 60, 2]
   },
 ```
-To get data from the DataFetcher instance there's a need to provide asynchronous methods as soon as the the fetching method returns a promise.
+To get data from the DataFetcher instance, there's a need to provide asynchronous methods as soon as the fetching method returns a promise.
 
 
 ```JS
@@ -389,9 +391,9 @@ async function asyncData() {
 
 ```
 
-DataFetcher class provides method to set new filtering parameters:
+DataFetcher class provides a method to set new filtering parameters:
 
-```JS 
+```JS
 updateFilters()
 
 let newFilterData = {
