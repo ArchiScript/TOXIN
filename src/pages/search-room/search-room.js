@@ -31,12 +31,11 @@ if ($cards.length > 0) {
       let thisCard = event.target.closest(".card-apt");
       let index = Number(thisCard.dataset.index);
       const filter = {
-        id: index,
+        id: index
       };
       const orderDataFetcher = new DataFetcher("work", filter);
       let testData = await orderDataFetcher.getData();
       localStorage.setItem("chosenCard", JSON.stringify(testData));
-      console.log(JSON.parse(localStorage.getItem("chosenCard")));
       window.open("room-details.html", "_blank");
     });
   }
@@ -52,7 +51,7 @@ const $roomSearchDataEl = document.querySelector(".search-room__results");
 const searchPagination = new Pagination({
   element: $roomSearchEl,
   dataElement: $roomSearchDataEl,
-  mode: "notTest",
+  mode: "notTest"
 });
 
 // document.addEventListener("DOMContentLoaded", function () {
@@ -96,8 +95,8 @@ function setFilter() {
 let testfilter = {
   price: {
     min: 1000,
-    max: 1500,
-  },
+    max: 1500
+  }
 };
 const filter = setFilter();
 
@@ -136,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
         className: "datepicker-custom-button",
         onClick: (dp) => {
           dp.hide();
-        },
+        }
       };
 
       new AirDatepicker(searchRoomFilterDate, {
@@ -151,10 +150,10 @@ document.addEventListener("DOMContentLoaded", function () {
         multipleDates: true,
         dynamicRange: true,
         prevHtml: "<div class=arrow-datepicker--prev></div>",
-        nextHtml: "<div class=arrow-datepicker--next></div>",
+        nextHtml: "<div class=arrow-datepicker--next></div>"
       }).selectDate([
         toDateStr(dataObject?.dateFrom),
-        toDateStr(dataObject?.dateTo),
+        toDateStr(dataObject?.dateTo)
       ]);
     }
 
@@ -170,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function customDateFormat(date) {
   const myFormat = new Intl.DateTimeFormat("ru-RU", {
     day: "2-digit",
-    month: "short",
+    month: "short"
   });
 
   const parts = myFormat.formatToParts(date);

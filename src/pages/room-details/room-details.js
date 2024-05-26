@@ -22,7 +22,6 @@ const dataObject = JSON.parse(localStorage.getItem("chosenData"))
 
 const chosenCardData = JSON.parse(localStorage.getItem("chosenCard")) || null;
 if (chosenCardData) {
-  // console.log(chosenCardData[0]);
   chosenCardInstance = new Order(".room-details", "use", chosenCardData[0]);
 }
 
