@@ -15,13 +15,18 @@
     top: 30px;
   }
 
+  .checkbox{
+    margin-bottom: 7px;
+  }
   .checkbox__label-text {
     @include index.font(fontBold, 14);
     color: index.$dark-shade75;
+   
   }
 
   .checkbox__label-subtitle {
     @extend %pagination-text;
     margin-top: 5px;
+     line-height: 16px;
   }
 }
