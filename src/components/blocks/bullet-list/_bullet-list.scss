@@ -7,10 +7,8 @@
 
   &__header {
     width: 100%;
-
-
     @extend %h3label;
-    padding-bottom: 1rem;
+    padding-bottom: 14px !important;
 
   }
 
