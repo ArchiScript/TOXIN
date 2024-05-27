@@ -89,14 +89,14 @@
   }
 
   &__items {
-    padding-bottom: 7px;
+    padding-bottom: 1px;
   }
 
   &__item {
     @include index.isFlex(row, space-between, center, nowrap);
-    padding: 0 15px;
-    height: calc(index.$input-height - 5px);
-
+    padding: 0 8px 1px 13px;
+    height: calc(index.$input-height - 6px);
+    box-sizing: border-box;
   }
 
   &__item-choice {
@@ -131,7 +131,7 @@
   &__buttons {
     width: 100%;
     @include index.isFlex(row, space-between, center, nowrap);
-   padding: 0 15px 7px 17px;
+   padding: 16px 8px 7px 17px;
 
 
   }
@@ -140,6 +140,7 @@
     cursor: pointer;
     user-select: none;
     margin-right: 0;
+    padding-bottom: 5px;
 
   }
   &.inline{
