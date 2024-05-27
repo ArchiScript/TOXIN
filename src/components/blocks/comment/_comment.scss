@@ -9,23 +9,24 @@
   }
   &__image{
 position: relative;
-  margin-bottom: 20px;
+  margin-top: -1px;
    height: 56px;
   //  width: 83px;
   width: 70px;
-   margin-bottom:15px ;
+   margin-bottom:13px ;
    margin-right: 0;
    background-position: center center;
  
    img{
     position: absolute;
-    top: 0;
-    left:-10px;
+    top: 4px;
+    left:-9px;
    }
   }
  &__like{
   width: 40px;
   margin-right: 15px;
+ 
   
  }
   &__text {
@@ -38,6 +39,7 @@ position: relative;
   }
   &__title{
     @extend %control-item-title;
+    margin-bottom: 4px;
   }
   &__published{
     @extend %bodyText;
