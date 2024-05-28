@@ -21,7 +21,7 @@ console.log(mode + " mode");
 const componentsWriteFiles = [];
 const componentsBundles = globule.find([
   "src/components/**/*.pug",
-  "!src/components/**/_*.pug",
+  "!src/components/**/_*.pug"
 ]);
 
 // ---------- Adding bundle and searchfile to array -------
@@ -82,35 +82,35 @@ module.exports = {
     "search-room": "./src/pages/search-room/search-room.js",
     "room-details": "./src/pages/room-details/room-details.js",
     registration: "./src/pages/registration/registration.js",
-    "sign-in": "./src/pages/sign-in/sign-in.js",
+    "sign-in": "./src/pages/sign-in/sign-in.js"
   },
 
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
     assetModuleFilename: "assets/[hash][ext][query]",
-    clean: true,
+    clean: true
   },
   devtool: "source-map",
   optimization: {
     splitChunks: {
-      chunks: "all",
-    },
+      chunks: "all"
+    }
   },
   devServer: {
     open: true,
-    hot: true,
+    hot: false,
     // port: "auto",
     static: {
       directory: "./src",
-      watch: true,
-    },
+      watch: true
+    }
   },
   resolve: {
     extensions: [".js", ".json"],
     alias: {
       jquery: "jquery/src/jquery",
-      pug: "pug-runtime",
+      pug: "pug-runtime"
       // "chart.js": "chart.js",
     },
 
@@ -122,8 +122,8 @@ module.exports = {
       http: require.resolve("stream-http"),
       https: require.resolve("https-browserify"),
       fs: require.resolve("browserify-fs"),
-      stream: require.resolve("stream-browserify"),
-    },
+      stream: require.resolve("stream-browserify")
+    }
   },
 
   module: {
@@ -134,18 +134,18 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"],
-          },
-        },
+            presets: ["@babel/preset-env"]
+          }
+        }
       },
       {
         test: /\.pug$/,
         loader: "pug-loader",
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules|bower_components)/
       },
       {
         test: /\.html$/i,
-        loader: "html-loader",
+        loader: "html-loader"
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -161,19 +161,19 @@ module.exports = {
                     "postcss-preset-env",
                     {
                       // Options
-                    },
-                  ],
-                ],
-              },
-            },
+                    }
+                  ]
+                ]
+              }
+            }
           },
-          "sass-loader",
-        ],
+          "sass-loader"
+        ]
       },
 
       {
         test: /\.(png|svg|jpg|jpeg|gif)/i,
-        type: "asset/resource",
+        type: "asset/resource"
       },
       {
         // test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -182,9 +182,9 @@ module.exports = {
         // options: {
         //   name: "images/[name].[hash].[ext]",
         // },
-        type: "asset/resource",
-      },
-    ],
+        type: "asset/resource"
+      }
+    ]
   },
   plugins: [
     // new webpack.optimize.SplitChunksPlugin({
@@ -192,15 +192,15 @@ module.exports = {
     //   name: "vendor",
     // }),
     new webpack.IgnorePlugin({
-      resourceRegExp: /pug-filters\/lib\/run-filter\.js/,
+      resourceRegExp: /pug-filters\/lib\/run-filter\.js/
     }),
     new webpack.IgnorePlugin({
-      resourceRegExp: /uglify-js\/tools\/node\.js/,
+      resourceRegExp: /uglify-js\/tools\/node\.js/
     }),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
-      "window.jQuery": "jquery",
+      "window.jQuery": "jquery"
     }),
     // new CleanWebpackPlugin({
     //   cleanOnceBeforeBuildPatterns: [path.join(__dirname, "dist/**/*")],
@@ -217,12 +217,12 @@ module.exports = {
     ...paths.map((path) => {
       return new HtmlWebpackPlugin({
         template: path,
-        filename: `${path.split(/\/|.pug/).splice(-2, 1)}.html`,
+        filename: `${path.split(/\/|.pug/).splice(-2, 1)}.html`
       });
     }),
 
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
+      filename: "[name].[contenthash].css"
     }),
 
     new CopyWebpackPlugin({
@@ -233,13 +233,13 @@ module.exports = {
             .replace(/\\/g, "/"),
           to: path
             .resolve(__dirname, "dist/assets/favicons")
-            .replace(/\\/g, "/"),
+            .replace(/\\/g, "/")
         },
         {
           from: path.resolve(__dirname, "src/assets/data").replace(/\\/g, "/"),
-          to: path.resolve(__dirname, "dist/assets/data").replace(/\\/g, "/"),
-        },
-      ],
-    }),
-  ],
+          to: path.resolve(__dirname, "dist/assets/data").replace(/\\/g, "/")
+        }
+      ]
+    })
+  ]
 };

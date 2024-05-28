@@ -3,6 +3,7 @@
 .card-price {
   &__header {
     @include index.isFlex(row, space-between, flex-end, nowrap);
+    margin-bottom: 3px;
   }
 
   &__header-apt {
@@ -15,9 +16,6 @@
     padding-bottom: 3px;
 
   }
-
-  // &__apt-number {   
-  // }
  
   &__apt-status {
     @extend %h3cta-text;
@@ -42,7 +40,7 @@
   }
 
   &__calculations {
-    padding-top: 20px;
+    padding-top: 15px;
     @include index.font(fontRegular, 14);
     color: index.$dark-shade75;
     line-height: 24px;
@@ -50,7 +48,7 @@
 
   &__calculations>div {
     justify-content: space-between;
-    margin: 5px 0;
+    margin: 8px 0;
   }
 
   &__price-main {
@@ -58,9 +56,10 @@
   }
 
   &__tax-desc {
-    width: 80%;
+    width: 75%;
     @include index.isFlex(row, space-between, center, nowrap);
   }
+
 
   &__tax-info {
     position: relative;
@@ -95,6 +94,9 @@
     }
   }
 
+  &__fee-text{
+    line-height: 20px;
+  }
   &__fee-info-message {
     display: none;
     position: absolute;
@@ -113,7 +115,7 @@
 
   &__fee-desc {
     @include index.isFlex(row, space-between, center, nowrap);
-    width: 80%;
+    width: 75%;
   }
 
   &__fee-subtotal {
@@ -142,5 +144,8 @@
       width: 98%;
       background-color: index.$dark-shade25;
     }
+  }
+  button{
+    margin-top: 15px!important;
   }
 }

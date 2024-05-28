@@ -39,8 +39,10 @@
 .air-datepicker-nav {
   display: flex;
   flex-direction: row;
-  padding-top: 20px;
+  padding-top: 14px;
   padding-bottom: 30px;
+  padding-left: 9px;
+  padding-right: 9px;
 }
 
 .air-datepicker-nav--title {
@@ -49,6 +51,7 @@
   i {
     @extend %h2title;
   }
+
 }
 
 .air-datepicker-nav--action {

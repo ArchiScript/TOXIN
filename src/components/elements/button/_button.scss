@@ -13,7 +13,7 @@
 
   &::before {
     position: absolute;
-    right: 15px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);;
     font-size: 22px;
@@ -38,7 +38,6 @@
     border: 2px solid transparent;
     border-radius: 22px;
     box-shadow: 2px 1000px 1px white inset;
-    ;
     background: linear-gradient(white, white),
       linear-gradient(to bottom,
         #BC9CFF 0%, #8BA4F9 100%);

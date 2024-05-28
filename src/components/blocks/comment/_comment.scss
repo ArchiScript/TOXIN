@@ -8,12 +8,12 @@
     @include index.isFlex(column, flex-start, flex-end, nowrap);
   }
   &__image{
-position: relative;
-  margin-top: -1px;
+  position: relative;
+  margin-top: -5px;
    height: 56px;
   //  width: 83px;
   width: 70px;
-   margin-bottom:13px ;
+   margin-bottom:18px ;
    margin-right: 0;
    background-position: center center;
  
