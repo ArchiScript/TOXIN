@@ -146,7 +146,7 @@
   content: '';
   position: absolute;
   top: 0;
-  z-index: 1;
+  z-index: 0;
   height: 100%;
   background: $datepicker-shadow-color;
   opacity: 0.25;
@@ -162,16 +162,19 @@
   @extend %_private-datepicker-shadowbase;
   right: 0;
   width: 50%;
+opacity: 0.35;
+z-index: 0;
 }
 
 %datepicker-date-to-shadow {
   @extend %_private-datepicker-shadowbase;
   left: 0;
   width: 50%;
+  opacity: 0.35;
+  z-index: 0;
 }
 
 %arrow-next {
-  
     position: relative;
     background: $purple;
     height: 2px;
